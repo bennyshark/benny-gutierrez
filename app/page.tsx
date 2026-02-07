@@ -15,7 +15,6 @@ export default function Home() {
 
   // Snapfolia Go project data
   const snapfoliaMedia = [
-    { type: "video" as const, src: "/snapfolia-go.mp4" },
     { type: "image" as const, src: "/snap1.jpg" },
     { type: "image" as const, src: "/snap2.jpg" },
     { type: "image" as const, src: "/snap3.jpg" },

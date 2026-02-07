@@ -15,6 +15,7 @@ export default function Home() {
 
   // Snapfolia Go project data
   const snapfoliaMedia = [
+    { type: "video" as const, src: "/snapfolia-go.mp4" },
     { type: "image" as const, src: "/snap1.jpg" },
     { type: "image" as const, src: "/snap2.jpg" },
     { type: "image" as const, src: "/snap3.jpg" },
@@ -36,7 +37,7 @@ export default function Home() {
   ];
 
   const webProjectMedia = [
-    { type: "video" as const, src: "/braveboard-demo.mov" },
+    { type: "video" as const, src: "/braveboard-demo.mp4" },
     { type: "image" as const, src: "/brave.png" },
     { type: "image" as const, src: "/brave1.png" },
     { type: "image" as const, src: "/brave2.png" },

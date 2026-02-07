@@ -48,6 +48,9 @@ export default function Home() {
     { type: "image" as const, src: "/brave7.png" },
     { type: "image" as const, src: "/brave8.png" },
     { type: "image" as const, src: "/brave9.png" },
+    { type: "image" as const, src: "/brave10.png" },
+    { type: "image" as const, src: "/brave11.png" },
+    { type: "image" as const, src: "/brave12.png" },
   ];
 
   const webProjectTechStack = [

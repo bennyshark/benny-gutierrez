@@ -92,7 +92,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
                 alt={`Screenshot ${currentIndex}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                className="object-contain"
+                className="object-fit"
               />
               {/* Overlay hint on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">

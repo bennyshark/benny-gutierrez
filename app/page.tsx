@@ -14,7 +14,7 @@ export default function Home() {
   };
 
   // Snapfolia Go project data
-  const snapfoliaMedia = [
+  const snapfoliaGoMedia = [
     { type: "video" as const, src: "/images/snapfolia-go/snapfolia-go.mp4" },
     { type: "image" as const, src: "/images/snapfolia-go/snap1.jpg" },
     { type: "image" as const, src: "/images/snapfolia-go/snap2.jpg" },
@@ -25,8 +25,8 @@ export default function Home() {
     { type: "image" as const, src: "/images/snapfolia-go/snap8.jpg" },
     { type: "image" as const, src: "/images/snapfolia-go/snap6.jpg" },
   ];
-  
-  const snapfoliaTechStack = [
+
+  const snapfoliaGoTechStack = [
     "Dart",
     "Flutter",
     "Yolov8",
@@ -36,8 +36,9 @@ export default function Home() {
     "Pytorch",
   ];
 
+  // BraveBoard project data
   const webProjectMedia = [
-    { type: "video" as const, src: "/images/braveboard/braveboard-demo.mp4" },
+    { type: "video" as const, src: "/media/braveboard-demo.mp4" },
     { type: "image" as const, src: "/images/braveboard/brave.png" },
     { type: "image" as const, src: "/images/braveboard/brave1.png" },
     { type: "image" as const, src: "/images/braveboard/brave2.png" },
@@ -52,7 +53,6 @@ export default function Home() {
     { type: "image" as const, src: "/images/braveboard/brave11.png" },
     { type: "image" as const, src: "/images/braveboard/brave12.png" },
   ];
-  
 
   const webProjectTechStack = [
     "React",
@@ -60,6 +60,29 @@ export default function Home() {
     "Supabase",
     "TypeScript",
     "Tailwind CSS",
+    "Vercel",
+  ];
+
+  // Synergreens project data
+  const SynergreensMedia = [
+    { type: "image" as const, src: "/images/synergreens/sg1.png" },
+    { type: "image" as const, src: "/images/synergreens/sg2.png" },
+    { type: "image" as const, src: "/images/synergreens/sg3.png" },
+    { type: "image" as const, src: "/images/synergreens/sg4.png" },
+    { type: "image" as const, src: "/images/synergreens/sg5.png" },
+    { type: "image" as const, src: "/images/synergreens/sg6.png" },
+    { type: "image" as const, src: "/images/synergreens/sg7.png" },
+    { type: "image" as const, src: "/images/synergreens/sg8.png" },
+  ];
+
+  const SynergreensTechStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Google Maps API",
+    "Google Sheets API",
+    "Resend API",
     "Vercel",
   ];
 
@@ -158,8 +181,8 @@ export default function Home() {
           <MobileProject
             title="Snapfolia Go"
             description="A live leaf classifier mobile app dedicated to FAITH Colleges, Marian Orchard and Batangas Lake Lands. Derived from Snapfolia https://snapfolia.vercel.app, Snapfolia Go is a mobile app that provides real-time results simply by scanning a leaf with the device's camera. The app aims to offer a better user experience, delivering live results and object tracking."
-            techStack={snapfoliaTechStack}
-            mediaItems={snapfoliaMedia}
+            techStack={snapfoliaGoTechStack}
+            mediaItems={snapfoliaGoMedia}
           />
 
           {/* Divider */}
@@ -172,11 +195,25 @@ export default function Home() {
             title="BraveBoard"
             description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
 
-            More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums"
+            More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums."
             techStack={webProjectTechStack}
             mediaItems={webProjectMedia}
             siteUrl="https://braveboard.vercel.app"
             accessNote="Only FirstAsia accounts will be able to sign in."
+          />
+
+          {/* Divider */}
+          <div className="my-20 flex items-center justify-center">
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
+
+          {/* Synergreens Web Project */}
+          <WebProject
+            title="Synergreens (by Deo Abutal)"
+            description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
+            techStack={SynergreensTechStack}
+            mediaItems={SynergreensMedia}
+            siteUrl="https://Synergreens.vercel.app"
           />
         </div>
       </section>

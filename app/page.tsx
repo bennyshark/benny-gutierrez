@@ -3,19 +3,47 @@
 import Image from "next/image";
 import profilePic from "../public/ben4.png";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
-import WebProject from "@/components/projects/WebProject";
-import MobileProject from "@/components/projects/MobileProject";
+import SkillsSection from "@/components/sections/SkillsSection";
+import MobileProject from "@/components/sections/projects/MobileProject";
+import WebProject from "@/components/sections/projects/WebProject";
+
+import FloatingProjectsButton from "@/components/common/FloatingProjectsButton";
+import FloatingNextProject from "@/components/common/FloatingNextProject";
 
 export default function Home() {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({
-      behavior: "smooth",
-    });
+  const scrollToSkills = () => {
+    const element = document.getElementById("skills");
+    if (element) {
+      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 1.5 seconds for smoother, slower scroll
+      let start: number | null = null;
+
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+      };
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+        
+        window.scrollTo(0, startPosition + distance * ease);
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
+    }
   };
 
   // Snapfolia Go project data
   const snapfoliaGoMedia = [
-    { type: "video" as const, src: "/images/snapfolia-go/snapfolia-go.mp4" },
+    { type: "video" as const, src: "/media/snapfolia-go.mp4" },
     { type: "image" as const, src: "/images/snapfolia-go/snap1.jpg" },
     { type: "image" as const, src: "/images/snapfolia-go/snap2.jpg" },
     { type: "image" as const, src: "/images/snapfolia-go/snap3.jpg" },
@@ -86,6 +114,24 @@ export default function Home() {
     "Vercel",
   ];
 
+  // Project navigation configuration
+  const projectNavigation = [
+    {
+      id: "snapfolia-go",
+      nextProjectId: "synergreens",
+      nextProjectTitle: "Synergreens",
+    },
+    {
+      id: "synergreens",
+      nextProjectId: "braveboard",
+      nextProjectTitle: "BraveBoard",
+    },
+    {
+      id: "braveboard",
+      // No next project - this is the last one
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
@@ -118,10 +164,10 @@ export default function Home() {
             {/* CTA and Social */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
               <button
-                onClick={scrollToProjects}
+                onClick={scrollToSkills}
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-orange-700"
               >
-                <span>Explore My Work</span>
+                <span>Check My Skills</span>
                 <ArrowDown className="size-5 group-hover:translate-y-1 transition-transform" />
               </button>
 
@@ -170,6 +216,15 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Skills Section */}
+      <SkillsSection />
+
+      {/* Floating Projects Button - Shows when in Skills section */}
+      <FloatingProjectsButton />
+
+      {/* Floating Next Project Button - Shows when viewing a project */}
+      <FloatingNextProject projects={projectNavigation} />
+
       {/* Projects Section */}
       <section id="projects" className="w-full bg-white py-24 px-8">
         <div className="max-w-6xl mx-auto">
@@ -178,12 +233,14 @@ export default function Home() {
           </h2>
 
           {/* Snapfolia Go Project */}
-          <MobileProject
-            title="Snapfolia Go"
-            description="A live leaf classifier mobile app dedicated to FAITH Colleges, Marian Orchard and Batangas Lake Lands. Derived from Snapfolia https://snapfolia.vercel.app, Snapfolia Go is a mobile app that provides real-time results simply by scanning a leaf with the device's camera. The app aims to offer a better user experience, delivering live results and object tracking."
-            techStack={snapfoliaGoTechStack}
-            mediaItems={snapfoliaGoMedia}
-          />
+          <div id="snapfolia-go">
+            <MobileProject
+              title="Snapfolia Go"
+              description="A live leaf classifier mobile app dedicated to FAITH Colleges, Marian Orchard and Batangas Lake Lands. Derived from Snapfolia https://snapfolia.vercel.app, Snapfolia Go is a mobile app that provides real-time results simply by scanning a leaf with the device's camera. The app aims to offer a better user experience, delivering live results and object tracking."
+              techStack={snapfoliaGoTechStack}
+              mediaItems={snapfoliaGoMedia}
+            />
+          </div>
 
           {/* Divider */}
           <div className="my-20 flex items-center justify-center">
@@ -191,13 +248,15 @@ export default function Home() {
           </div>
 
           {/* Synergreens Web Project */}
-          <WebProject
-            title="Synergreens by Deo Abutal"
-            description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
-            techStack={SynergreensTechStack}
-            mediaItems={SynergreensMedia}
-            siteUrl="https://synergreens.ckdigitals.com"
-          />
+          <div id="synergreens">
+            <WebProject
+              title="Synergreens by Deo Abutal"
+              description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
+              techStack={SynergreensTechStack}
+              mediaItems={SynergreensMedia}
+              siteUrl="https://synergreens.ckdigitals.com"
+            />
+          </div>
 
           {/* Divider */}
           <div className="my-20 flex items-center justify-center">
@@ -205,16 +264,18 @@ export default function Home() {
           </div>
 
           {/* BraveBoard Web Project */}
-          <WebProject
-            title="BraveBoard"
-            description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
+          <div id="braveboard">
+            <WebProject
+              title="BraveBoard"
+              description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
 
             More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums."
-            techStack={webProjectTechStack}
-            mediaItems={webProjectMedia}
-            siteUrl="https://braveboard.vercel.app"
-            accessNote="Only FirstAsia accounts will be able to sign in."
-          />
+              techStack={webProjectTechStack}
+              mediaItems={webProjectMedia}
+              siteUrl="https://braveboard.vercel.app"
+              accessNote="Only FirstAsia accounts will be able to sign in."
+            />
+          </div>
         </div>
       </section>
     </div>

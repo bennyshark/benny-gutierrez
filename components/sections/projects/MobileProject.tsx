@@ -2,17 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Play,
-  X,
-  ExternalLink,
-  Info,
-  Globe,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X, ArrowDown } from "lucide-react";
 
-// Tech Badge Component - Modern Design
+// Tech Badge Component
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-m font-medium border border-orange-200">
@@ -27,8 +19,8 @@ type MediaItem = {
   src: string;
 };
 
-// Web Media Carousel Component (Landscape)
-function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
+// Media Carousel Component
+function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -44,7 +36,8 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
 
   const currentMedia = mediaItems[currentIndex];
 
-  const handleMediaClick = () => {
+  const handleImageClick = () => {
+    // Allow fullscreen for both images and videos
     setIsFullscreen(true);
   };
 
@@ -55,12 +48,12 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
   return (
     <>
       <div className="relative">
-        {/* Main Display - Landscape */}
-        <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-lg aspect-video w-full group">
+        {/* Main Display */}
+        <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-2xl aspect-[9/16] max-w-sm mx-auto">
           {currentMedia.type === "video" ? (
             <div
-              onClick={handleMediaClick}
-              className="relative w-full h-full cursor-pointer"
+              onClick={handleImageClick}
+              className="relative w-full h-full cursor-pointer group"
             >
               <video
                 key={currentIndex}
@@ -84,15 +77,15 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             </div>
           ) : (
             <div
-              onClick={handleMediaClick}
-              className="relative w-full h-full cursor-pointer"
+              onClick={handleImageClick}
+              className="relative w-full h-full cursor-pointer group"
             >
               <Image
                 src={currentMedia.src}
                 alt={`Screenshot ${currentIndex}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                className="object-fit"
+                className="object-contain"
               />
               {/* Overlay hint on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -106,63 +99,61 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm"
             aria-label="Previous"
           >
-            <ChevronLeft className="size-5" />
+            <ChevronLeft className="size-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm"
             aria-label="Next"
           >
-            <ChevronRight className="size-5" />
+            <ChevronRight className="size-6" />
           </button>
 
           {/* Media Type Indicator */}
           {currentMedia.type === "video" && (
-            <div className="absolute top-4 left-4 px-3 py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 shadow-lg">
+            <div className="absolute top-4 left-4 px-3 py-1 bg-orange-600 text-white text-xs font-semibold rounded-full flex items-center gap-1">
               <Play className="size-3" />
               VIDEO
             </div>
           )}
         </div>
 
-        {/* Thumbnail Navigation with Counter */}
-        <div className="flex items-center gap-4 mt-5">
-          <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-hide flex-1">
-            {mediaItems.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`flex-shrink-0 relative w-28 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                  currentIndex === index
-                    ? "border-orange-600 ring-2 ring-orange-200 scale-105"
-                    : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
-                }`}
-              >
-                {item.type === "video" ? (
-                  <div className="w-full h-full bg-slate-800 flex items-center justify-center">
-                    <Play className="size-5 text-white" />
-                  </div>
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={`Thumbnail ${index + 1}`}
-                    fill
-                    sizes="112px"
-                    className="object-cover"
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-          
-          {/* Counter */}
-          <p className="text-sm text-slate-500 font-medium whitespace-nowrap">
-            {currentIndex + 1} / {mediaItems.length}
-          </p>
+        {/* Thumbnail Navigation */}
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+          {mediaItems.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`flex-shrink-0 relative w-16 h-24 rounded-lg overflow-hidden border-2 transition-all ${
+                currentIndex === index
+                  ? "border-orange-600 scale-105"
+                  : "border-slate-200 hover:border-orange-300 opacity-60 hover:opacity-100"
+              }`}
+            >
+              {item.type === "video" ? (
+                <div className="w-full h-full bg-slate-800 flex items-center justify-center">
+                  <Play className="size-6 text-white" />
+                </div>
+              ) : (
+                <Image
+                  src={item.src}
+                  alt={`Thumbnail ${index + 1}`}
+                  fill
+                  sizes="112px"
+                  className="object-cover"
+                />
+              )}
+            </button>
+          ))}
         </div>
+
+        {/* Counter */}
+        <p className="text-center text-sm text-slate-500 mt-2">
+          {currentIndex + 1} / {mediaItems.length}
+        </p>
       </div>
 
       {/* Fullscreen Modal */}
@@ -181,6 +172,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           </button>
 
           {/* Navigation in Fullscreen */}
+          {/* Show Previous button only if not at first item (index 0) */}
           {currentIndex > 0 && (
             <button
               onClick={(e) => {
@@ -194,6 +186,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             </button>
           )}
 
+          {/* Show Next button only if not at last item */}
           {currentIndex < mediaItems.length - 1 && (
             <button
               onClick={(e) => {
@@ -229,6 +222,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
                 src={currentMedia.src}
                 alt={`Fullscreen ${currentIndex}`}
                 fill
+                sizes="100vw"
                 className="object-contain"
                 onClick={(e) => e.stopPropagation()}
               />
@@ -245,78 +239,49 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
   );
 }
 
-// Web Project Component
-interface WebProjectProps {
+// Mobile Project Component
+interface MobileProjectProps {
   title: string;
   description: string;
   techStack: string[];
   mediaItems: MediaItem[];
-  siteUrl?: string;
-  accessNote?: string;
+  nextProject?: {
+    id: string;
+    title: string;
+  };
 }
 
-export default function WebProject({
+export default function MobileProject({
   title,
   description,
   techStack,
   mediaItems,
-  siteUrl,
-  accessNote,
-}: WebProjectProps) {
+  nextProject,
+}: MobileProjectProps) {
   return (
-    <div className="bg-white rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
-      <div className="p-10 lg:p-14">
-        {/* Header Section */}
-        <div className="mb-8">
-          <h3 className="text-4xl font-bold text-slate-900 mb-6">{title}</h3>
-
-          {/* Site URL - Clean Link Style */}
-          {siteUrl && (
-            <div className="flex flex-col gap-3 italic">
-              <a
-                href={siteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
-              >
-                <Globe className="size-5 group-hover:rotate-12 transition-transform" />
-                <span className="font-medium text-lg underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors">
-                  {siteUrl}
-                </span>
-                <ExternalLink className="size-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-
-              {/* Access Note */}
-              {accessNote && (
-                <div className="flex items-start gap-2.5 text-base text-slate-600 bg-blue-50 border border-blue-200 rounded-lg p-3.5">
-                  <Info className="size-5 flex-shrink-0 text-blue-600 mt-0.5" />
-                  <span className="text-blue-700">
-                    <span className="font-semibold">Note:</span> {accessNote}
-                  </span>
-                </div>
-              )}
-            </div>
-          )}
+    <div className="bg-gradient-to-br from-slate-50 to-white rounded-3xl shadow-xl overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6 p-8 lg:p-12">
+        {/* --- ROW 1: HEADERS --- */}
+        <div className="lg:col-start-1 lg:row-start-1">
+          <h3 className="text-4xl font-bold text-slate-900">{title}</h3>
         </div>
 
-        {/* Media Showcase */}
-        <div className="mb-14">
-          <WebMediaCarousel mediaItems={mediaItems} />
+        <div className="lg:col-start-2 lg:row-start-1 flex items-end">
+          <h4 className="text-2xl font-semibold text-slate-900">About</h4>
         </div>
 
-        {/* Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Description */}
-          <div>
-            <h4 className="text-2xl font-bold text-slate-900 mb-4">About</h4>
-            <p className="text-slate-600 leading-relaxed text-xl">
-              {description}
-            </p>
-          </div>
+        {/* --- ROW 2: CONTENT --- */}
+        <div className="lg:col-start-1 lg:row-start-2">
+          <MediaCarousel mediaItems={mediaItems} />
+        </div>
 
-          {/* Tech Stack */}
+        <div className="lg:col-start-2 lg:row-start-2 flex flex-col gap-6">
+          <p className="text-slate-600 leading-relaxed text-xl">
+            {description}
+          </p>
+
           <div>
-            <h4 className="text-2xl font-bold text-slate-900 mb-4">
+            <h4 className="text-2xl font-semibold text-slate-900 mb-3">
               Tech Stack
             </h4>
             <div className="flex flex-wrap gap-2">

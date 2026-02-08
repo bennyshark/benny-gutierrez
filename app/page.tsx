@@ -15,17 +15,17 @@ export default function Home() {
 
   // Snapfolia Go project data
   const snapfoliaMedia = [
-    { type: "video" as const, src: "/snapfolia-go.mp4" },
-    { type: "image" as const, src: "/snap1.jpg" },
-    { type: "image" as const, src: "/snap2.jpg" },
-    { type: "image" as const, src: "/snap3.jpg" },
-    { type: "image" as const, src: "/snap4.jpg" },
-    { type: "image" as const, src: "/snap5.jpg" },
-    { type: "image" as const, src: "/snap7.jpg" },
-    { type: "image" as const, src: "/snap8.jpg" },
-    { type: "image" as const, src: "/snap6.jpg" },
+    { type: "video" as const, src: "/images/snapfolia-go/snapfolia-go.mp4" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap1.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap2.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap3.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap4.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap5.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap7.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap8.jpg" },
+    { type: "image" as const, src: "/images/snapfolia-go/snap6.jpg" },
   ];
-
+  
   const snapfoliaTechStack = [
     "Dart",
     "Flutter",
@@ -37,21 +37,22 @@ export default function Home() {
   ];
 
   const webProjectMedia = [
-    { type: "video" as const, src: "/braveboard-demo.mp4" },
-    { type: "image" as const, src: "/brave.png" },
-    { type: "image" as const, src: "/brave1.png" },
-    { type: "image" as const, src: "/brave2.png" },
-    { type: "image" as const, src: "/brave3.png" },
-    { type: "image" as const, src: "/brave4.png" },
-    { type: "image" as const, src: "/brave5.png" },
-    { type: "image" as const, src: "/brave6.png" },
-    { type: "image" as const, src: "/brave7.png" },
-    { type: "image" as const, src: "/brave8.png" },
-    { type: "image" as const, src: "/brave9.png" },
-    { type: "image" as const, src: "/brave10.png" },
-    { type: "image" as const, src: "/brave11.png" },
-    { type: "image" as const, src: "/brave12.png" },
+    { type: "video" as const, src: "/images/braveboard/braveboard-demo.mp4" },
+    { type: "image" as const, src: "/images/braveboard/brave.png" },
+    { type: "image" as const, src: "/images/braveboard/brave1.png" },
+    { type: "image" as const, src: "/images/braveboard/brave2.png" },
+    { type: "image" as const, src: "/images/braveboard/brave3.png" },
+    { type: "image" as const, src: "/images/braveboard/brave4.png" },
+    { type: "image" as const, src: "/images/braveboard/brave5.png" },
+    { type: "image" as const, src: "/images/braveboard/brave6.png" },
+    { type: "image" as const, src: "/images/braveboard/brave7.png" },
+    { type: "image" as const, src: "/images/braveboard/brave8.png" },
+    { type: "image" as const, src: "/images/braveboard/brave9.png" },
+    { type: "image" as const, src: "/images/braveboard/brave10.png" },
+    { type: "image" as const, src: "/images/braveboard/brave11.png" },
+    { type: "image" as const, src: "/images/braveboard/brave12.png" },
   ];
+  
 
   const webProjectTechStack = [
     "React",

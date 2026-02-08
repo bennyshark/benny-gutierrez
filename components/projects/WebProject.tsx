@@ -15,7 +15,7 @@ import {
 // Tech Badge Component - Modern Design
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="px-3 py-1.5 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200 hover:border-slate-300 transition-colors">
+    <span className="px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-m font-medium border border-orange-200">
       {children}
     </span>
   );
@@ -128,39 +128,41 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           )}
         </div>
 
-        {/* Thumbnail Navigation */}
-        <div className="flex gap-2.5 mt-5 overflow-x-auto pb-2 scrollbar-hide">
-          {mediaItems.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`flex-shrink-0 relative w-28 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                currentIndex === index
-                  ? "border-orange-600 ring-2 ring-orange-200 scale-105"
-                  : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
-              }`}
-            >
-              {item.type === "video" ? (
-                <div className="w-full h-full bg-slate-800 flex items-center justify-center">
-                  <Play className="size-5 text-white" />
-                </div>
-              ) : (
-                <Image
-                  src={item.src}
-                  alt={`Thumbnail ${index + 1}`}
-                  fill
-                  sizes="112px"
-                  className="object-cover"
-                />
-              )}
-            </button>
-          ))}
+        {/* Thumbnail Navigation with Counter */}
+        <div className="flex items-center gap-4 mt-5">
+          <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-hide flex-1">
+            {mediaItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`flex-shrink-0 relative w-28 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                  currentIndex === index
+                    ? "border-orange-600 ring-2 ring-orange-200 scale-105"
+                    : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
+                }`}
+              >
+                {item.type === "video" ? (
+                  <div className="w-full h-full bg-slate-800 flex items-center justify-center">
+                    <Play className="size-5 text-white" />
+                  </div>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={`Thumbnail ${index + 1}`}
+                    fill
+                    sizes="112px"
+                    className="object-cover"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+          
+          {/* Counter */}
+          <p className="text-sm text-slate-500 font-medium whitespace-nowrap">
+            {currentIndex + 1} / {mediaItems.length}
+          </p>
         </div>
-
-        {/* Counter */}
-        <p className="text-center text-sm text-slate-500 mt-3 font-medium">
-          {currentIndex + 1} / {mediaItems.length}
-        </p>
       </div>
 
       {/* Fullscreen Modal */}
@@ -265,29 +267,29 @@ export default function WebProject({
     <div className="bg-white rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
       <div className="p-10 lg:p-14">
         {/* Header Section */}
-        <div className="mb-6">
+        <div className="mb-8">
           <h3 className="text-4xl font-bold text-slate-900 mb-6">{title}</h3>
 
           {/* Site URL - Clean Link Style */}
           {siteUrl && (
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-3 italic">
               <a
                 href={siteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
+                className="inline-flex items-center gap-1.5 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
               >
-                <Globe className="size-4 group-hover:rotate-12 transition-transform" />
-                <span className="font-medium underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors">
+                <Globe className="size-5 group-hover:rotate-12 transition-transform" />
+                <span className="font-medium text-lg underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors">
                   {siteUrl}
                 </span>
-                <ExternalLink className="size-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ExternalLink className="size-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </a>
 
               {/* Access Note */}
               {accessNote && (
-                <div className="flex items-center gap-2 text-sm text-slate-600">
-                  <Info className="size-4 flex-shrink-0 text-blue-600" />
+                <div className="flex items-start gap-2.5 text-base text-slate-600 bg-blue-50 border border-blue-200 rounded-lg p-3.5">
+                  <Info className="size-5 flex-shrink-0 text-blue-600 mt-0.5" />
                   <span className="text-blue-700">
                     <span className="font-semibold">Note:</span> {accessNote}
                   </span>
@@ -307,7 +309,7 @@ export default function WebProject({
           {/* Description */}
           <div>
             <h4 className="text-2xl font-bold text-slate-900 mb-4">About</h4>
-            <p className="text-slate-600 leading-relaxed text-base">
+            <p className="text-slate-600 leading-relaxed text-xl">
               {description}
             </p>
           </div>

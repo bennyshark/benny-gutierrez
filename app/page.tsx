@@ -56,9 +56,10 @@ export default function Home() {
   const webProjectTechStack = [
     "React",
     "Next.js",
+    "Supabase",
     "TypeScript",
     "Tailwind CSS",
-    "Node.js",
+    "Vercel",
   ];
 
   return (
@@ -168,7 +169,9 @@ export default function Home() {
           {/* BraveBoard Web Project */}
           <WebProject
             title="BraveBoard"
-            description="braveboard description"
+            description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
+
+            More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums"
             techStack={webProjectTechStack}
             mediaItems={webProjectMedia}
             siteUrl="https://braveboard.vercel.app"

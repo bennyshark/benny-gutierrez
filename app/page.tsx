@@ -36,6 +36,29 @@ export default function Home() {
     "Pytorch",
   ];
 
+  // Synergreens project data
+  const SynergreensMedia = [
+    { type: "image" as const, src: "/images/synergreens/sg1.png" },
+    { type: "image" as const, src: "/images/synergreens/sg2.png" },
+    { type: "image" as const, src: "/images/synergreens/sg3.png" },
+    { type: "image" as const, src: "/images/synergreens/sg4.png" },
+    { type: "image" as const, src: "/images/synergreens/sg5.png" },
+    { type: "image" as const, src: "/images/synergreens/sg6.png" },
+    { type: "image" as const, src: "/images/synergreens/sg7.png" },
+    { type: "image" as const, src: "/images/synergreens/sg8.png" },
+  ];
+
+  const SynergreensTechStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Google Maps API",
+    "Google Sheets API",
+    "Resend API",
+    "Vercel",
+  ];
+
   // BraveBoard project data
   const webProjectMedia = [
     { type: "video" as const, src: "/media/braveboard-demo.mp4" },
@@ -60,29 +83,6 @@ export default function Home() {
     "Supabase",
     "TypeScript",
     "Tailwind CSS",
-    "Vercel",
-  ];
-
-  // Synergreens project data
-  const SynergreensMedia = [
-    { type: "image" as const, src: "/images/synergreens/sg1.png" },
-    { type: "image" as const, src: "/images/synergreens/sg2.png" },
-    { type: "image" as const, src: "/images/synergreens/sg3.png" },
-    { type: "image" as const, src: "/images/synergreens/sg4.png" },
-    { type: "image" as const, src: "/images/synergreens/sg5.png" },
-    { type: "image" as const, src: "/images/synergreens/sg6.png" },
-    { type: "image" as const, src: "/images/synergreens/sg7.png" },
-    { type: "image" as const, src: "/images/synergreens/sg8.png" },
-  ];
-
-  const SynergreensTechStack = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Google Maps API",
-    "Google Sheets API",
-    "Resend API",
     "Vercel",
   ];
 
@@ -190,6 +190,20 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
+          {/* Synergreens Web Project */}
+          <WebProject
+            title="Synergreens by Deo Abutal"
+            description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
+            techStack={SynergreensTechStack}
+            mediaItems={SynergreensMedia}
+            siteUrl="https://synergreens.ckdigitals.com"
+          />
+
+          {/* Divider */}
+          <div className="my-20 flex items-center justify-center">
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
+
           {/* BraveBoard Web Project */}
           <WebProject
             title="BraveBoard"
@@ -200,20 +214,6 @@ export default function Home() {
             mediaItems={webProjectMedia}
             siteUrl="https://braveboard.vercel.app"
             accessNote="Only FirstAsia accounts will be able to sign in."
-          />
-
-          {/* Divider */}
-          <div className="my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* Synergreens Web Project */}
-          <WebProject
-            title="Synergreens (by Deo Abutal)"
-            description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
-            techStack={SynergreensTechStack}
-            mediaItems={SynergreensMedia}
-            siteUrl="https://Synergreens.vercel.app"
           />
         </div>
       </section>

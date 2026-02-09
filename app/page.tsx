@@ -6,9 +6,7 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import SkillsSection from "@/components/sections/SkillsSection";
 import MobileProject from "@/components/sections/projects/MobileProject";
 import WebProject from "@/components/sections/projects/WebProject";
-
-import FloatingProjectsButton from "@/components/common/FloatingProjectsButton";
-import FloatingNextProject from "@/components/common/FloatingNextProject";
+import SectionNavigator from "@/components/common/SectionNavigator";
 
 export default function Home() {
   const scrollToSkills = () => {
@@ -219,11 +217,8 @@ export default function Home() {
       {/* Skills Section */}
       <SkillsSection />
 
-      {/* Floating Projects Button - Shows when in Skills section */}
-      <FloatingProjectsButton />
-
-      {/* Floating Next Project Button - Shows when viewing a project */}
-      <FloatingNextProject projects={projectNavigation} />
+      {/* Unified Section Navigator - Handles both Skills->Projects and Project->Project navigation */}
+      <SectionNavigator projects={projectNavigation} />
 
       {/* Projects Section */}
       <section id="projects" className="w-full bg-white py-24 px-8">

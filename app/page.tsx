@@ -201,7 +201,7 @@ export default function Home() {
           </div>
 
           {/* Profile Image */}
-          <div className="relative w-[400px] h-[400px]">
+          <div className="relative w-[400px] h-[450px]">
             <Image
               src={profilePic}
               alt="Benedict Gutierrez"

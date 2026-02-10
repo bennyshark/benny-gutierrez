@@ -365,13 +365,20 @@ export default function ExperienceSection({
           Experience
         </h2>
         <p className="text-xl text-slate-600 text-center mb-16 max-w-2xl mx-auto">
-          Professional journey and contributions
+          Professional experience and contributions
         </p>
 
-        <div className="space-y-8">
+        <div>
           {experiences.map((experience, index) => (
-            <div key={index} id={`experience-${index}`}>
-              <ExperienceCard experience={experience} />
+            <div key={index}>
+              <div id={`experience-${index}`}>
+                <ExperienceCard experience={experience} />
+              </div>
+              {index < experiences.length - 1 && (
+                <div className="my-20 flex items-center justify-center">
+                  <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>

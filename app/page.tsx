@@ -119,37 +119,40 @@ export default function Home() {
       {
         company: "Nidec Drives (multinational company)",
         position: "Data Scientist",
-        location: "BGC, Taguig, Philippines",
-        duration: "Feb 2025 - May 2025",
+        location: "Batangas, Philippines",
+        duration: "feb 2025 - May 2025",
         workSetup: "hybrid" as const,
         companyColor: "text-green-600", // Custom color for company name
         description:
-          "Led and deployed a website migration from Google Sites to Wix, setting up authentication and page routings. (to edit)",
+          "Led and deployed a website migration from Google Sites to Wix, setting up authentication and page routings. to edit...",
         achievements: [
-          "Managed data cleanup and validation for company datasets spanning 9 countries",
+          "Managed data cleanup and validation for company datasets spanning 9 countries.",
           "to edit",
+
         ],
         projectImages: [
           "/images/nidec/nidec1.jpg",
         ],
         hasRestrictedContent: true,
-        technologies: ["Python", "Pytorch", "Power BI", "Jupyter Notebook", "Google Collab" ],
+        technologies: ["Python", "Pytorch", "Power BI"],
       },
       {
         company: "FAITH",
         position: "Machine Learning Engineer",
-        location: "Tanauan, Philippines",
+        location: "Batangas, Philippines",
         duration: "Jun 2024 - Dec 2024",
-        workSetup: "hybrid" as const,
+        workSetup: "remote" as const,
+        // companyColor not specified, will use default orange-600
         description:
           "Developed and trained machine learning models for image classification and object detection systems.",
         achievements: [
-          "Achieved 95% accuracy in leaf classification model",
-          "Deployed real-time object detection on mobile devices",
-          "Created comprehensive documentation for ML pipeline",
+          "to edit",
+          "to edit",
         ],
         projectImages: [
           "/images/faith/faith1.png",
+          "/images/faith/faith2.png",
+
         ],
         projectUrl: "https://snapfolia.vercel.app",
         technologies: ["Python", "PyTorch", "Flutter", "YOLOv8"],
@@ -191,7 +194,7 @@ export default function Home() {
         id="home"
         className="min-h-screen w-full flex items-center justify-center px-8"
       >
-        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-6xl w-full">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-20 max-w-6xl w-full">
           <div className="flex flex-col space-y-8 flex-1">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
@@ -249,7 +252,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative w-[400px] h-[400px]">
+          <div className="relative w-[400px] h-[400px] mt-20 lg:mt-0">
             <Image
               src={profilePic}
               alt="Benedict Gutierrez"

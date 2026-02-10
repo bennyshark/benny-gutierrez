@@ -5,9 +5,33 @@ import { Home, Code, FolderGit2, Mail } from 'lucide-react'
 
 export default function Navbar() {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 1.5 seconds for smoother, slower scroll
+      let start: number | null = null;
+
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+      };
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+        
+        window.scrollTo(0, startPosition + distance * ease);
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      };
+
+      requestAnimationFrame(animation);
+    }
   };
 
   return (

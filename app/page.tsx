@@ -119,7 +119,7 @@ export default function Home() {
       {
         company: "Nidec Drives (multinational company)",
         position: "Data Scientist",
-        location: "Batangas, Philippines",
+        location: "Bgc, Taguig, Philippines",
         duration: "feb 2025 - May 2025",
         workSetup: "hybrid" as const,
         companyColor: "text-green-600", // Custom color for company name
@@ -130,7 +130,7 @@ export default function Home() {
           "Successfully cleaned and standardized datasets across 8 different countries, ensuring data integrity for global operations.",
           "Successfully deployed a web portal utilized by users across multiple countries, including internal employees and global partners.",
           "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
-          "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts, ",
+          "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
         
           
 
@@ -149,18 +149,24 @@ export default function Home() {
         workSetup: "hybrid" as const,
         // companyColor not specified, will use default orange-600
         description:
-          "Developed and trained machine learning models for image classification and object detection systems.",
+          "Facilitated end-to-end machine learning process, overseeing data annotation and preparation using Roboflow. In addition to team supervision, I actively trained object detection and classification models using PyTorch and contributed to on-site data collection across various field locations. My role also encompassed Quality Assurance, where I assisted in conducting stress testing to validate both server stability and model performance.",
         achievements: [
-          "to edit",
-          "to edit",
+          "Created a full Python script that augment and preprocess the whole dataset use for training.",
+          "Completed data annotation for all target leaf species.",
+          "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning."
         ],
         projectImages: [
           "/images/faith/faith1.png",
           "/images/faith/faith2.png",
+          "/images/faith/faith3.png",
+          "/images/faith/faith4.png",
+          "/images/faith/faith5.png",
+          "/images/faith/faith6.png",
+          "/images/faith/faith7.png",
 
         ],
         projectUrl: "https://snapfolia.vercel.app",
-        technologies: ["Python", "PyTorch", "Flutter", "YOLOv8"],
+        technologies: ["Python", "PyTorch", "YOLOv8", "Jupyter Notebook", "Roboflow"],
       },
     ];
 

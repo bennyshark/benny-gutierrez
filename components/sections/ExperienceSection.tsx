@@ -278,7 +278,7 @@ export function ExperienceCard({ experience }: { experience: ExperienceItem }) {
               <Calendar className="size-4" />
               <span className="text-sm">{experience.duration}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <MapPin className="size-4" />
               <span className="text-sm">{experience.location}</span>
             </div>

@@ -1,3 +1,4 @@
+// components/common/SectionNavigator.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -23,20 +24,17 @@ export default function SectionNavigator({ projects }: SectionNavigatorProps) {
       const viewportHeight = window.innerHeight;
 
       // ========== ADJUST THESE VALUES ==========
-      // Based on percentage of SECTION visible (0 to 1)
-      // Higher = button appears when more of the section is visible
-      const appearThreshold = 0.7; // 50% - Button appears when 50% of section is in viewport
-      const disappearThreshold = 0.95; // 30% - Button disappears when less than 30% is visible
+      const appearThreshold = 0.6;
+      const disappearThreshold = 0.95;
       // =========================================
 
       const getSectionVisibility = (rect: DOMRect): number => {
-        // Calculate how much of the section is visible
         const sectionHeight = rect.height;
         const visibleTop = Math.max(0, rect.top);
         const visibleBottom = Math.min(viewportHeight, rect.bottom);
         const visibleHeight = Math.max(0, visibleBottom - visibleTop);
 
-        return visibleHeight / sectionHeight; // Returns 0 to 1
+        return visibleHeight / sectionHeight;
       };
 
       // Check if in skills section
@@ -45,30 +43,26 @@ export default function SectionNavigator({ projects }: SectionNavigatorProps) {
         const rect = skillsSection.getBoundingClientRect();
         const visibility = getSectionVisibility(rect);
 
-        // Appear when section is sufficiently visible
         if (visibility >= appearThreshold) {
           setCurrentSection("skills");
           return;
         }
-        // Keep showing (less strict for disappearing)
         if (currentSection === "skills" && visibility >= disappearThreshold) {
           return;
         }
       }
 
-      // Check which project section is most visible
+      // Check which section is most visible
       for (const project of projects) {
         const element = document.getElementById(project.id);
         if (element) {
           const rect = element.getBoundingClientRect();
           const visibility = getSectionVisibility(rect);
 
-          // Appear when section is sufficiently visible
           if (visibility >= appearThreshold) {
             setCurrentSection(project.id);
             return;
           }
-          // Keep showing (less strict for disappearing)
           if (
             currentSection === project.id &&
             visibility >= disappearThreshold
@@ -82,10 +76,10 @@ export default function SectionNavigator({ projects }: SectionNavigatorProps) {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial position
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentSection]);
+  }, [currentSection, projects]);
 
   const smoothScroll = (targetId: string) => {
     const element = document.getElementById(targetId);
@@ -130,7 +124,6 @@ export default function SectionNavigator({ projects }: SectionNavigatorProps) {
     targetId = "projects";
     isVisible = true;
   } else if (currentSection) {
-    // We're viewing a project
     const currentProject = projects.find((p) => p.id === currentSection);
     if (currentProject?.nextProjectId && currentProject?.nextProjectTitle) {
       buttonText = currentProject.nextProjectTitle;

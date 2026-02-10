@@ -1,9 +1,11 @@
+// app/page.tsx
 "use client";
 
 import Image from "next/image";
 import profilePic from "../public/ben4.png";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import SkillsSection from "@/components/sections/SkillsSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
 import MobileProject from "@/components/sections/projects/MobileProject";
 import WebProject from "@/components/sections/projects/WebProject";
 import SectionNavigator from "@/components/common/SectionNavigator";
@@ -15,7 +17,7 @@ export default function Home() {
       const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 1500; // 1.5 seconds for smoother, slower scroll
+      const duration = 1500;
       let start: number | null = null;
 
       const easeInOutCubic = (t: number): number => {
@@ -112,8 +114,50 @@ export default function Home() {
     "Vercel",
   ];
 
-  // Project navigation configuration
-  const projectNavigation = [
+    // Experience data
+    const experiences = [
+      {
+        company: "Nidec Drives (multinational company)",
+        position: "Data Scientist",
+        location: "BGC, Taguig, Philippines",
+        duration: "Feb 2025 - May 2025",
+        workSetup: "hybrid" as const,
+        companyColor: "text-green-600", // Custom color for company name
+        description:
+          "Led and deployed a website migration from Google Sites to Wix, setting up authentication and page routings. (to edit)",
+        achievements: [
+          "Managed data cleanup and validation for company datasets spanning 9 countries",
+          "to edit",
+        ],
+        projectImages: [
+          "/images/nidec/nidec1.jpg",
+        ],
+        hasRestrictedContent: true,
+        technologies: ["Python", "Pytorch", "Power BI", "Jupyter Notebook", "Google Collab" ],
+      },
+      {
+        company: "FAITH",
+        position: "Machine Learning Engineer",
+        location: "Tanauan, Philippines",
+        duration: "Jun 2024 - Dec 2024",
+        workSetup: "hybrid" as const,
+        description:
+          "Developed and trained machine learning models for image classification and object detection systems.",
+        achievements: [
+          "Achieved 95% accuracy in leaf classification model",
+          "Deployed real-time object detection on mobile devices",
+          "Created comprehensive documentation for ML pipeline",
+        ],
+        projectImages: [
+          "/images/faith/faith1.png",
+        ],
+        projectUrl: "https://snapfolia.vercel.app",
+        technologies: ["Python", "PyTorch", "Flutter", "YOLOv8"],
+      },
+    ];
+
+  // Section navigation configuration
+  const sectionNavigation = [
     {
       id: "snapfolia-go",
       nextProjectId: "synergreens",
@@ -126,11 +170,21 @@ export default function Home() {
     },
     {
       id: "braveboard",
-      // No next project - this is the last one
+      nextProjectId: "experience-0",
+      nextProjectTitle: "Check My Experience",
+    },
+    {
+      id: "experience-0",
+      nextProjectId: "experience-1",
+      nextProjectTitle: "FAITH",
+    },
+    {
+      id: "experience-1",
     },
   ];
 
   return (
+
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <div
@@ -138,9 +192,7 @@ export default function Home() {
         className="min-h-screen w-full flex items-center justify-center px-8"
       >
         <div className="flex flex-col lg:flex-row items-center gap-20 max-w-6xl w-full">
-          {/* Text Content */}
           <div className="flex flex-col space-y-8 flex-1">
-            {/* Main Heading */}
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
                 Hi! I'm{" "}
@@ -153,13 +205,11 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Description */}
             <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
               I build scalable web applications, machine learning projects, and
               Ai/Api integrations.
             </p>
 
-            {/* CTA and Social */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
               <button
                 onClick={scrollToSkills}
@@ -169,7 +219,6 @@ export default function Home() {
                 <ArrowDown className="size-5 group-hover:translate-y-1 transition-transform" />
               </button>
 
-              {/* Social Icons */}
               <div className="flex gap-3">
                 <a
                   href="https://github.com/bennyshark"
@@ -200,8 +249,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Profile Image */}
-          <div className="relative w-[400px] h-[450px]">
+          <div className="relative w-[400px] h-[400px]">
             <Image
               src={profilePic}
               alt="Benedict Gutierrez"
@@ -217,8 +265,8 @@ export default function Home() {
       {/* Skills Section */}
       <SkillsSection />
 
-      {/* Unified Section Navigator - Handles both Skills->Projects and Project->Project navigation */}
-      <SectionNavigator projects={projectNavigation} />
+      {/* Unified Section Navigator */}
+      <SectionNavigator projects={sectionNavigation} />
 
       {/* Projects Section */}
       <section id="projects" className="w-full bg-white py-24 px-8">
@@ -227,7 +275,6 @@ export default function Home() {
             Projects
           </h2>
 
-          {/* Snapfolia Go Project */}
           <div id="snapfolia-go">
             <MobileProject
               title="Snapfolia Go"
@@ -237,12 +284,10 @@ export default function Home() {
             />
           </div>
 
-          {/* Divider */}
           <div className="my-20 flex items-center justify-center">
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
-          {/* Synergreens Web Project */}
           <div id="synergreens">
             <WebProject
               title="Synergreens by Deo Abutal"
@@ -253,12 +298,10 @@ export default function Home() {
             />
           </div>
 
-          {/* Divider */}
           <div className="my-20 flex items-center justify-center">
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
-          {/* BraveBoard Web Project */}
           <div id="braveboard">
             <WebProject
               title="BraveBoard"
@@ -273,6 +316,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Experience Section - Use the component properly */}
+      <ExperienceSection experiences={experiences} />
     </div>
   );
 }

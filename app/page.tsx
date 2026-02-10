@@ -124,24 +124,29 @@ export default function Home() {
         workSetup: "hybrid" as const,
         companyColor: "text-green-600", // Custom color for company name
         description:
-          "Led and deployed a website migration from Google Sites to Wix, setting up authentication and page routings. to edit...",
+          "Responsible for cleaning, researching, validating, and standardizing international company datasets. I developed geographic heatmaps in Power BI for market analysis and automated data processing workflows using Python (PyTorch, Pandas, and NumPy). Additionally, I led a website migration project for internal employees and global partners, managing authentication, site architecture, and the overall deployment. My role also involved the preprocessing and analysis of EEG (electroencephalogram) data for research applications.",
         achievements: [
-          "Managed data cleanup and validation for company datasets spanning 9 countries.",
-          "to edit",
+          "Utilized Power BI heatmaps to verify and validate the geographic accuracy of South Korean company datasets.",
+          "Successfully cleaned and standardized datasets across 8 different countries, ensuring data integrity for global operations.",
+          "Successfully deployed a web portal utilized by users across multiple countries, including internal employees and global partners.",
+          "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
+          "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts, ",
+        
+          
 
         ],
         projectImages: [
           "/images/nidec/nidec1.jpg",
         ],
         hasRestrictedContent: true,
-        technologies: ["Python", "Pytorch", "Power BI"],
+        technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI", ],
       },
       {
         company: "FAITH",
         position: "Machine Learning Engineer",
-        location: "Batangas, Philippines",
+        location: "Tanauan, Batangas, Philippines",
         duration: "Jun 2024 - Dec 2024",
-        workSetup: "remote" as const,
+        workSetup: "hybrid" as const,
         // companyColor not specified, will use default orange-600
         description:
           "Developed and trained machine learning models for image classification and object detection systems.",

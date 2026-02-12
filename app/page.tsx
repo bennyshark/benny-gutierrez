@@ -1,6 +1,7 @@
 // app/page.tsx
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import profilePic from "../public/ben4.png";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
@@ -9,8 +10,11 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import MobileProject from "@/components/sections/projects/MobileProject";
 import WebProject from "@/components/sections/projects/WebProject";
 import SectionNavigator from "@/components/common/SectionNavigator";
+import ChatBot from "@/components/Chatbot";
 
 export default function Home() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   const scrollToSkills = () => {
     const element = document.getElementById("skills");
     if (element) {
@@ -122,7 +126,7 @@ export default function Home() {
         location: "Bgc, Taguig, Philippines",
         duration: "feb 2025 - May 2025",
         workSetup: "hybrid" as const,
-        companyColor: "text-green-600", // Custom color for company name
+        companyColor: "text-green-600",
         description:
           "Responsible for cleaning, researching, validating, and standardizing international company datasets. I developed geographic heatmaps in Power BI for market analysis and automated data processing workflows using Python (PyTorch, Pandas, and NumPy). Additionally, I led a website migration project for internal employees and global partners, managing authentication, site architecture, and the overall deployment. My role also involved the preprocessing and analysis of EEG (electroencephalogram) data for research applications.",
         achievements: [
@@ -131,9 +135,6 @@ export default function Home() {
           "Successfully deployed a web portal utilized by users across multiple countries, including internal employees and global partners.",
           "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
           "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
-        
-          
-
         ],
         projectImages: [
           "/images/nidec/nidec1.jpg",
@@ -147,7 +148,6 @@ export default function Home() {
         location: "Tanauan, Batangas, Philippines",
         duration: "Jun 2024 - Dec 2024",
         workSetup: "hybrid" as const,
-        // companyColor not specified, will use default orange-600
         description:
           "Facilitated end-to-end machine learning process, overseeing data annotation and preparation using Roboflow. In addition to team supervision, I actively trained object detection and classification models using PyTorch and contributed to on-site data collection across various field locations. My role also encompassed Quality Assurance, where I assisted in conducting stress testing to validate both server stability and model performance.",
         achievements: [
@@ -163,7 +163,6 @@ export default function Home() {
           "/images/faith/faith5.png",
           "/images/faith/faith6.png",
           "/images/faith/faith7.png",
-
         ],
         projectUrl: "https://snapfolia.vercel.app",
         technologies: ["Python", "PyTorch", "YOLOv8", "Jupyter Notebook", "Roboflow"],
@@ -198,7 +197,6 @@ export default function Home() {
   ];
 
   return (
-
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <div
@@ -280,7 +278,7 @@ export default function Home() {
       <SkillsSection />
 
       {/* Unified Section Navigator */}
-      <SectionNavigator projects={sectionNavigation} />
+      <SectionNavigator projects={sectionNavigation} chatOpen={isChatOpen} />
 
       {/* Projects Section */}
       <section id="projects" className="w-full bg-white py-24 px-8">
@@ -331,8 +329,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience Section - Use the component properly */}
+      {/* Experience Section */}
       <ExperienceSection experiences={experiences} />
+
+      {/* AI ChatBot - Floating Widget with AI Router */}
+      <ChatBot onOpenChange={setIsChatOpen} />
     </div>
   );
 }

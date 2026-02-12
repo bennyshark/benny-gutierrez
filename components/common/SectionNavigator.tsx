@@ -12,9 +12,10 @@ interface Project {
 
 interface SectionNavigatorProps {
   projects: Project[];
+  chatOpen?: boolean;
 }
 
-export default function SectionNavigator({ projects }: SectionNavigatorProps) {
+export default function SectionNavigator({ projects, chatOpen = false }: SectionNavigatorProps) {
   const [currentSection, setCurrentSection] = useState<
     "skills" | string | null
   >(null);
@@ -134,15 +135,20 @@ export default function SectionNavigator({ projects }: SectionNavigatorProps) {
 
   if (!isVisible) return null;
 
+  // Calculate bottom position based on chat state
+  // Chat button closed: 64px (button height) + 24px (gap) = 88px
+  // Chat window open: 600px (window height) + 24px (gap) = 624px
+  const bottomPosition = chatOpen ? "bottom-[624px]" : "bottom-[88px]";
+
   return (
     <button
       onClick={() => smoothScroll(targetId)}
-      className={`fixed bottom-8 right-8 z-40 group flex items-center gap-3 px-6 py-4 bg-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:bg-orange-700 ${
+      className={`fixed ${bottomPosition} right-8 z-50 group flex items-center gap-3 px-6 py-4 bg-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:bg-orange-700 ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"
       }`}
-      style={{ transition: "opacity 0.3s, transform 0.3s" }}
+      style={{ transition: "opacity 0.3s, transform 0.3s, bottom 0.3s" }}
       aria-label={`Scroll to ${buttonText}`}
     >
       <span className={currentSection === "skills" ? "hidden sm:inline" : ""}>

@@ -10,13 +10,12 @@ import {
   ExternalLink,
   Info,
   Globe,
-  ArrowDown,
 } from "lucide-react";
 
-// Tech Badge Component - Modern Design
+// Tech Badge Component
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-m font-medium border border-orange-200">
+    <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-orange-50 text-orange-700 rounded-full text-xs sm:text-sm md:text-base font-medium border border-orange-200">
       {children}
     </span>
   );
@@ -57,7 +56,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
     <>
       <div className="relative">
         {/* Main Display - Landscape */}
-        <div className="relative bg-slate-900 rounded-2xl overflow-hidden shadow-lg aspect-video w-full group">
+        <div className="relative bg-slate-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg aspect-video w-full group">
           {currentMedia.type === "video" ? (
             <div
               onClick={handleMediaClick}
@@ -76,9 +75,8 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
               >
                 Your browser does not support the video tag.
               </video>
-              {/* Overlay hint on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center pointer-events-none">
-                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">
+                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-xs sm:text-sm font-medium px-4 text-center">
                   Click to view fullscreen
                 </p>
               </div>
@@ -92,12 +90,11 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
                 src={currentMedia.src}
                 alt={`Screenshot ${currentIndex}`}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
                 className="object-fit"
               />
-              {/* Overlay hint on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">
+                <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-xs sm:text-sm font-medium px-4 text-center">
                   Click to view fullscreen
                 </p>
               </div>
@@ -107,36 +104,36 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
             aria-label="Previous"
           >
-            <ChevronLeft className="size-5" />
+            <ChevronLeft className="size-4 sm:size-5" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
             aria-label="Next"
           >
-            <ChevronRight className="size-5" />
+            <ChevronRight className="size-4 sm:size-5" />
           </button>
 
           {/* Media Type Indicator */}
           {currentMedia.type === "video" && (
-            <div className="absolute top-4 left-4 px-3 py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 shadow-lg">
-              <Play className="size-3" />
+            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-lg flex items-center gap-1 sm:gap-1.5 shadow-lg">
+              <Play className="size-2.5 sm:size-3" />
               VIDEO
             </div>
           )}
         </div>
 
         {/* Thumbnail Navigation with Counter */}
-        <div className="flex items-center gap-4 mt-5">
-          <div className="flex gap-2.5 overflow-x-auto pb-2 scrollbar-hide flex-1">
+        <div className="flex items-center gap-2 sm:gap-4 mt-3 sm:mt-5">
+          <div className="flex gap-1.5 sm:gap-2.5 overflow-x-auto pb-2 scrollbar-hide flex-1">
             {mediaItems.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`flex-shrink-0 relative w-28 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`flex-shrink-0 relative w-20 h-12 sm:w-28 sm:h-16 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
                   currentIndex === index
                     ? "border-orange-600 ring-2 ring-orange-200 scale-105"
                     : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
@@ -144,14 +141,14 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
               >
                 {item.type === "video" ? (
                   <div className="w-full h-full bg-slate-800 flex items-center justify-center">
-                    <Play className="size-5 text-white" />
+                    <Play className="size-4 sm:size-5 text-white" />
                   </div>
                 ) : (
                   <Image
                     src={item.src}
                     alt={`Thumbnail ${index + 1}`}
                     fill
-                    sizes="112px"
+                    sizes="(max-width: 640px) 80px, 112px"
                     className="object-cover"
                   />
                 )}
@@ -160,7 +157,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           </div>
           
           {/* Counter */}
-          <p className="text-sm text-slate-500 font-medium whitespace-nowrap">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium whitespace-nowrap">
             {currentIndex + 1} / {mediaItems.length}
           </p>
         </div>
@@ -172,26 +169,24 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={closeFullscreen}
         >
-          {/* Close Button */}
           <button
             onClick={closeFullscreen}
-            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+            className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
             aria-label="Close fullscreen"
           >
-            <X className="size-8" />
+            <X className="size-6 sm:size-8" />
           </button>
 
-          {/* Navigation in Fullscreen */}
           {currentIndex > 0 && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 prevSlide();
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Previous"
             >
-              <ChevronLeft className="size-8" />
+              <ChevronLeft className="size-6 sm:size-8" />
             </button>
           )}
 
@@ -201,14 +196,13 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
                 e.stopPropagation();
                 nextSlide();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Next"
             >
-              <ChevronRight className="size-8" />
+              <ChevronRight className="size-6 sm:size-8" />
             </button>
           )}
 
-          {/* Fullscreen Content */}
           <div className="relative w-full h-full flex items-center justify-center">
             {currentMedia.type === "video" ? (
               <video
@@ -236,8 +230,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             )}
           </div>
 
-          {/* Counter in Fullscreen */}
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-lg">
+          <p className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 text-white text-base sm:text-lg">
             {currentIndex + 1} / {mediaItems.length}
           </p>
         </div>
@@ -270,33 +263,35 @@ export default function WebProject({
   nextProject,
 }: WebProjectProps) {
   return (
-    <div className="bg-white rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
-      <div className="p-10 lg:p-14">
+    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
+      <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-14">
         {/* Header Section */}
-        <div className="mb-8">
-          <h3 className="text-4xl font-bold text-slate-900 mb-6">{title}</h3>
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
+            {title}
+          </h3>
 
           {/* Site URL - Clean Link Style */}
           {siteUrl && (
-            <div className="flex flex-col gap-3 italic">
+            <div className="flex flex-col gap-2 sm:gap-3 italic">
               <a
                 href={siteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
+                className="inline-flex items-center gap-1 sm:gap-1.5 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
               >
-                <Globe className="size-5 group-hover:rotate-12 transition-transform" />
-                <span className="font-medium text-lg underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors">
+                <Globe className="size-4 sm:size-5 group-hover:rotate-12 transition-transform flex-shrink-0" />
+                <span className="font-medium text-sm sm:text-base lg:text-lg underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors break-all">
                   {siteUrl}
                 </span>
-                <ExternalLink className="size-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ExternalLink className="size-3 sm:size-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
               </a>
 
               {/* Access Note */}
               {accessNote && (
-                <div className="flex items-start gap-2.5 text-base text-slate-600 bg-blue-50 border border-blue-200 rounded-lg p-3.5">
-                  <Info className="size-5 flex-shrink-0 text-blue-600 mt-0.5" />
-                  <span className="text-blue-700">
+                <div className="flex items-start gap-2 sm:gap-2.5 text-sm sm:text-base text-slate-600 bg-blue-50 border border-blue-200 rounded-lg p-2.5 sm:p-3.5">
+                  <Info className="size-4 sm:size-5 flex-shrink-0 text-blue-600 mt-0.5" />
+                  <span className="text-blue-700 text-xs sm:text-sm md:text-base">
                     <span className="font-semibold">Note:</span> {accessNote}
                   </span>
                 </div>
@@ -306,23 +301,25 @@ export default function WebProject({
         </div>
 
         {/* Media Showcase */}
-        <div className="mb-14">
+        <div className="mb-8 sm:mb-10 lg:mb-14">
           <WebMediaCarousel mediaItems={mediaItems} />
         </div>
 
         {/* Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Description */}
           <div>
-            <h4 className="text-2xl font-bold text-slate-900 mb-4">About</h4>
-            <p className="text-slate-600 leading-relaxed text-xl">
+            <h4 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4">
+              About
+            </h4>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base lg:text-lg">
               {description}
             </p>
           </div>
 
           {/* Tech Stack */}
           <div>
-            <h4 className="text-2xl font-bold text-slate-900 mb-4">
+            <h4 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4">
               Tech Stack
             </h4>
             <div className="flex flex-wrap gap-2">

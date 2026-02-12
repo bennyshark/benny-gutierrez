@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     // STEP 1: Use CLAUDE HAIKU 4.5 (Cheap & Fast) to classify
     // ═══════════════════════════════════════════════════════════
     
-    const routerPrompt = `You are a data routing AI. Analyze the user's question and determine which data categories are needed. Answer professionally too.
+    const routerPrompt = `You are a data routing AI. Analyze the user's question and determine which data categories are needed.
 
 Available categories:
 - "personal": Name, role, contact info, location, bio
@@ -89,45 +89,35 @@ Return ONLY the JSON array:`;
     // ═══════════════════════════════════════════════════════════
 
     let relevantData: any = {};
-    let tokenCount = 0;
 
     neededCategories.forEach((category: string) => {
       switch (category) {
         case "personal":
           relevantData.personal = portfolioData.personal;
-          tokenCount += 500;
           break;
         case "skills":
           relevantData.skills = portfolioData.skills;
-          tokenCount += 800;
           break;
         case "projects":
           relevantData.projects = portfolioData.projects;
-          tokenCount += 2000;
           break;
         case "experience":
           relevantData.experience = portfolioData.experience;
-          tokenCount += 1500;
           break;
         case "interests":
           relevantData.interests = portfolioData.interests;
-          tokenCount += 200;
           break;
         case "favoriteProject":
           relevantData.favoriteProject = portfolioData.favoriteProject;
-          tokenCount += 300;
           break;
       }
     });
-
-    console.log(`💾 Loaded ${tokenCount} tokens (vs 5000 for everything)`);
-    console.log(`💰 Saving ${((1 - tokenCount / 5000) * 100).toFixed(1)}%`);
 
     // ═══════════════════════════════════════════════════════════
     // STEP 3: Use CLAUDE SONNET 4.5 (Powerful) to answer
     // ═══════════════════════════════════════════════════════════
 
-    const mainSystemPrompt = `You are an AI assistant for Benedict Gutierrez's (also known as Benny) portfolio website.
+    const mainSystemPrompt = `You are an AI assistant for Benedict Gutierrez's (also known as Benny) portfolio website.  Answer professionally too.
 
 You have been provided with ONLY the relevant data needed to answer this question. Answer naturally and helpfully.
 
@@ -165,13 +155,6 @@ Guidelines:
       mainResponse.content[0].type === "text"
         ? mainResponse.content[0].text
         : "";
-
-    // Calculate costs
-    const routerCost = (100 * 0.25 + 20 * 1.25) / 1_000_000;
-    const mainCost = (tokenCount * 3 + 200 * 15) / 1_000_000;
-    const totalCost = routerCost + mainCost;
-    
-    console.log(`💵 Cost: $${totalCost.toFixed(6)}`);
 
     return NextResponse.json({
       message: assistantMessage,

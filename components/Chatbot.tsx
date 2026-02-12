@@ -1,12 +1,78 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Loader2, Sparkles } from "lucide-react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
+
+// Simple markdown renderer for assistant messages
+const renderMarkdown = (text: string): (string | React.ReactElement)[] => {
+  const parts: (string | React.ReactElement)[] = [];
+  let lastIndex = 0;
+  let key = 0;
+
+  // Pattern to match: **bold**, URLs, and markdown links [text](url)
+  const pattern = /(\*\*[^*]+\*\*)|(\bhttps?:\/\/[^\s]+)|(\[([^\]]+)\]\(([^)]+)\))/g;
+  let match;
+
+  while ((match = pattern.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+
+    if (match[1]) {
+      // Bold text **text**
+      const boldText = match[1].slice(2, -2);
+      parts.push(
+        <strong key={key++} className="font-semibold">
+          {boldText}
+        </strong>
+      );
+    } else if (match[3]) {
+      // Markdown link [text](url)
+      const linkText = match[4];
+      const url = match[5];
+      parts.push(
+        <a
+          key={key++}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-700 hover:text-slate-900 underline font-medium"
+        >
+          {linkText}
+        </a>
+      );
+    } else if (match[2]) {
+      // Plain URL
+      const url = match[2];
+      parts.push(
+        <a
+          key={key++}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-700 hover:text-slate-900 underline break-all"
+        >
+          {url}
+        </a>
+      );
+    }
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : [text];
+};
 
 interface ChatBotProps {
   onOpenChange?: (isOpen: boolean) => void;
@@ -113,6 +179,7 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
     }
   };
 
+  // Render message with clickable links and formatting
   return (
     <>
       {/* Chat Toggle Button */}
@@ -136,18 +203,15 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
       {isOpen && (
         <div className="fixed bottom-6 right-6 w-[380px] h-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-orange-600 to-orange-500 text-white p-4 flex items-center justify-between">
+          <div className="bg-orange-600 text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <Sparkles className="size-5" />
-              </div>
               <div>
                 <h3 className="font-semibold">Benny AI Assistant</h3>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+              className="p-1 hover:bg-slate-500 rounded-lg transition-colors"
               aria-label="Close chat"
             >
               <X className="size-5" />
@@ -166,12 +230,12 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-2.5 ${
                     msg.role === "user"
-                      ? "bg-orange-600 text-white"
+                      ? "bg-orange-500 text-white"
                       : "bg-white text-slate-800 border border-slate-200"
                   }`}
                 >
                   <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                    {msg.content}
+                    {msg.role === "assistant" ? renderMarkdown(msg.content) : msg.content}
                   </p>
                 </div>
               </div>
@@ -180,7 +244,7 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-white border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-2">
-                  <Loader2 className="size-4 animate-spin text-orange-600" />
+                  <Loader2 className="size-4 animate-spin text-slate-600" />
                   <p className="text-sm text-slate-600">Thinking...</p>
                 </div>
               </div>
@@ -199,19 +263,19 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about projects, skills, experience..."
-                className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent text-sm"
                 disabled={isLoading}
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="p-2.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2.5 bg-slate-400 text-white rounded-xl hover:bg-slate-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 aria-label="Send message"
               >
                 <Send className="size-5" />
               </button>
             </div>
-            <p className="text-xs text-slate-500 mt-2 text-center">
+            <p className="text-xs text-slate-700 mt-2 text-center">
               AI can make mistakes.
             </p>
           </div>

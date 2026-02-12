@@ -263,13 +263,13 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about projects, skills, experience..."
-                className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent text-sm"
+                className="flex-1 px-4 py-2.5 border border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent text-sm"
                 disabled={isLoading}
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="p-2.5 bg-slate-400 text-white rounded-xl hover:bg-slate-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="p-2.5 bg-gray-500 text-white rounded-xl hover:bg-gray-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Send message"
               >
                 <Send className="size-5" />

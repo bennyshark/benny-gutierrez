@@ -25,14 +25,16 @@ import { BiData } from "react-icons/bi";
 // Skill Item Component
 function SkillCard({ icon: Icon, label, color }: { icon: any; label: string; color: string }) {
   return (
-    <div className="group flex flex-col items-center gap-3 p-6 bg-white rounded-2xl border-2 border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all hover:scale-105">
+    <div className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border-2 border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all hover:scale-105">
       <div
-        className="p-4 rounded-xl transition-all group-hover:scale-110"
+        className="p-3 sm:p-4 rounded-lg sm:rounded-xl transition-all group-hover:scale-110"
         style={{ backgroundColor: `${color}15` }}
       >
-        <Icon className="size-12" style={{ color }} />
+        <Icon className="size-8 sm:size-10 md:size-12" style={{ color }} />
       </div>
-      <span className="text-slate-700 font-semibold text-center">{label}</span>
+      <span className="text-xs sm:text-sm md:text-base text-slate-700 font-semibold text-center">
+        {label}
+      </span>
     </div>
   );
 }
@@ -61,21 +63,21 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="w-full bg-gradient-to-br from-slate-50 to-white py-24 px-8">
+    <section id="skills" className="w-full bg-gradient-to-br from-slate-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
             Skills
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto px-4">
             I have experience with these technologies and tools, building modern web applications,
             mobile apps, and AI-powered solutions.
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {/* Skills Grid - Responsive columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {skills.map((skill, index) => (
             <SkillCard
               key={index}

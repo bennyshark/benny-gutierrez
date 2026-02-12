@@ -85,6 +85,7 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
   useEffect(() => {
     onOpenChange?.(isOpen);
   }, [isOpen, onOpenChange]);
+  
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -179,34 +180,33 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
     }
   };
 
-  // Render message with clickable links and formatting
   return (
     <>
-      {/* Chat Toggle Button */}
+      {/* Chat Toggle Button - Responsive */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 p-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-110 z-[60] group"
+          className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 p-3 sm:p-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-110 z-[60] group"
           aria-label="Open chat"
         >
-          <MessageCircle className="size-6" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+          <MessageCircle className="size-5 sm:size-6" />
+          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></span>
           
-          {/* Tooltip */}
-          <span className="absolute bottom-full right-0 mb-2 px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg z-[70]">
+          {/* Tooltip - Hidden on mobile, pointer-events-none to not block other elements */}
+          <span className="hidden sm:block absolute bottom-full right-0 mb-2 px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
             Ask me anything! 💬
           </span>
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Chat Window - Responsive sizing */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-[380px] h-[600px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 overflow-hidden">
+        <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[380px] h-[500px] sm:h-[600px] max-h-[calc(100vh-6rem)] bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 overflow-hidden">
           {/* Header */}
-          <div className="bg-orange-600 text-white p-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
+          <div className="bg-orange-600 text-white p-3 sm:p-4 flex items-center justify-between flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div>
-                <h3 className="font-semibold">Benny AI Assistant</h3>
+                <h3 className="font-semibold text-sm sm:text-base">Benny AI Assistant</h3>
               </div>
             </div>
             <button
@@ -214,12 +214,12 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
               className="p-1 hover:bg-slate-500 rounded-lg transition-colors"
               aria-label="Close chat"
             >
-              <X className="size-5" />
+              <X className="size-4 sm:size-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 bg-slate-50">
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -228,13 +228,13 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
                 }`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-2.5 ${
+                  className={`max-w-[85%] sm:max-w-[80%] rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 ${
                     msg.role === "user"
                       ? "bg-orange-500 text-white"
                       : "bg-white text-slate-800 border border-slate-200"
                   }`}
                 >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                  <p className="text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
                     {msg.role === "assistant" ? renderMarkdown(msg.content) : msg.content}
                   </p>
                 </div>
@@ -243,9 +243,9 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
 
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-slate-200 rounded-2xl px-4 py-2.5 flex items-center gap-2">
-                  <Loader2 className="size-4 animate-spin text-slate-600" />
-                  <p className="text-sm text-slate-600">Thinking...</p>
+                <div className="bg-white border border-slate-200 rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2">
+                  <Loader2 className="size-3 sm:size-4 animate-spin text-slate-600" />
+                  <p className="text-xs sm:text-sm text-slate-600">Thinking...</p>
                 </div>
               </div>
             )}
@@ -254,7 +254,7 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
           </div>
 
           {/* Input */}
-          <div className="p-4 bg-white border-t border-slate-200">
+          <div className="p-3 sm:p-4 bg-white border-t border-slate-200 flex-shrink-0">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -262,20 +262,20 @@ export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about projects, skills, experience..."
-                className="flex-1 px-4 py-2.5 border border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent text-sm"
+                placeholder="Ask about projects, skills..."
+                className="flex-1 px-3 sm:px-4 py-2 sm:py-2.5 border border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 focus:border-transparent text-xs sm:text-sm"
                 disabled={isLoading}
               />
               <button
                 onClick={handleSend}
                 disabled={!input.trim() || isLoading}
-                className="p-2.5 bg-gray-500 text-white rounded-xl hover:bg-gray-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 sm:p-2.5 bg-gray-500 text-white rounded-xl hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
                 aria-label="Send message"
               >
-                <Send className="size-5" />
+                <Send className="size-4 sm:size-5" />
               </button>
             </div>
-            <p className="text-xs text-slate-700 mt-2 text-center">
+            <p className="text-[10px] sm:text-xs text-slate-700 mt-2 text-center">
               AI can make mistakes.
             </p>
           </div>

@@ -24,10 +24,8 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
     const handleScroll = () => {
       const viewportHeight = window.innerHeight;
 
-      // ========== ADJUST THESE VALUES ==========
       const appearThreshold = 0.6;
       const disappearThreshold = 0.95;
-      // =========================================
 
       const getSectionVisibility = (rect: DOMRect): number => {
         const sectionHeight = rect.height;
@@ -85,33 +83,10 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
   const smoothScroll = (targetId: string) => {
     const element = document.getElementById(targetId);
     if (element) {
-      const targetPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      const duration = 1500;
-      let start: number | null = null;
-
-      const easeInOutCubic = (t: number): number => {
-        return t < 0.5
-          ? 4 * t * t * t
-          : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-      };
-
-      const animation = (currentTime: number) => {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const ease = easeInOutCubic(progress);
-
-        window.scrollTo(0, startPosition + distance * ease);
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
-      };
-
-      requestAnimationFrame(animation);
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -135,15 +110,17 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
 
   if (!isVisible) return null;
 
-  // Calculate bottom position based on chat state
-  // Chat button closed: 64px (button height) + 24px (gap) = 88px
-  // Chat window open: 600px (window height) + 24px (gap) = 624px
-  const bottomPosition = chatOpen ? "bottom-[624px]" : "bottom-[88px]";
+  // Responsive bottom positioning
+  // Mobile: 70px (chat button) + 16px = 86px
+  // Chat open: 500px (mobile) or 600px (desktop) + 16px
+  const bottomClasses = chatOpen 
+    ? "bottom-[516px] sm:bottom-[616px]" 
+    : "bottom-[86px]";
 
   return (
     <button
       onClick={() => smoothScroll(targetId)}
-      className={`fixed ${bottomPosition} right-8 z-50 group flex items-center gap-3 px-6 py-4 bg-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:bg-orange-700 ${
+      className={`fixed ${bottomClasses} right-3 sm:right-6 lg:right-8 z-50 group flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 lg:py-4 bg-orange-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:bg-orange-700 ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"
@@ -151,13 +128,13 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
       style={{ transition: "opacity 0.3s, transform 0.3s, bottom 0.3s" }}
       aria-label={`Scroll to ${buttonText}`}
     >
-      <span className={currentSection === "skills" ? "hidden sm:inline" : ""}>
+      <span className={`text-xs sm:text-sm lg:text-base ${currentSection === "skills" ? "hidden sm:inline" : ""}`}>
         {buttonText}
       </span>
       {currentSection === "skills" && (
-        <span className="sm:hidden">Projects</span>
+        <span className="sm:hidden text-xs">Projects</span>
       )}
-      <ArrowDown className="size-5 group-hover:translate-y-1 transition-transform" />
+      <ArrowDown className="size-4 sm:size-5 group-hover:translate-y-1 transition-transform" />
     </button>
   );
 }

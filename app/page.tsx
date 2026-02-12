@@ -18,30 +18,10 @@ export default function Home() {
   const scrollToSkills = () => {
     const element = document.getElementById("skills");
     if (element) {
-      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      const duration = 1500;
-      let start: number | null = null;
-
-      const easeInOutCubic = (t: number): number => {
-        return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-      };
-
-      const animation = (currentTime: number) => {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const ease = easeInOutCubic(progress);
-        
-        window.scrollTo(0, startPosition + distance * ease);
-        
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
-      };
-
-      requestAnimationFrame(animation);
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -201,34 +181,34 @@ export default function Home() {
       {/* Hero Section */}
       <div
         id="home"
-        className="min-h-screen w-full flex items-center justify-center px-8"
+        className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 md:pt-0"
       >
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-20 max-w-6xl w-full">
-          <div className="flex flex-col space-y-8 flex-1">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20 max-w-6xl w-full">
+          <div className="flex flex-col space-y-6 sm:space-y-8 flex-1 text-center lg:text-left">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
                 Hi! I'm{" "}
                 <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent">
                   Benedict
                 </span>
               </h1>
-              <p className="text-2xl lg:text-3xl text-slate-600 font-light mt-6">
+              <p className="text-xl sm:text-2xl lg:text-3xl text-slate-600 font-light mt-4 sm:mt-6">
                 Web & Machine Learning Developer
               </p>
             </div>
 
-            <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
               I build scalable web applications, machine learning projects, and
               Ai/Api integrations.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
               <button
                 onClick={scrollToSkills}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-orange-700"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-orange-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-orange-700 w-full sm:w-auto justify-center"
               >
-                <span>Check My Skills</span>
-                <ArrowDown className="size-5 group-hover:translate-y-1 transition-transform" />
+                <span className="text-sm sm:text-base">Check My Skills</span>
+                <ArrowDown className="size-4 sm:size-5 group-hover:translate-y-1 transition-transform" />
               </button>
 
               <div className="flex gap-3">
@@ -261,12 +241,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative w-[400px] h-[400px] mt-20 lg:mt-0">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]">
             <Image
               src={profilePic}
               alt="Benedict Gutierrez"
               fill
-              sizes="400px"
+              sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 400px"
               className="rounded-full bg-slate-300 object-cover"
               priority
             />
@@ -281,9 +261,9 @@ export default function Home() {
       <SectionNavigator projects={sectionNavigation} chatOpen={isChatOpen} />
 
       {/* Projects Section */}
-      <section id="projects" className="w-full bg-white py-24 px-8">
+      <section id="projects" className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-16 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-8 sm:mb-12 lg:mb-16 text-center">
             Projects
           </h2>
 
@@ -296,7 +276,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="my-20 flex items-center justify-center">
+          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
@@ -310,7 +290,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="my-20 flex items-center justify-center">
+          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 

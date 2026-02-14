@@ -131,7 +131,7 @@ Guidelines:
 - If asked about something not in the data, politely say so
 - Encourage visitors to check out projects or reach out`;
 
-    console.log("🤖 Main AI (Sonnet 4.5) generating...");
+    console.log("🤖 Main AI (Haiku 4.5) generating...");
     const startMain = Date.now();
 
     const messages: Anthropic.MessageParam[] = conversationHistory || [];

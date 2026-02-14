@@ -141,7 +141,7 @@ Guidelines:
     });
 
     const mainResponse = await client.messages.create({
-      model: "claude-sonnet-4-5-20250929", // Sonnet 4.5: $3/$15 per 1M
+      model: "claude-haiku-4-5-20251001", // Sonnet 4.5: $3/$15 per 1M
       max_tokens: 1024,
       system: mainSystemPrompt,
       messages: messages,

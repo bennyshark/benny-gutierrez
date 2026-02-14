@@ -131,7 +131,7 @@ Guidelines:
 - If asked about something not in the data, politely say so
 - Encourage visitors to check out projects or reach out`;
 
-    console.log("🤖 Main AI (Sonnet 4.5) generating...");
+    console.log("🤖 Main AI (Haiku 4.5) generating...");
     const startMain = Date.now();
 
     const messages: Anthropic.MessageParam[] = conversationHistory || [];
@@ -141,7 +141,7 @@ Guidelines:
     });
 
     const mainResponse = await client.messages.create({
-      model: "claude-sonnet-4-5-20250929", // Sonnet 4.5: $3/$15 per 1M
+      model: "claude-haiku-4-5-20251001", // Sonnet 4.5: $3/$15 per 1M
       max_tokens: 1024,
       system: mainSystemPrompt,
       messages: messages,

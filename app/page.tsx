@@ -199,7 +199,7 @@ export default function Home() {
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
               I build scalable web applications, machine learning projects, and
-              Ai/Api integrations.
+              AI/API integrations.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">

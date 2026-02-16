@@ -4,6 +4,47 @@ import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
+// Function to render text with clickable URLs
+function renderTextWithLinks(text: string): (string | React.ReactElement)[] {
+  const parts: (string | React.ReactElement)[] = [];
+  let lastIndex = 0;
+  let key = 0;
+
+  // Pattern to match URLs
+  const urlPattern = /\bhttps?:\/\/[^\s]+/g;
+  let match;
+
+  while ((match = urlPattern.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+
+    // Add the URL as a clickable link
+    const url = match[0];
+    parts.push(
+      <a
+        key={key++}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-orange-600 hover:text-orange-700 underline font-medium transition-colors"
+      >
+        {url}
+      </a>
+    );
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : [text];
+}
+
 // Tech Badge Component
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
@@ -268,7 +309,7 @@ export default function MobileProject({
               About
             </h4>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              {description}
+              {renderTextWithLinks(description)}
             </p>
           </div>
 
@@ -300,7 +341,7 @@ export default function MobileProject({
                 About
               </h4>
               <p className="text-slate-600 leading-relaxed text-lg">
-                {description}
+                {renderTextWithLinks(description)}
               </p>
             </div>
 

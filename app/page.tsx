@@ -72,7 +72,7 @@ export default function Home() {
   ];
 
   // BraveBoard project data
-  const webProjectMedia = [
+  const braveboardMedia = [
     { type: "video" as const, src: "/media/braveboard-demo.mp4" },
     { type: "image" as const, src: "/images/braveboard/brave.png" },
     { type: "image" as const, src: "/images/braveboard/brave1.png" },
@@ -89,7 +89,7 @@ export default function Home() {
     { type: "image" as const, src: "/images/braveboard/brave12.png" },
   ];
 
-  const webProjectTechStack = [
+  const braveboardTechStack = [
     "React",
     "Next.js",
     "Supabase",
@@ -300,8 +300,8 @@ export default function Home() {
               description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
 
             More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums."
-              techStack={webProjectTechStack}
-              mediaItems={webProjectMedia}
+              techStack={braveboardTechStack}
+              mediaItems={braveboardMedia}
               siteUrl="https://braveboard.vercel.app"
               accessNote="Only FirstAsia accounts will be able to sign in."
             />

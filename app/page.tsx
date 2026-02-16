@@ -104,7 +104,7 @@ export default function Home() {
         company: "Nidec Drives (multinational company)",
         position: "Data Scientist",
         location: "Bgc, Taguig, Philippines",
-        duration: "feb 2025 - May 2025",
+        duration: "Feb 2025 - May 2025",
         workSetup: "hybrid" as const,
         companyColor: "text-green-600",
         description:

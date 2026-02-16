@@ -79,7 +79,7 @@ interface ChatBotProps {
 }
 
 export default function ChatBot({ onOpenChange }: ChatBotProps = {}) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   // Notify parent when open state changes
   useEffect(() => {

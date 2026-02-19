@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   SiHtml5,
   SiCss3,
@@ -12,6 +13,8 @@ import {
   SiSupabase,
   SiMongodb,
   SiPostgresql,
+  SiGraphql,
+  SiPrisma,
   SiPython,
   SiDart,
   SiFlutter,
@@ -21,26 +24,42 @@ import {
   SiGoogle,
 } from "react-icons/si";
 import { BiData } from "react-icons/bi";
+import { TbBrain } from "react-icons/tb";
+
+type SkillItem =
+  | { type?: "icon"; icon: any; label: string; color: string; imageSrc?: never }
+  | { type: "image"; imageSrc: string; label: string; color: string; icon?: never };
 
 // Skill Item Component
-function SkillCard({ icon: Icon, label, color }: { icon: any; label: string; color: string }) {
+function SkillCard({ skill }: { skill: SkillItem }) {
   return (
     <div className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border-2 border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all hover:scale-105">
       <div
         className="p-3 sm:p-4 rounded-lg sm:rounded-xl transition-all group-hover:scale-110"
-        style={{ backgroundColor: `${color}15` }}
+        style={{ backgroundColor: `${skill.color}15` }}
       >
-        <Icon className="size-8 sm:size-10 md:size-12" style={{ color }} />
+        {skill.type === "image" ? (
+          <Image
+            src={skill.imageSrc}
+            alt={skill.label}
+            width={48}
+            height={48}
+            className="size-8 sm:size-10 md:size-12 object-contain"
+          />
+        ) : (
+          <skill.icon className="size-8 sm:size-10 md:size-12" style={{ color: skill.color }} />
+        )}
       </div>
       <span className="text-xs sm:text-sm md:text-base text-slate-700 font-semibold text-center">
-        {label}
+        {skill.label}
       </span>
     </div>
   );
 }
 
 export default function SkillsSection() {
-  const skills = [
+  const skills: SkillItem[] = [
+    // Frontend
     { icon: SiHtml5, label: "HTML", color: "#E34F26" },
     { icon: SiCss3, label: "CSS", color: "#1572B6" },
     { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
@@ -49,15 +68,22 @@ export default function SkillsSection() {
     { icon: SiTailwindcss, label: "Tailwind CSS", color: "#06B6D4" },
     { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
     { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
+    // Databases & Backend Services
     { icon: SiSupabase, label: "Supabase", color: "#3ECF8E" },
+    { type: "image", imageSrc: "/firebase.png", label: "Firebase", color: "#FFCA28" },
     { icon: SiMongodb, label: "MongoDB", color: "#47A248" },
     { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
+    { icon: SiGraphql, label: "GraphQL", color: "#E10098" },
+    { icon: SiPrisma, label: "Prisma", color: "#2D3748" },
     { icon: BiData, label: "NoSQL", color: "#FF6C37" },
+    // Languages & Mobile
     { icon: SiPython, label: "Python", color: "#3776AB" },
     { icon: SiDart, label: "Dart", color: "#0175C2" },
     { icon: SiFlutter, label: "Flutter", color: "#02569B" },
+    // AI & APIs
     { icon: SiPytorch, label: "PyTorch", color: "#EE4C2C" },
     { icon: SiTensorflow, label: "TensorFlow Lite", color: "#FF6F00" },
+    { icon: TbBrain, label: "LLM", color: "#7C3AED" },
     { icon: SiAnthropic, label: "Anthropic API", color: "#191919" },
     { icon: SiGoogle, label: "Google API", color: "#4285F4" },
   ];
@@ -79,12 +105,7 @@ export default function SkillsSection() {
         {/* Skills Grid - Responsive columns */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {skills.map((skill, index) => (
-            <SkillCard
-              key={index}
-              icon={skill.icon}
-              label={skill.label}
-              color={skill.color}
-            />
+            <SkillCard key={index} skill={skill} />
           ))}
         </div>
       </div>

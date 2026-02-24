@@ -10,6 +10,8 @@ import {
   ExternalLink,
   Info,
   Globe,
+  Package,
+  FlaskConical,
 } from "lucide-react";
 
 // Tech Badge Component
@@ -17,6 +19,25 @@ function TechBadge({ children }: { children: React.ReactNode }) {
   return (
     <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-orange-50 text-orange-700 rounded-full text-xs sm:text-sm md:text-base font-medium border border-orange-200">
       {children}
+    </span>
+  );
+}
+
+// Project Label Badge
+function ProjectLabel({ label }: { label: "product" | "prototype" }) {
+  if (label === "product") {
+    return (
+      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <Package className="size-3.5" />
+        Product
+      </span>
+    );
+  }
+
+  return (
+    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-violet-50 text-violet-700 border border-violet-200">
+      <FlaskConical className="size-3.5" />
+      Prototype
     </span>
   );
 }
@@ -155,7 +176,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
               </button>
             ))}
           </div>
-          
+
           {/* Counter */}
           <p className="text-xs sm:text-sm text-slate-500 font-medium whitespace-nowrap">
             {currentIndex + 1} / {mediaItems.length}
@@ -247,6 +268,7 @@ interface WebProjectProps {
   mediaItems: MediaItem[];
   siteUrl?: string;
   accessNote?: string;
+  label?: "product" | "prototype" | null;
   nextProject?: {
     id: string;
     title: string;
@@ -260,16 +282,20 @@ export default function WebProject({
   mediaItems,
   siteUrl,
   accessNote,
-  nextProject,
+  label,
 }: WebProjectProps) {
   return (
     <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
       <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-14">
         {/* Header Section */}
         <div className="mb-6 sm:mb-8">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6">
-            {title}
-          </h3>
+          {/* Title + Label Row */}
+          <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              {title}
+            </h3>
+            {label && <ProjectLabel label={label} />}
+          </div>
 
           {/* Site URL - Clean Link Style */}
           {siteUrl && (

@@ -71,6 +71,53 @@ export default function Home() {
     "Vercel",
   ];
 
+  // Sandy Cafe POS project data
+  const sandyCafeMedia = [
+    { type: "image" as const, src: "/images/sandy-cafe/cafe1.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe2.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe3.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe4.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe5.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe6.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe7.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe8.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe9.png" },
+    { type: "image" as const, src: "/images/sandy-cafe/cafe10.png" },
+  ];
+
+  const sandyCafeTechStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Neon",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "Vercel",
+  ];
+
+  // Sandy Automotive Inventory project data
+  const sandyAutomotiveMedia = [
+    { type: "image" as const, src: "/images/sandy-automotive/auto1.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto2.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto3.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto4.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto5.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto7.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto8.png" },
+    { type: "image" as const, src: "/images/sandy-automotive/auto9.png" },
+  ];
+
+  const sandyAutomotiveTechStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Firebase",
+    "NoSQL",
+    "Vercel",
+  ];
+
   // BraveBoard project data
   const braveboardMedia = [
     { type: "video" as const, src: "/media/braveboard-demo.mp4" },
@@ -93,63 +140,65 @@ export default function Home() {
     "React",
     "Next.js",
     "Supabase",
+    "PostgreSQL",
     "TypeScript",
     "Tailwind CSS",
     "Vercel",
   ];
 
-    // Experience data
-    const experiences = [
-      {
-        company: "Nidec Drives (multinational company)",
-        position: "Data Scientist",
-        location: "Bgc, Taguig, Philippines",
-        duration: "Feb 2025 - May 2025",
-        workSetup: "hybrid" as const,
-        companyColor: "text-green-600",
-        description:
-          "Responsible for cleaning, researching, validating, and standardizing international company datasets. I developed geographic heatmaps in Power BI for market analysis and automated data processing workflows using Python (PyTorch, Pandas, and NumPy). Additionally, I led a website migration project for internal employees and global partners, managing authentication, site architecture, and the overall deployment. My role also involved the preprocessing and analysis of EEG (electroencephalogram) data for research applications.",
-        achievements: [
-          "Utilized Power BI heatmaps to verify and validate the geographic accuracy of South Korean company datasets.",
-          "Successfully cleaned and standardized datasets across 8 different countries, ensuring data integrity for global operations.",
-          "Successfully deployed a web portal utilized by users across multiple countries, including internal employees and global partners.",
-          "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
-          "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
-        ],
-        projectImages: [
-          "/images/nidec/nidec1.jpg",
-        ],
-        hasRestrictedContent: true,
-        technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI", ],
-      },
-      {
-        company: "FAITH",
-        position: "Machine Learning Engineer",
-        location: "Tanauan, Batangas, Philippines",
-        duration: "Jun 2024 - Dec 2024",
-        workSetup: "hybrid" as const,
-        description:
-          "Facilitated end-to-end machine learning process, overseeing data annotation and preparation using Roboflow. In addition to team supervision, I actively trained object detection and classification models using PyTorch and contributed to on-site data collection across various field locations. My role also encompassed Quality Assurance, where I assisted in conducting stress testing to validate both server stability and model performance.",
-        achievements: [
-          "Created a full Python script that augment and preprocess the whole dataset use for training.",
-          "Completed data annotation for all target leaf species.",
-          "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning."
-        ],
-        projectImages: [
-          "/images/faith/faith1.png",
-          "/images/faith/faith2.png",
-          "/images/faith/faith3.png",
-          "/images/faith/faith4.png",
-          "/images/faith/faith5.png",
-          "/images/faith/faith6.png",
-          "/images/faith/faith7.png",
-        ],
-        projectUrl: "https://snapfolia.vercel.app",
-        technologies: ["Python", "PyTorch", "YOLOv8", "Jupyter Notebook", "Roboflow"],
-      },
-    ];
+  // Experience data
+  const experiences = [
+    {
+      company: "Nidec Drives (multinational company)",
+      position: "Data Scientist",
+      location: "Bgc, Taguig, Philippines",
+      duration: "Feb 2025 - May 2025",
+      workSetup: "hybrid" as const,
+      companyColor: "text-green-600",
+      description:
+        "Responsible for cleaning, researching, validating, and standardizing international company datasets. I developed geographic heatmaps in Power BI for market analysis and automated data processing workflows using Python (PyTorch, Pandas, and NumPy). Additionally, I led a website migration project for internal employees and global partners, managing authentication, site architecture, and the overall deployment. My role also involved the preprocessing and analysis of EEG (electroencephalogram) data for research applications.",
+      achievements: [
+        "Utilized Power BI heatmaps to verify and validate the geographic accuracy of South Korean company datasets.",
+        "Successfully cleaned and standardized datasets across 8 different countries, ensuring data integrity for global operations.",
+        "Successfully deployed a web portal utilized by users across multiple countries, including internal employees and global partners.",
+        "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
+        "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
+      ],
+      projectImages: [
+        "/images/nidec/nidec1.jpg",
+      ],
+      hasRestrictedContent: true,
+      technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI", ],
+    },
+    {
+      company: "FAITH",
+      position: "Machine Learning Engineer",
+      location: "Tanauan, Batangas, Philippines",
+      duration: "Jun 2024 - Dec 2024",
+      workSetup: "hybrid" as const,
+      description:
+        "Facilitated end-to-end machine learning process, overseeing data annotation and preparation using Roboflow. In addition to team supervision, I actively trained object detection and classification models using PyTorch and contributed to on-site data collection across various field locations. My role also encompassed Quality Assurance, where I assisted in conducting stress testing to validate both server stability and model performance.",
+      achievements: [
+        "Created a full Python script that augment and preprocess the whole dataset use for training.",
+        "Completed data annotation for all target leaf species.",
+        "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning."
+      ],
+      projectImages: [
+        "/images/faith/faith1.png",
+        "/images/faith/faith2.png",
+        "/images/faith/faith3.png",
+        "/images/faith/faith4.png",
+        "/images/faith/faith5.png",
+        "/images/faith/faith6.png",
+        "/images/faith/faith7.png",
+      ],
+      projectUrl: "https://snapfolia.vercel.app",
+      technologies: ["Python", "PyTorch", "YOLOv8", "Jupyter Notebook", "Roboflow"],
+    },
+  ];
 
   // Section navigation configuration
+  // Order: Snapfolia Go → Synergreens → Sandy Cafe POS → Sandy Automotive → BraveBoard → Experience
   const sectionNavigation = [
     {
       id: "snapfolia-go",
@@ -158,6 +207,16 @@ export default function Home() {
     },
     {
       id: "synergreens",
+      nextProjectId: "sandy-automotive",
+      nextProjectTitle: "Sandy Automotive",
+    },
+    {
+      id: "sandy-automotive",
+      nextProjectId: "sandy-cafe-pos",
+      nextProjectTitle: "Sandy Cafe POS",
+    },
+    {
+      id: "sandy-cafe-pos",
       nextProjectId: "braveboard",
       nextProjectTitle: "BraveBoard",
     },
@@ -267,6 +326,7 @@ export default function Home() {
             Projects
           </h2>
 
+          {/* 1. Snapfolia Go */}
           <div id="snapfolia-go">
             <MobileProject
               title="Snapfolia Go"
@@ -280,6 +340,7 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
+          {/* 2. Synergreens */}
           <div id="synergreens">
             <WebProject
               title="Synergreens by Deo Abutal"
@@ -294,6 +355,39 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
+          {/* 3. Sandy Automotive */}
+          <div id="sandy-automotive">
+            <WebProject
+              title="Sandy Automotive Inventory"
+              description="Sandy Automotive Inventory is an inventory management system prototype designed for an automotive parts business. It enables tracking of spare parts stock levels, supplier information, and orders management. The system includes low-stock alerts, item categorization, and a dashboard for monitoring inventory health, helping the business reduce manual record-keeping and minimize stock discrepancies."
+              techStack={sandyAutomotiveTechStack}
+              mediaItems={sandyAutomotiveMedia}
+              siteUrl="https://sandy-inventory.vercel.app"
+              label="prototype"
+            />
+          </div>
+
+          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
+
+          {/* 4. Sandy Cafe POS */}
+          <div id="sandy-cafe-pos">
+            <WebProject
+              title="Sandy Cafe POS"
+              description="Sandy Cafe POS is a point-of-sale/inventory system built for café/restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management and sales tracking in one clean interface. The system supports cashier workflows including order entry, payment processing, and receipt generation, while also providing an admin dashboard for monitoring daily sales, managing menu items, and viewing transaction history."
+              techStack={sandyCafeTechStack}
+              mediaItems={sandyCafeMedia}
+              siteUrl="https://sandy-cafe-pos.vercel.app"
+              label="prototype"
+            />
+          </div>
+
+          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
+
+          {/* 5. BraveBoard (last) */}
           <div id="braveboard">
             <WebProject
               title="BraveBoard"

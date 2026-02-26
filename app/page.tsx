@@ -80,7 +80,6 @@ export default function Home() {
     { type: "image" as const, src: "/images/sandy-automotive/auto5.png" },
     { type: "image" as const, src: "/images/sandy-automotive/auto7.png" },
     { type: "image" as const, src: "/images/sandy-automotive/auto8.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto9.png" },
   ];
 
   const sandyAutomotiveTechStack = [

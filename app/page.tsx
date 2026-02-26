@@ -95,7 +95,6 @@ export default function Home() {
 
   // BraveBoard project data
   const braveboardMedia = [
-    { type: "video" as const, src: "/media/braveboard-demo.mp4" },
     { type: "image" as const, src: "/images/braveboard/brave.png" },
     { type: "image" as const, src: "/images/braveboard/brave1.png" },
     { type: "image" as const, src: "/images/braveboard/brave2.png" },

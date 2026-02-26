@@ -78,18 +78,20 @@ function ImageCarousel({
   hasRestrictedContent?: boolean;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const totalSlides = hasRestrictedContent ? 2 : images.length;
   const isDisclosureSlide = hasRestrictedContent && currentIndex === 1;
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  const goTo = (index: number) => {
+    if (index === currentIndex) return;
+    setIsLoading(true);
+    setCurrentIndex(index);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+  const nextSlide = () => goTo((currentIndex + 1) % totalSlides);
+  const prevSlide = () => goTo((currentIndex - 1 + totalSlides) % totalSlides);
 
   const handleImageClick = () => {
     if (!isDisclosureSlide) {
@@ -97,9 +99,7 @@ function ImageCarousel({
     }
   };
 
-  const closeFullscreen = () => {
-    setIsFullscreen(false);
-  };
+  const closeFullscreen = () => setIsFullscreen(false);
 
   return (
     <>
@@ -124,14 +124,24 @@ function ImageCarousel({
               onClick={handleImageClick}
               className="relative w-full h-full cursor-pointer"
             >
+              {/* Loading overlay — shows instantly on slide change, hides when image loads */}
+              <div
+                className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-150 ${
+                  isLoading ? "opacity-100" : "opacity-0"
+                }`}
+              />
+
               <Image
+                key={currentIndex}
                 src={images[currentIndex]}
                 alt={`Project ${currentIndex + 1}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
+                onLoad={() => setIsLoading(false)}
+                priority={currentIndex === 0}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center z-20">
                 <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-xs sm:text-sm font-medium px-4 text-center">
                   Click to view fullscreen
                 </p>
@@ -143,14 +153,14 @@ function ImageCarousel({
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
                 aria-label="Previous"
               >
                 <ChevronLeft className="size-4 sm:size-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
                 aria-label="Next"
               >
                 <ChevronRight className="size-4 sm:size-5" />
@@ -165,7 +175,7 @@ function ImageCarousel({
               {images.map((image, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => goTo(index)}
                   className={`flex-shrink-0 relative w-16 h-10 sm:w-20 sm:h-14 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
                     currentIndex === index
                       ? "border-orange-600 ring-2 ring-orange-200 scale-105"

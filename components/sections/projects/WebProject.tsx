@@ -51,36 +51,30 @@ type MediaItem = {
 // Web Media Carousel Component (Landscape)
 function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
+  const goTo = (index: number) => {
+    if (index === currentIndex) return;
+    setIsLoading(true);
+    setCurrentIndex(index);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + mediaItems.length) % mediaItems.length
-    );
-  };
+  const nextSlide = () => goTo((currentIndex + 1) % mediaItems.length);
+  const prevSlide = () => goTo((currentIndex - 1 + mediaItems.length) % mediaItems.length);
 
   const currentMedia = mediaItems[currentIndex];
 
-  const handleMediaClick = () => {
-    setIsFullscreen(true);
-  };
-
-  const closeFullscreen = () => {
-    setIsFullscreen(false);
-  };
+  const closeFullscreen = () => setIsFullscreen(false);
 
   return (
     <>
       <div className="relative">
         {/* Main Display - Landscape */}
-        <div className="relative bg-slate-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg aspect-video w-full group">
+        <div className="relative bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-lg aspect-video w-full group">
           {currentMedia.type === "video" ? (
             <div
-              onClick={handleMediaClick}
+              onClick={() => setIsFullscreen(true)}
               className="relative w-full h-full cursor-pointer"
             >
               <video
@@ -104,17 +98,28 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             </div>
           ) : (
             <div
-              onClick={handleMediaClick}
+              onClick={() => setIsFullscreen(true)}
               className="relative w-full h-full cursor-pointer"
             >
+              {/* Black flash shown instantly on slide change, hides when image loads */}
+              <div
+                className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-150 ${
+                  isLoading ? "opacity-100" : "opacity-0"
+                }`}
+              />
+
               <Image
+                key={currentIndex}
                 src={currentMedia.src}
                 alt={`Screenshot ${currentIndex}`}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
-                className="object-fit"
+                className="object-contain"
+                onLoad={() => setIsLoading(false)}
+                priority={currentIndex === 0}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center z-20">
                 <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-xs sm:text-sm font-medium px-4 text-center">
                   Click to view fullscreen
                 </p>
@@ -125,14 +130,14 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
             aria-label="Previous"
           >
             <ChevronLeft className="size-4 sm:size-5" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
             aria-label="Next"
           >
             <ChevronRight className="size-4 sm:size-5" />
@@ -140,7 +145,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
 
           {/* Media Type Indicator */}
           {currentMedia.type === "video" && (
-            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-lg flex items-center gap-1 sm:gap-1.5 shadow-lg">
+            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-lg flex items-center gap-1 sm:gap-1.5 shadow-lg z-30">
               <Play className="size-2.5 sm:size-3" />
               VIDEO
             </div>
@@ -153,8 +158,8 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             {mediaItems.map((item, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`flex-shrink-0 relative w-20 h-12 sm:w-28 sm:h-16 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
+                onClick={() => goTo(index)}
+                className={`flex-shrink-0 relative w-20 h-12 sm:w-28 sm:h-16 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all bg-black ${
                   currentIndex === index
                     ? "border-orange-600 ring-2 ring-orange-200 scale-105"
                     : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
@@ -200,10 +205,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
 
           {currentIndex > 0 && (
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevSlide();
-              }}
+              onClick={(e) => { e.stopPropagation(); prevSlide(); }}
               className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Previous"
             >
@@ -213,10 +215,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
 
           {currentIndex < mediaItems.length - 1 && (
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
+              onClick={(e) => { e.stopPropagation(); nextSlide(); }}
               className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Next"
             >
@@ -242,6 +241,7 @@ function WebMediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
               </video>
             ) : (
               <Image
+                key={currentIndex}
                 src={currentMedia.src}
                 alt={`Fullscreen ${currentIndex}`}
                 fill

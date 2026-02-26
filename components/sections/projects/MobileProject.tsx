@@ -10,17 +10,14 @@ function renderTextWithLinks(text: string): (string | React.ReactElement)[] {
   let lastIndex = 0;
   let key = 0;
 
-  // Pattern to match URLs
   const urlPattern = /\bhttps?:\/\/[^\s]+/g;
   let match;
 
   while ((match = urlPattern.exec(text)) !== null) {
-    // Add text before the match
     if (match.index > lastIndex) {
       parts.push(text.substring(lastIndex, match.index));
     }
 
-    // Add the URL as a clickable link
     const url = match[0];
     parts.push(
       <a
@@ -37,7 +34,6 @@ function renderTextWithLinks(text: string): (string | React.ReactElement)[] {
     lastIndex = match.index + match[0].length;
   }
 
-  // Add remaining text
   if (lastIndex < text.length) {
     parts.push(text.substring(lastIndex));
   }
@@ -63,27 +59,21 @@ type MediaItem = {
 // Media Carousel Component
 function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % mediaItems.length);
+  const goTo = (index: number) => {
+    if (index === currentIndex) return;
+    setIsLoading(true);
+    setCurrentIndex(index);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + mediaItems.length) % mediaItems.length
-    );
-  };
+  const nextSlide = () => goTo((currentIndex + 1) % mediaItems.length);
+  const prevSlide = () => goTo((currentIndex - 1 + mediaItems.length) % mediaItems.length);
 
   const currentMedia = mediaItems[currentIndex];
 
-  const handleImageClick = () => {
-    setIsFullscreen(true);
-  };
-
-  const closeFullscreen = () => {
-    setIsFullscreen(false);
-  };
+  const closeFullscreen = () => setIsFullscreen(false);
 
   return (
     <>
@@ -92,7 +82,7 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
         <div className="relative bg-slate-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl aspect-[9/16] max-w-[280px] sm:max-w-sm mx-auto">
           {currentMedia.type === "video" ? (
             <div
-              onClick={handleImageClick}
+              onClick={() => setIsFullscreen(true)}
               className="relative w-full h-full cursor-pointer group"
             >
               <video
@@ -116,17 +106,28 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
             </div>
           ) : (
             <div
-              onClick={handleImageClick}
+              onClick={() => setIsFullscreen(true)}
               className="relative w-full h-full cursor-pointer group"
             >
+              {/* Loading overlay — shows instantly on slide change, hides when image loads */}
+              <div
+                className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-150 ${
+                  isLoading ? "opacity-100" : "opacity-0"
+                }`}
+              />
+
               <Image
+                key={currentIndex}
                 src={currentMedia.src}
                 alt={`Screenshot ${currentIndex}`}
                 fill
                 sizes="(max-width: 640px) 280px, 384px"
                 className="object-contain"
+                onLoad={() => setIsLoading(false)}
+                priority={currentIndex === 0}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center z-20">
                 <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-xs sm:text-sm font-medium px-4 text-center">
                   Click to view fullscreen
                 </p>
@@ -137,14 +138,14 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm z-30"
             aria-label="Previous"
           >
             <ChevronLeft className="size-4 sm:size-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all backdrop-blur-sm z-30"
             aria-label="Next"
           >
             <ChevronRight className="size-4 sm:size-6" />
@@ -152,7 +153,7 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
 
           {/* Media Type Indicator */}
           {currentMedia.type === "video" && (
-            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-full flex items-center gap-1">
+            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-orange-600 text-white text-xs font-semibold rounded-full flex items-center gap-1 z-30">
               <Play className="size-2.5 sm:size-3" />
               VIDEO
             </div>
@@ -164,7 +165,7 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
           {mediaItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => goTo(index)}
               className={`flex-shrink-0 relative w-12 h-16 sm:w-16 sm:h-24 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
                 currentIndex === index
                   ? "border-orange-600 scale-105"
@@ -252,6 +253,7 @@ function MediaCarousel({ mediaItems }: { mediaItems: MediaItem[] }) {
               </video>
             ) : (
               <Image
+                key={currentIndex}
                 src={currentMedia.src}
                 alt={`Fullscreen ${currentIndex}`}
                 fill

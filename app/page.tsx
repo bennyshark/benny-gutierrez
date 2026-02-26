@@ -71,31 +71,6 @@ export default function Home() {
     "Vercel",
   ];
 
-  // Sandy Cafe POS project data
-  const sandyCafeMedia = [
-    { type: "image" as const, src: "/images/sandy-cafe/cafe1.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe2.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe3.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe4.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe5.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe6.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe7.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe8.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe9.png" },
-    { type: "image" as const, src: "/images/sandy-cafe/cafe10.png" },
-  ];
-
-  const sandyCafeTechStack = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Neon",
-    "PostgreSQL",
-    "Drizzle ORM",
-    "Vercel",
-  ];
-
   // Sandy Automotive Inventory project data
   const sandyAutomotiveMedia = [
     { type: "image" as const, src: "/images/sandy-automotive/auto1.png" },
@@ -198,7 +173,7 @@ export default function Home() {
   ];
 
   // Section navigation configuration
-  // Order: Snapfolia Go → Synergreens → Sandy Cafe POS → Sandy Automotive → BraveBoard → Experience
+  // Order: Snapfolia Go → Synergreens → Sandy Automotive → BraveBoard → Experience
   const sectionNavigation = [
     {
       id: "snapfolia-go",
@@ -212,11 +187,6 @@ export default function Home() {
     },
     {
       id: "sandy-automotive",
-      nextProjectId: "sandy-cafe-pos",
-      nextProjectTitle: "Sandy Cafe POS",
-    },
-    {
-      id: "sandy-cafe-pos",
       nextProjectId: "braveboard",
       nextProjectTitle: "BraveBoard",
     },
@@ -371,23 +341,7 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
-          {/* 4. Sandy Cafe POS */}
-          <div id="sandy-cafe-pos">
-            <WebProject
-              title="Sandy Cafe POS"
-              description="Sandy Cafe POS is a point-of-sale/inventory system built for café/restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management and sales tracking in one clean interface. The system supports cashier workflows including order entry, payment processing, and receipt generation, while also providing an admin dashboard for monitoring daily sales, managing menu items, and viewing transaction history."
-              techStack={sandyCafeTechStack}
-              mediaItems={sandyCafeMedia}
-              siteUrl="https://sandy-cafe-pos.vercel.app"
-              label="prototype"
-            />
-          </div>
-
-          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* 5. BraveBoard (last) */}
+          {/* 4. BraveBoard */}
           <div id="braveboard">
             <WebProject
               title="BraveBoard"

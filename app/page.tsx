@@ -1,9 +1,7 @@
-// app/page.tsx
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
-import profilePic from "../public/ben4.png";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
@@ -11,6 +9,10 @@ import MobileProject from "@/components/sections/projects/MobileProject";
 import WebProject from "@/components/sections/projects/WebProject";
 import SectionNavigator from "@/components/common/SectionNavigator";
 import ChatBot from "@/components/Chatbot";
+
+// Cloudinary base URLs
+const CLD_IMG = "https://res.cloudinary.com/dhsgwmuax/image/upload/f_auto,q_auto";
+const CLD_VID = "https://res.cloudinary.com/dhsgwmuax/video/upload";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -27,15 +29,15 @@ export default function Home() {
 
   // Snapfolia Go project data
   const snapfoliaGoMedia = [
-    { type: "video" as const, src: "/media/snapfolia-go.mp4" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap1.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap2.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap3.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap4.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap5.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap7.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap8.jpg" },
-    { type: "image" as const, src: "/images/snapfolia-go/snap6.jpg" },
+    { type: "video" as const, src: `${CLD_VID}/snapfolia-go.mp4` },
+    { type: "image" as const, src: `${CLD_IMG}/snap1.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap2.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap3.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap4.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap5.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap7.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap8.jpg` },
+    { type: "image" as const, src: `${CLD_IMG}/snap6.jpg` },
   ];
 
   const snapfoliaGoTechStack = [
@@ -50,14 +52,14 @@ export default function Home() {
 
   // Synergreens project data
   const SynergreensMedia = [
-    { type: "image" as const, src: "/images/synergreens/sg1.png" },
-    { type: "image" as const, src: "/images/synergreens/sg2.png" },
-    { type: "image" as const, src: "/images/synergreens/sg3.png" },
-    { type: "image" as const, src: "/images/synergreens/sg4.png" },
-    { type: "image" as const, src: "/images/synergreens/sg5.png" },
-    { type: "image" as const, src: "/images/synergreens/sg6.png" },
-    { type: "image" as const, src: "/images/synergreens/sg7.png" },
-    { type: "image" as const, src: "/images/synergreens/sg8.png" },
+    { type: "image" as const, src: `${CLD_IMG}/sg1.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg2.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg3.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg4.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg5.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg6.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg7.png` },
+    { type: "image" as const, src: `${CLD_IMG}/sg8.png` },
   ];
 
   const SynergreensTechStack = [
@@ -73,13 +75,13 @@ export default function Home() {
 
   // Sandy Automotive Inventory project data
   const sandyAutomotiveMedia = [
-    { type: "image" as const, src: "/images/sandy-automotive/auto1.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto2.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto3.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto4.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto5.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto7.png" },
-    { type: "image" as const, src: "/images/sandy-automotive/auto8.png" },
+    { type: "image" as const, src: `${CLD_IMG}/auto1.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto2.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto3.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto4.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto5.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto7.png` },
+    { type: "image" as const, src: `${CLD_IMG}/auto8.png` },
   ];
 
   const sandyAutomotiveTechStack = [
@@ -94,19 +96,19 @@ export default function Home() {
 
   // BraveBoard project data
   const braveboardMedia = [
-    { type: "image" as const, src: "/images/braveboard/brave.png" },
-    { type: "image" as const, src: "/images/braveboard/brave1.png" },
-    { type: "image" as const, src: "/images/braveboard/brave2.png" },
-    { type: "image" as const, src: "/images/braveboard/brave3.png" },
-    { type: "image" as const, src: "/images/braveboard/brave4.png" },
-    { type: "image" as const, src: "/images/braveboard/brave5.png" },
-    { type: "image" as const, src: "/images/braveboard/brave6.png" },
-    { type: "image" as const, src: "/images/braveboard/brave7.png" },
-    { type: "image" as const, src: "/images/braveboard/brave8.png" },
-    { type: "image" as const, src: "/images/braveboard/brave9.png" },
-    { type: "image" as const, src: "/images/braveboard/brave10.png" },
-    { type: "image" as const, src: "/images/braveboard/brave11.png" },
-    { type: "image" as const, src: "/images/braveboard/brave12.png" },
+    { type: "image" as const, src: `${CLD_IMG}/brave.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave1.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave2.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave3.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave4.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave5.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave6.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave7.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave8.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave9.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave10.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave11.png` },
+    { type: "image" as const, src: `${CLD_IMG}/brave12.png` },
   ];
 
   const braveboardTechStack = [
@@ -138,10 +140,10 @@ export default function Home() {
         "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
       ],
       projectImages: [
-        "/images/nidec/nidec1.jpg",
+        `${CLD_IMG}/nidec1.jpg`,
       ],
       hasRestrictedContent: true,
-      technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI", ],
+      technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI"],
     },
     {
       company: "FAITH",
@@ -154,16 +156,16 @@ export default function Home() {
       achievements: [
         "Created a full Python script that augment and preprocess the whole dataset use for training.",
         "Completed data annotation for all target leaf species.",
-        "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning."
+        "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning.",
       ],
       projectImages: [
-        "/images/faith/faith1.png",
-        "/images/faith/faith2.png",
-        "/images/faith/faith3.png",
-        "/images/faith/faith4.png",
-        "/images/faith/faith5.png",
-        "/images/faith/faith6.png",
-        "/images/faith/faith7.png",
+        `${CLD_IMG}/faith1.png`,
+        `${CLD_IMG}/faith2.png`,
+        `${CLD_IMG}/faith3.png`,
+        `${CLD_IMG}/faith4.png`,
+        `${CLD_IMG}/faith5.png`,
+        `${CLD_IMG}/faith6.png`,
+        `${CLD_IMG}/faith7.png`,
       ],
       projectUrl: "https://snapfolia.vercel.app",
       technologies: ["Python", "PyTorch", "YOLOv8", "Jupyter Notebook", "Roboflow"],
@@ -171,7 +173,6 @@ export default function Home() {
   ];
 
   // Section navigation configuration
-  // Order: Snapfolia Go → Synergreens → Sandy Automotive → BraveBoard → Experience
   const sectionNavigation = [
     {
       id: "snapfolia-go",
@@ -270,7 +271,7 @@ export default function Home() {
 
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]">
             <Image
-              src={profilePic}
+              src={`${CLD_IMG}/ben4.png`}
               alt="Benedict Gutierrez"
               fill
               sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 400px"

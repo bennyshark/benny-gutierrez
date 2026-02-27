@@ -94,6 +94,31 @@ export default function Home() {
     "Vercel",
   ];
 
+  // Sandy Cafe POS project data
+  const sandyCafeMedia = [
+    { type: "image" as const, src: `${CLD_IMG}/cafe1.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe2.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe3.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe4.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe5.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe6.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe7.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe8.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe9.png` },
+    { type: "image" as const, src: `${CLD_IMG}/cafe10.png` },
+  ];
+
+  const sandyCafeTechStack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Neon",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "Vercel",
+  ];
+
   // BraveBoard project data
   const braveboardMedia = [
     { type: "image" as const, src: `${CLD_IMG}/brave.png` },
@@ -181,6 +206,11 @@ export default function Home() {
     },
     {
       id: "synergreens",
+      nextProjectId: "sandy-cafe-pos",
+      nextProjectTitle: "Sandy Cafe POS",
+    },
+    {
+      id: "sandy-cafe-pos",
       nextProjectId: "sandy-automotive",
       nextProjectTitle: "Sandy Automotive",
     },
@@ -324,7 +354,23 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
-          {/* 3. Sandy Automotive */}
+          {/* 3. Sandy Cafe POS */}
+          <div id="sandy-cafe-pos">
+            <WebProject
+              title="Sandy Cafe POS"
+              description="Sandy Cafe POS is a point-of-sale and inventory system built for café and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface. The system supports cashier workflows including order entry, payment processing, and receipt generation, while also providing an admin dashboard for monitoring daily sales, managing menu items, and viewing transaction history."
+              techStack={sandyCafeTechStack}
+              mediaItems={sandyCafeMedia}
+              siteUrl="https://sandy-cafe-pos.vercel.app"
+              label="prototype"
+            />
+          </div>
+
+          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
+            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          </div>
+
+          {/* 4. Sandy Automotive */}
           <div id="sandy-automotive">
             <WebProject
               title="Sandy Automotive Inventory"
@@ -340,7 +386,7 @@ export default function Home() {
             <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
           </div>
 
-          {/* 4. BraveBoard */}
+          {/* 5. BraveBoard */}
           <div id="braveboard">
             <WebProject
               title="BraveBoard"

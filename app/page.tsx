@@ -165,6 +165,7 @@ export default function Home() {
       projectImages: [
         `${CLD_IMG}/regen-digital-logo.png`,
       ],
+      projectUrl: "https://www.regen-digital.com/",
       technologies: ["React", "Next.js", "Paymongo", "Supabase", "Claude Code", "Lovable", "Opencode", "Gemini", "Lalamove API", "Sanity CMS"],
     },
     {

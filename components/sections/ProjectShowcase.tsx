@@ -61,7 +61,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
 
   return (
     <>
-      <div className={`relative ${isMobile ? "max-w-[240px] sm:max-w-[280px]" : "w-full"}`}>
+      <div className={`relative ${isMobile ? "max-w-[240px] sm:max-w-[280px] mx-auto" : "w-full"}`}>
         {/* main display */}
         <div
           className={`relative rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-700/50 bg-zinc-900 group ${
@@ -188,7 +188,7 @@ export default function ProjectShowcase({
       <div className="max-w-6xl mx-auto">
         <div className={`rounded-2xl sm:rounded-3xl border ${accentBorders[accent]} bg-surface/30 backdrop-blur-sm p-5 sm:p-8 lg:p-12 transition-all hover:shadow-lg hover:shadow-primary/5`}>
           {/* header row */}
-          <div className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8">
+          <div className={`flex flex-wrap items-center gap-3 mb-6 sm:mb-8 ${isMobile ? "justify-center text-center" : ""}`}>
             <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary">
               {title}
             </h3>

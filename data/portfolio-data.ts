@@ -183,6 +183,22 @@ export const portfolioData = {
 
   experience: [
     {
+      company: "Regen Digital Solutions (Nettsaga)",
+      companyType: "Agency",
+      position: "Full Stack Developer/Web Design",
+      location: "Norway",
+      duration: "March 2026 - Present",
+      workSetup: "Remote",
+      description: "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 150 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
+      achievements: [
+        "Rapidly developed and deployed approximately 150 websites across various industries and business models",
+        "Built diverse web applications including e-commerce platforms, booking systems, and marketing websites",
+        "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles"
+      ],
+      technologies: ["React", "Next.js", "Paymongo", "Supabase", "Claude Code", "Lovable", "Opencode", "Gemini", "Lalamove API", "Sanity CMS"],
+      projectUrl: null
+    },
+    {
       company: "Nidec Drives",
       companyType: "Multinational Company",
       position: "Data Scientist",

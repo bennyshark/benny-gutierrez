@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
-import ExperienceSection from "@/components/sections/ExperienceSection";
-import MobileProject from "@/components/sections/projects/MobileProject";
-import WebProject from "@/components/sections/projects/WebProject";
+import ProjectShowcase from "@/components/sections/ProjectShowcase";
+import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import SectionNavigator from "@/components/common/SectionNavigator";
 import ChatBot from "@/components/Chatbot";
 
@@ -20,14 +18,11 @@ export default function Home() {
   const scrollToSkills = () => {
     const element = document.getElementById("skills");
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  // Snapfolia Go project data
+  // project data
   const snapfoliaGoMedia = [
     { type: "video" as const, src: `${CLD_VID}/snapfolia-go.mp4` },
     { type: "image" as const, src: `${CLD_IMG}/snap1.jpg` },
@@ -41,17 +36,11 @@ export default function Home() {
   ];
 
   const snapfoliaGoTechStack = [
-    "Dart",
-    "Flutter",
-    "Yolov8",
-    "TensorFlow lite",
-    "Flutter_vision",
-    "Python",
-    "Pytorch",
+    "Dart", "Flutter", "YOLOv8", "TensorFlow Lite",
+    "Flutter Vision", "Python", "PyTorch",
   ];
 
-  // Synergreens project data
-  const SynergreensMedia = [
+  const synergreensMedia = [
     { type: "image" as const, src: `${CLD_IMG}/sg1.png` },
     { type: "image" as const, src: `${CLD_IMG}/sg2.png` },
     { type: "image" as const, src: `${CLD_IMG}/sg3.png` },
@@ -62,18 +51,11 @@ export default function Home() {
     { type: "image" as const, src: `${CLD_IMG}/sg8.png` },
   ];
 
-  const SynergreensTechStack = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Google Maps API",
-    "Google Sheets API",
-    "Resend API",
-    "Vercel",
+  const synergreensTechStack = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Google Maps API", "Google Sheets API", "Resend API", "Vercel",
   ];
 
-  // Sandy Automotive Inventory project data
   const sandyAutomotiveMedia = [
     { type: "image" as const, src: `${CLD_IMG}/auto1.png` },
     { type: "image" as const, src: `${CLD_IMG}/auto2.png` },
@@ -85,16 +67,10 @@ export default function Home() {
   ];
 
   const sandyAutomotiveTechStack = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Firebase",
-    "NoSQL",
-    "Vercel",
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Firebase", "NoSQL", "Vercel",
   ];
 
-  // Sandy Cafe POS project data
   const sandyCafeMedia = [
     { type: "image" as const, src: `${CLD_IMG}/cafe1.png` },
     { type: "image" as const, src: `${CLD_IMG}/cafe2.png` },
@@ -109,17 +85,10 @@ export default function Home() {
   ];
 
   const sandyCafeTechStack = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Neon",
-    "PostgreSQL",
-    "Drizzle ORM",
-    "Vercel",
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Neon", "PostgreSQL", "Drizzle ORM", "Vercel",
   ];
 
-  // BraveBoard project data
   const braveboardMedia = [
     { type: "image" as const, src: `${CLD_IMG}/brave.png` },
     { type: "image" as const, src: `${CLD_IMG}/brave1.png` },
@@ -137,16 +106,11 @@ export default function Home() {
   ];
 
   const braveboardTechStack = [
-    "React",
-    "Next.js",
-    "Supabase",
-    "PostgreSQL",
-    "TypeScript",
-    "Tailwind CSS",
-    "Vercel",
+    "React", "Next.js", "Supabase", "PostgreSQL",
+    "TypeScript", "Tailwind CSS", "Vercel",
   ];
 
-  // Experience data
+  // experience data
   const experiences = [
     {
       company: "Regen Digital Solutions (Nettsaga)",
@@ -154,7 +118,6 @@ export default function Home() {
       location: "Norway",
       duration: "Mar 2026 - Present",
       workSetup: "remote" as const,
-      companyColor: "text-blue-600",
       description:
         "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 150 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
       achievements: [
@@ -162,11 +125,10 @@ export default function Home() {
         "Built diverse web applications including e-commerce platforms, booking systems, and marketing websites.",
         "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles.",
       ],
-      projectImages: [
-        `${CLD_IMG}/regen-digital-logo.png`,
-      ],
+      projectImages: [`${CLD_IMG}/regen-digital-logo.png`],
       projectUrl: "https://www.regen-digital.com/",
       technologies: ["React", "Next.js", "Paymongo", "Supabase", "Claude Code", "Lovable", "Opencode", "Gemini", "Lalamove API", "Sanity CMS"],
+      companyColor: "text-blue-400",
     },
     {
       company: "Nidec Drives (multinational company)",
@@ -174,7 +136,6 @@ export default function Home() {
       location: "Bgc, Taguig, Philippines",
       duration: "Feb 2025 - May 2025",
       workSetup: "hybrid" as const,
-      companyColor: "text-green-600",
       description:
         "Responsible for cleaning, researching, validating, and standardizing international company datasets. I developed geographic heatmaps in Power BI for market analysis and automated data processing workflows using Python (PyTorch, Pandas, and NumPy). Additionally, I led a website migration project for internal employees and global partners, managing authentication, site architecture, and the overall deployment. My role also involved the preprocessing and analysis of EEG (electroencephalogram) data for research applications.",
       achievements: [
@@ -184,11 +145,9 @@ export default function Home() {
         "Performed the cleaning and preprocessing of EEG data across multiple research subjects.",
         "Engineered a GPU-accelerated script that reduced processing time by 99% and increased overall computational efficiency by 54.81% compared to the previous scripts.",
       ],
-      projectImages: [
-        `${CLD_IMG}/nidec1.jpg`,
-      ],
+      projectImages: [`${CLD_IMG}/nidec1.jpg`],
       hasRestrictedContent: true,
-      technologies: ["Python", "Pytorch", "Pandas", "Numpy", "Power BI"],
+      technologies: ["Python", "PyTorch", "Pandas", "NumPy", "Power BI"],
     },
     {
       company: "FAITH",
@@ -204,12 +163,8 @@ export default function Home() {
         "Successfully trained object detection and classification models, utilizing YOLOv8 transfer learning.",
       ],
       projectImages: [
-        `${CLD_IMG}/faith1.png`,
-        `${CLD_IMG}/faith2.png`,
-        `${CLD_IMG}/faith3.png`,
-        `${CLD_IMG}/faith4.png`,
-        `${CLD_IMG}/faith5.png`,
-        `${CLD_IMG}/faith6.png`,
+        `${CLD_IMG}/faith1.png`, `${CLD_IMG}/faith2.png`, `${CLD_IMG}/faith3.png`,
+        `${CLD_IMG}/faith4.png`, `${CLD_IMG}/faith5.png`, `${CLD_IMG}/faith6.png`,
         `${CLD_IMG}/faith7.png`,
       ],
       projectUrl: "https://snapfolia.vercel.app",
@@ -217,7 +172,7 @@ export default function Home() {
     },
   ];
 
-  // Section navigation configuration
+  // section navigation
   const sectionNavigation = [
     {
       id: "snapfolia-go",
@@ -249,184 +204,91 @@ export default function Home() {
       nextProjectId: "experience-1",
       nextProjectTitle: "FAITH",
     },
-    {
-      id: "experience-1",
-    },
+    { id: "experience-1" },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      {/* Hero Section */}
-      <div
-        id="home"
-        className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 md:pt-0"
-      >
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20 max-w-6xl w-full">
-          <div className="flex flex-col space-y-6 sm:space-y-8 flex-1 text-center lg:text-left">
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
-                Hi! I'm{" "}
-                <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-                  Benedict
-                </span>
-              </h1>
-              <p className="text-xl sm:text-2xl lg:text-3xl text-slate-600 font-light mt-4 sm:mt-6">
-                Web & Machine Learning Developer
-              </p>
-            </div>
+    <>
+      {/* hero */}
+      <HeroSection onScrollToSkills={scrollToSkills} />
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              I build scalable web applications, machine learning projects, and
-              AI/API integrations.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-4">
-              <button
-                onClick={scrollToSkills}
-                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-orange-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-orange-700 w-full sm:w-auto justify-center"
-              >
-                <span className="text-sm sm:text-base">Check My Skills</span>
-                <ArrowDown className="size-4 sm:size-5 group-hover:translate-y-1 transition-transform" />
-              </button>
-
-              <div className="flex gap-3">
-                <a
-                  href="https://github.com/bennyshark"
-                  className="p-3 rounded-full border-2 border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all group"
-                  aria-label="GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="size-5 text-slate-700 group-hover:text-orange-600 transition-colors" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/benedict-gutierrez-15917b333"
-                  className="p-3 rounded-full border-2 border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all group"
-                  aria-label="LinkedIn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="size-5 text-slate-700 group-hover:text-orange-600 transition-colors" />
-                </a>
-                <a
-                  href="mailto:benedictgutierrezcs25@gmail.com"
-                  className="p-3 rounded-full border-2 border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all group"
-                  aria-label="Email"
-                >
-                  <Mail className="size-5 text-slate-700 group-hover:text-orange-600 transition-colors" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px]">
-            <Image
-              src={`${CLD_IMG}/ben4.png`}
-              alt="Benedict Gutierrez"
-              fill
-              sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 400px"
-              className="rounded-full bg-slate-300 object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Skills Section */}
+      {/* skills */}
+      <div id="projects-start" />
       <SkillsSection />
 
-      {/* Unified Section Navigator */}
+      {/* section navigator */}
       <SectionNavigator projects={sectionNavigation} chatOpen={isChatOpen} />
 
-      {/* Projects Section */}
-      <section id="projects" className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-8 sm:mb-12 lg:mb-16 text-center">
-            Projects
+      {/* projects */}
+      <section id="projects" className="w-full py-8 sm:py-12 lg:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6">
+          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase text-center">
+            portfolio
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center">
+            featured projects
           </h2>
-
-          {/* 1. Snapfolia Go */}
-          <div id="snapfolia-go">
-            <MobileProject
-              title="Snapfolia Go"
-              description="A live leaf classifier mobile app dedicated to FAITH Colleges, Marian Orchard and Batangas Lake Lands. Derived from Snapfolia https://snapfolia.vercel.app , Snapfolia Go is a mobile app that provides real-time results simply by scanning a leaf with the device's camera. The app aims to offer a better user experience, delivering live results and object tracking."
-              techStack={snapfoliaGoTechStack}
-              mediaItems={snapfoliaGoMedia}
-            />
-          </div>
-
-          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* 2. Synergreens */}
-          <div id="synergreens">
-            <WebProject
-              title="Synergreens by Deo Abutal"
-              description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration for location display with directions, form validation, and layouts optimized for different devices. Synergreens by Deo Abutal is designed to provide a clear and accessible online presence for the brand while supporting distributor operations and customer interactions."
-              techStack={SynergreensTechStack}
-              mediaItems={SynergreensMedia}
-              siteUrl="https://synergreens.ckdigitals.com"
-            />
-          </div>
-
-          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* 3. Sandy Cafe POS */}
-          <div id="sandy-cafe-pos">
-            <WebProject
-              title="Sandy Cafe POS"
-              description="Sandy Cafe POS is a point-of-sale and inventory system built for café and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface. The system supports cashier workflows including order entry, payment processing, and receipt generation, while also providing an admin dashboard for monitoring daily sales, managing menu items, and viewing transaction history."
-              techStack={sandyCafeTechStack}
-              mediaItems={sandyCafeMedia}
-              siteUrl="https://sandy-cafe-pos.vercel.app"
-              label="prototype"
-            />
-          </div>
-
-          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* 4. Sandy Automotive */}
-          <div id="sandy-automotive">
-            <WebProject
-              title="Sandy Automotive Inventory"
-              description="Sandy Automotive Inventory is an inventory management system prototype designed for an automotive parts business. It enables tracking of spare parts stock levels, supplier information, and orders management. The system includes low-stock alerts, item categorization, and a dashboard for monitoring inventory health, helping the business reduce manual record-keeping and minimize stock discrepancies."
-              techStack={sandyAutomotiveTechStack}
-              mediaItems={sandyAutomotiveMedia}
-              siteUrl="https://sandy-inventory.vercel.app"
-              label="prototype"
-            />
-          </div>
-
-          <div className="my-12 sm:my-16 lg:my-20 flex items-center justify-center">
-            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
-          </div>
-
-          {/* 5. BraveBoard */}
-          <div id="braveboard">
-            <WebProject
-              title="BraveBoard"
-              description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space.
-
-            More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums."
-              techStack={braveboardTechStack}
-              mediaItems={braveboardMedia}
-              siteUrl="https://braveboard.vercel.app"
-              accessNote="Only FirstAsia accounts will be able to sign in."
-            />
-          </div>
         </div>
+
+        <ProjectShowcase
+          id="snapfolia-go"
+          title="Snapfolia Go"
+          description="A live leaf classifier mobile app dedicated to FAITH Colleges, Marian Orchard and Batangas Lake Lands. Derived from Snapfolia https://snapfolia.vercel.app , Snapfolia Go is a mobile app that provides real-time results simply by scanning a leaf with the device's camera."
+          techStack={snapfoliaGoTechStack}
+          mediaItems={snapfoliaGoMedia}
+          isMobile
+          accent="indigo"
+        />
+
+        <ProjectShowcase
+          id="synergreens"
+          title="Synergreens by Deo Abutal"
+          description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration, and responsive layouts."
+          techStack={synergreensTechStack}
+          mediaItems={synergreensMedia}
+          siteUrl="https://synergreens.ckdigitals.com"
+          accent="amber"
+        />
+
+        <ProjectShowcase
+          id="sandy-cafe-pos"
+          title="Sandy Cafe POS"
+          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
+          techStack={sandyCafeTechStack}
+          mediaItems={sandyCafeMedia}
+          siteUrl="https://sandy-cafe-pos.vercel.app"
+          label="prototype"
+          accent="rose"
+        />
+
+        <ProjectShowcase
+          id="sandy-automotive"
+          title="Sandy Automotive Inventory"
+          description="Sandy Automotive Inventory is an inventory management system prototype designed for an automotive parts business. It enables tracking of spare parts stock levels, supplier information, and orders management."
+          techStack={sandyAutomotiveTechStack}
+          mediaItems={sandyAutomotiveMedia}
+          siteUrl="https://sandy-inventory.vercel.app"
+          label="prototype"
+          accent="indigo"
+        />
+
+        <ProjectShowcase
+          id="braveboard"
+          title="BraveBoard"
+          description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space. More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events."
+          techStack={braveboardTechStack}
+          mediaItems={braveboardMedia}
+          siteUrl="https://braveboard.vercel.app"
+          accessNote="Only FirstAsia accounts will be able to sign in."
+          accent="amber"
+        />
       </section>
 
-      {/* Experience Section */}
-      <ExperienceSection experiences={experiences} />
+      {/* experience */}
+      <ExperienceTimeline experiences={experiences} />
 
-      {/* AI ChatBot - Floating Widget with AI Router */}
+      {/* chatbot */}
       <ChatBot onOpenChange={setIsChatOpen} />
-    </div>
+    </>
   );
 }

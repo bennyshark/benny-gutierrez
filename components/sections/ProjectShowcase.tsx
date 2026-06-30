@@ -98,10 +98,10 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
             </div>
           )}
 
-          <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Previous">
+          <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Previous">
             <ChevronLeft className="size-4" />
           </button>
-          <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Next">
+          <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Next">
             <ChevronRight className="size-4" />
           </button>
 
@@ -122,7 +122,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
               className={`flex-shrink-0 relative rounded-md sm:rounded-lg overflow-hidden border-2 transition-all bg-zinc-900 ${
                 isMobile ? "w-10 h-14 sm:w-12 sm:h-16" : "w-14 h-10 sm:w-20 sm:h-12"
               } ${
-                currentIndex === index ? "border-primary ring-1 ring-primary/30 scale-105" : "border-zinc-700/50 opacity-60 hover:opacity-100"
+                currentIndex === index ? "border-primary ring-1 ring-primary/30 scale-105" : "border-zinc-700/50 opacity-60 active:opacity-100 hover:opacity-100"
               }`}
             >
               {item.type === "video" ? (
@@ -144,17 +144,17 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
       {/* fullscreen */}
       {isFullscreen && (
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setIsFullscreen(false)}>
-          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
+          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 active:bg-black/70 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
             <X className="size-5 sm:size-6" />
           </button>
 
           {currentIndex > 0 && (
-            <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10">
+            <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10">
               <ChevronLeft className="size-6" />
             </button>
           )}
           {currentIndex < mediaItems.length - 1 && (
-            <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10">
+            <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10">
               <ChevronRight className="size-6" />
             </button>
           )}
@@ -202,13 +202,13 @@ export default function ProjectShowcase({
                 href={siteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-text-secondary hover:text-primary transition-colors group"
+                className="inline-flex items-center gap-2 text-text-secondary active:text-primary hover:text-primary transition-colors group"
               >
-                <Globe className="size-4 group-hover:rotate-12 transition-transform" />
+                <Globe className="size-4 active:rotate-12 group-hover:rotate-12 transition-transform" />
                 <span className="text-sm sm:text-base underline decoration-zinc-600 group-hover:decoration-primary/50 break-all">
                   {siteUrl}
                 </span>
-                <ExternalLink className="size-3 opacity-60 group-hover:opacity-100 transition-all" />
+                <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover:opacity-100 transition-all" />
               </a>
 
               {accessNote && (
@@ -246,7 +246,7 @@ export default function ProjectShowcase({
                 <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary mb-2 sm:mb-3">
                   technologies
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
                   {techStack.map((tech, i) => (
                     <TechTile key={i} label={tech} />
                   ))}

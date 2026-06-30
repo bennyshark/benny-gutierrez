@@ -26,7 +26,7 @@ interface ExperienceSectionProps {
 
 function TechBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-orange-50 text-orange-700 rounded-full text-xs sm:text-sm font-medium border border-orange-200">
+    <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-orange-50 text-orange-700 rounded-full text-xs sm:text-sm font-medium border border-orange-200 active:bg-orange-100 active:border-orange-300 transition-colors">
       {children}
     </span>
   );
@@ -153,14 +153,14 @@ function ImageCarousel({
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
                 aria-label="Previous"
               >
                 <ChevronLeft className="size-4 sm:size-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2.5 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-lg transition-all backdrop-blur-md z-30"
                 aria-label="Next"
               >
                 <ChevronRight className="size-4 sm:size-5" />
@@ -179,7 +179,7 @@ function ImageCarousel({
                   className={`flex-shrink-0 relative w-16 h-10 sm:w-20 sm:h-14 rounded-md sm:rounded-lg overflow-hidden border-2 transition-all ${
                     currentIndex === index
                       ? "border-orange-600 ring-2 ring-orange-200 scale-105"
-                      : "border-slate-200 hover:border-slate-300 opacity-60 hover:opacity-100"
+                      : "border-slate-200 active:border-slate-300 active:opacity-100 hover:border-slate-300 opacity-60 hover:opacity-100"
                   }`}
                 >
                   <Image
@@ -213,7 +213,7 @@ function ImageCarousel({
         >
           <button
             onClick={closeFullscreen}
-            className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+            className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
             aria-label="Close fullscreen"
           >
             <X className="size-6 sm:size-8" />
@@ -225,7 +225,7 @@ function ImageCarousel({
                 e.stopPropagation();
                 prevSlide();
               }}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Previous"
             >
               <ChevronLeft className="size-6 sm:size-8" />
@@ -238,7 +238,7 @@ function ImageCarousel({
                 e.stopPropagation();
                 nextSlide();
               }}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full transition-all backdrop-blur-sm z-10"
               aria-label="Next"
             >
               <ChevronRight className="size-6 sm:size-8" />
@@ -266,7 +266,7 @@ function ImageCarousel({
 
 export function ExperienceCard({ experience }: { experience: ExperienceItem }) {
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden hover:shadow-xl transition-shadow">
+    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-slate-200/50 overflow-hidden active:shadow-xl hover:shadow-xl transition-shadow">
       <div className="p-4 sm:p-6 md:p-8 lg:p-10">
         <div className="mb-4 sm:mb-6">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
@@ -291,13 +291,13 @@ export function ExperienceCard({ experience }: { experience: ExperienceItem }) {
                 href={experience.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 sm:gap-1.5 text-slate-600 hover:text-orange-600 transition-colors group w-fit"
+                className="inline-flex items-center gap-1 sm:gap-1.5 text-slate-600 active:text-orange-600 hover:text-orange-600 transition-colors group w-fit"
               >
-                <Globe className="size-3.5 sm:size-4 group-hover:rotate-12 transition-transform flex-shrink-0" />
+                <Globe className="size-3.5 sm:size-4 active:rotate-12 group-hover:rotate-12 transition-transform flex-shrink-0" />
                 <span className="font-medium text-xs sm:text-sm md:text-base underline decoration-slate-300 group-hover:decoration-orange-600 transition-colors break-all">
                   {experience.projectUrl}
                 </span>
-                <ExternalLink className="size-3 sm:size-4 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
+                <ExternalLink className="size-3 sm:size-4 opacity-60 active:opacity-100 active:translate-x-0.5 active:-translate-y-0.5 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
               </a>
             </div>
           )}
@@ -342,7 +342,7 @@ export function ExperienceCard({ experience }: { experience: ExperienceItem }) {
             <h4 className="text-base sm:text-lg font-semibold text-slate-900 mb-2 sm:mb-3">
               Technologies Used
             </h4>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
               {experience.technologies.map((tech, index) => (
                 <TechBadge key={index}>{tech}</TechBadge>
               ))}

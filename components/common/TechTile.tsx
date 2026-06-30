@@ -21,12 +21,12 @@ export default function TechTile({ label, color }: { label: string; color?: stri
   const tileColor = color || colorMap[label.toLowerCase().replace(/\s+/g, "")] || colorMap.default;
 
   return (
-    <div className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised/50 border border-border/50 hover:border-primary/30 hover:bg-surface-raised transition-all">
+    <div className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised/50 border border-border/50 active:border-primary/50 active:bg-surface-raised hover:border-primary/30 hover:bg-surface-raised transition-all">
       <div
         className="w-2.5 h-2.5 rounded-full flex-shrink-0"
         style={{ backgroundColor: tileColor }}
       />
-      <span className="text-xs sm:text-sm text-text-secondary group-hover:text-text-primary transition-colors font-medium">
+      <span className="text-xs sm:text-sm text-text-secondary active:text-text-primary group-hover:text-text-primary transition-colors font-medium">
         {label}
       </span>
     </div>
@@ -40,7 +40,7 @@ export function MonogramTile({ label }: { label: string }) {
   return (
     <div className="group relative flex flex-col items-center gap-1.5">
       <div
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-sm sm:text-base font-bold transition-all duration-300 hover:scale-110 hover:-translate-y-1 border border-border/30"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-sm sm:text-base font-bold transition-all duration-300 active:scale-110 active:-translate-y-1 hover:scale-110 hover:-translate-y-1 border border-border/30"
         style={{
           backgroundColor: `${tileColor}15`,
           color: tileColor,
@@ -49,7 +49,7 @@ export function MonogramTile({ label }: { label: string }) {
       >
         {initial}
       </div>
-      <span className="text-[10px] sm:text-xs text-text-muted text-center leading-tight max-w-14 opacity-0 group-hover:opacity-100 transition-opacity">
+      <span className="text-[10px] sm:text-xs text-text-muted text-center leading-tight max-w-14 opacity-0 sm:group-hover:opacity-100 transition-opacity">
         {label}
       </span>
     </div>
@@ -62,10 +62,10 @@ export function TechDot({ label }: { label: string }) {
   return (
     <div className="group relative inline-flex">
       <div
-        className="w-2.5 h-2.5 rounded-full cursor-help transition-transform hover:scale-150"
+        className="w-2.5 h-2.5 rounded-full cursor-help transition-transform active:scale-150 hover:scale-150"
         style={{ backgroundColor: tileColor }}
       />
-      <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-text-muted whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-text-muted whitespace-nowrap opacity-0 sm:group-hover:opacity-100 transition-opacity pointer-events-none">
         {label}
       </span>
     </div>

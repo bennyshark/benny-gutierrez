@@ -89,10 +89,10 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
 
         {totalSlides > 1 && (
           <>
-            <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30">
+            <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30">
               <ChevronLeft className="size-4" />
             </button>
-            <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30">
+            <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30">
               <ChevronRight className="size-4" />
             </button>
           </>
@@ -108,11 +108,11 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
       {/* fullscreen */}
       {isFullscreen && (
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setIsFullscreen(false)}>
-          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
+          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 active:bg-black/70 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
             <X className="size-5 sm:size-6" />
           </button>
-          {currentIndex > 0 && <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10"><ChevronLeft className="size-6" /></button>}
-          {currentIndex < images.length - 1 && <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10"><ChevronRight className="size-6" /></button>}
+          {currentIndex > 0 && <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10"><ChevronLeft className="size-6" /></button>}
+          {currentIndex < images.length - 1 && <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10"><ChevronRight className="size-6" /></button>}
           <div className="relative w-full h-full flex items-center justify-center">
             <Image key={currentIndex} src={images[currentIndex]} alt={`Fullscreen ${currentIndex}`} fill className="object-contain" onClick={(e) => e.stopPropagation()} />
           </div>
@@ -135,7 +135,7 @@ function TimelineEntry({ experience }: { experience: ExperienceItem; index: numb
 
       {/* content */}
       <div className="flex-1 min-w-0">
-        <div className="rounded-xl sm:rounded-2xl border border-zinc-800/50 bg-zinc-900/50 backdrop-blur-sm p-4 sm:p-6 lg:p-8 hover:border-zinc-700/50 transition-all">
+        <div className="rounded-xl sm:rounded-2xl border border-zinc-800/50 bg-zinc-900/50 backdrop-blur-sm p-4 sm:p-6 lg:p-8 active:border-zinc-700/50 hover:border-zinc-700/50 transition-all">
           {/* header */}
           <div className="mb-4 sm:mb-6">
             <p className="text-xs font-mono tracking-widest text-primary mb-1">{experience.duration}</p>
@@ -153,10 +153,10 @@ function TimelineEntry({ experience }: { experience: ExperienceItem; index: numb
 
             {experience.projectUrl && (
               <div className="mt-3">
-                <a href={experience.projectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors group text-sm">
-                  <Globe className="size-3.5 group-hover:rotate-12 transition-transform" />
+                <a href={experience.projectUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-text-secondary active:text-primary hover:text-primary transition-colors group text-sm">
+                  <Globe className="size-3.5 active:rotate-12 group-hover:rotate-12 transition-transform" />
                   <span className="underline decoration-zinc-600 group-hover:decoration-primary/50">{experience.projectUrl}</span>
-                  <ExternalLink className="size-3 opacity-60 group-hover:opacity-100" />
+                  <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover:opacity-100" />
                 </a>
               </div>
             )}
@@ -191,7 +191,7 @@ function TimelineEntry({ experience }: { experience: ExperienceItem; index: numb
           {experience.technologies.length > 0 && (
             <div>
               <p className="text-xs font-mono tracking-widest text-primary mb-2 sm:mb-3 uppercase">technologies</p>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
                 {experience.technologies.map((tech, i) => (
                   <TechTile key={i} label={tech} />
                 ))}

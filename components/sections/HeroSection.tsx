@@ -30,7 +30,9 @@ export default function HeroSection({ onScrollToSkills }: HeroSectionProps) {
               </span>
               <span className="block text-[clamp(2.8rem,10vw,7rem)] text-text-primary relative">
                 benedict
-                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/20 rounded-full hidden sm:block" />
+                <span className="absolute -bottom-1 left-0 w-full h-2 bg-primary/20 rounded-full hidden sm:block overflow-hidden">
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent w-[30%] animate-reflect-line rounded-full" />
+                </span>
               </span>
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-text-secondary font-display font-light mt-4 sm:mt-6">

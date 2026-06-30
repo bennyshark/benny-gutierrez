@@ -108,15 +108,15 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
       {/* fullscreen */}
       {isFullscreen && (
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setIsFullscreen(false)}>
-          <button onClick={() => setIsFullscreen(false)} className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all z-10">
-            <X className="size-6" />
+          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
+            <X className="size-5 sm:size-6" />
           </button>
           {currentIndex > 0 && <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10"><ChevronLeft className="size-6" /></button>}
           {currentIndex < images.length - 1 && <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full z-10"><ChevronRight className="size-6" /></button>}
           <div className="relative w-full h-full flex items-center justify-center">
             <Image key={currentIndex} src={images[currentIndex]} alt={`Fullscreen ${currentIndex}`} fill className="object-contain" onClick={(e) => e.stopPropagation()} />
           </div>
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white">{currentIndex + 1} / {images.length}</p>
+          <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-sm sm:text-base bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">{currentIndex + 1} / {images.length}</p>
         </div>
       )}
     </>

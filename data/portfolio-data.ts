@@ -196,7 +196,7 @@ export const portfolioData = {
         "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles"
       ],
       technologies: ["React", "Next.js", "Paymongo", "Supabase", "Claude Code", "Lovable", "Opencode", "Gemini", "Lalamove API", "Sanity CMS"],
-      projectUrl: null
+      projectUrl: "https://www.regen-digital.com/"
     },
     {
       company: "Nidec Drives",

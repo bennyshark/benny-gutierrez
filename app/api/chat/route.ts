@@ -78,7 +78,7 @@ Return ONLY the JSON array:`;
     try {
       neededCategories = JSON.parse(routerText.trim());
       console.log("📋 Categories needed:", neededCategories);
-    } catch (e) {
+    } catch {
       console.error("❌ Failed to parse router:", routerText);
       // Fallback to safe defaults
       neededCategories = ["personal", "skills", "projects"];
@@ -88,7 +88,8 @@ Return ONLY the JSON array:`;
     // STEP 2: Load ONLY the data categories identified by router
     // ═══════════════════════════════════════════════════════════
 
-    let relevantData: any = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const relevantData: Record<string, any> = {};
 
     neededCategories.forEach((category: string) => {
       switch (category) {
@@ -170,13 +171,9 @@ Guidelines:
         },
       ],
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Chat API Error:", error);
-    return NextResponse.json(
-      {
-        error: error.message || "Failed to process chat request",
-      },
-      { status: 500 }
-    );
+    const message = error instanceof Error ? error.message : "Failed to process chat request";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

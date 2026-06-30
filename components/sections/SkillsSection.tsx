@@ -2,55 +2,89 @@
 
 import Image from "next/image";
 import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiTypescript,
-  SiNodedotjs,
-  SiDrizzle, 
-  SiSupabase,
-  SiMongodb,
-  SiPostgresql,
-  SiGraphql,
-  SiPython,
-  SiDart,
-  SiFlutter,
-  SiPytorch,
-  SiTensorflow,
-  SiAnthropic,
-  SiGoogle,
+  SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss,
+  SiTypescript, SiNodedotjs, SiDrizzle, SiSupabase, SiMongodb,
+  SiPostgresql, SiGraphql, SiPython, SiDart, SiFlutter,
+  SiPytorch, SiTensorflow, SiAnthropic, SiGoogle,
 } from "react-icons/si";
 import { BiData } from "react-icons/bi";
 import { TbBrain } from "react-icons/tb";
 
-type SkillItem =
-  | { type?: "icon"; icon: any; label: string; color: string; imageSrc?: never }
-  | { type: "image"; imageSrc: string; label: string; color: string; icon?: never };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type SkillItem = { icon?: any; label: string; color: string; imageSrc?: string; type?: string };
 
-// Skill Item Component
-function SkillCard({ skill }: { skill: SkillItem }) {
+const skillCategories = [
+  {
+    name: "frontend",
+    color: "#61DAFB",
+    bgClass: "from-sky-500/5 to-blue-600/5",
+    borderClass: "border-sky-500/20",
+    skills: [
+      { icon: SiHtml5, label: "HTML", color: "#E34F26" },
+      { icon: SiCss3, label: "CSS", color: "#1572B6" },
+      { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
+      { icon: SiReact, label: "React", color: "#61DAFB" },
+      { icon: SiNextdotjs, label: "Next.js", color: "#ffffff" },
+      { icon: SiTailwindcss, label: "Tailwind CSS", color: "#06B6D4" },
+      { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
+      { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
+    ],
+  },
+  {
+    name: "backend & data",
+    color: "#3ECF8E",
+    bgClass: "from-emerald-500/5 to-teal-600/5",
+    borderClass: "border-emerald-500/20",
+    skills: [
+      { icon: SiSupabase, label: "Supabase", color: "#3ECF8E" },
+      { type: "image" as const, imageSrc: "/firebase.png", label: "Firebase", color: "#FFCA28" },
+      { icon: SiMongodb, label: "MongoDB", color: "#47A248" },
+      { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
+      { icon: SiGraphql, label: "GraphQL", color: "#E10098" },
+      { icon: BiData, label: "NoSQL", color: "#FF6C37" },
+      { icon: SiDrizzle, label: "Drizzle", color: "#C5F74F" },
+    ],
+  },
+  {
+    name: "languages & mobile",
+    color: "#0175C2",
+    bgClass: "from-indigo-500/5 to-violet-600/5",
+    borderClass: "border-indigo-500/20",
+    skills: [
+      { icon: SiPython, label: "Python", color: "#3776AB" },
+      { icon: SiDart, label: "Dart", color: "#0175C2" },
+      { icon: SiFlutter, label: "Flutter", color: "#02569B" },
+    ],
+  },
+  {
+    name: "ai & apis",
+    color: "#EE4C2C",
+    bgClass: "from-rose-500/5 to-orange-600/5",
+    borderClass: "border-rose-500/20",
+    skills: [
+      { icon: SiPytorch, label: "PyTorch", color: "#EE4C2C" },
+      { icon: SiTensorflow, label: "TensorFlow Lite", color: "#FF6F00" },
+      { icon: TbBrain, label: "LLM", color: "#7C3AED" },
+      { icon: SiAnthropic, label: "Anthropic API", color: "#ffffff" },
+      { icon: SiGoogle, label: "Google API", color: "#4285F4" },
+    ],
+  },
+];
+
+function SkillIcon({ skill }: { skill: SkillItem }) {
   return (
-    <div className="group flex flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl border-2 border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all hover:scale-105">
+    <div className="group relative flex items-center gap-2.5 px-3.5 py-2 rounded-lg bg-zinc-800/40 border border-zinc-700/30 hover:border-zinc-600/50 transition-all hover:bg-zinc-800/60">
       <div
-        className="p-3 sm:p-4 rounded-lg sm:rounded-xl transition-all group-hover:scale-110"
+        className="p-1.5 rounded-md transition-transform group-hover:scale-110"
         style={{ backgroundColor: `${skill.color}15` }}
       >
         {skill.type === "image" ? (
-          <Image
-            src={skill.imageSrc}
-            alt={skill.label}
-            width={48}
-            height={48}
-            className="size-8 sm:size-10 md:size-12 object-contain"
-          />
+          <Image src={skill.imageSrc!} alt={skill.label} width={16} height={16} className="size-4 object-contain" />
         ) : (
-          <skill.icon className="size-8 sm:size-10 md:size-12" style={{ color: skill.color }} />
+          <skill.icon className="size-4" style={{ color: skill.color }} />
         )}
       </div>
-      <span className="text-xs sm:text-sm md:text-base text-slate-700 font-semibold text-center">
+      <span className="text-xs sm:text-sm text-text-secondary group-hover:text-text-primary transition-colors font-medium">
         {skill.label}
       </span>
     </div>
@@ -58,54 +92,40 @@ function SkillCard({ skill }: { skill: SkillItem }) {
 }
 
 export default function SkillsSection() {
-  const skills: SkillItem[] = [
-    // Frontend
-    { icon: SiHtml5, label: "HTML", color: "#E34F26" },
-    { icon: SiCss3, label: "CSS", color: "#1572B6" },
-    { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
-    { icon: SiReact, label: "React", color: "#61DAFB" },
-    { icon: SiNextdotjs, label: "Next.js", color: "#000000" },
-    { icon: SiTailwindcss, label: "Tailwind CSS", color: "#06B6D4" },
-    { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
-    { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
-    { icon: SiDrizzle, label: "Drizzle", color: "#C5F74F" }, 
-    // Databases & Backend Services
-    { icon: SiSupabase, label: "Supabase", color: "#3ECF8E" },
-    { type: "image", imageSrc: "/firebase.png", label: "Firebase", color: "#FFCA28" },
-    { icon: SiMongodb, label: "MongoDB", color: "#47A248" },
-    { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
-    { icon: SiGraphql, label: "GraphQL", color: "#E10098" },
-    { icon: BiData, label: "NoSQL", color: "#FF6C37" },
-    // Languages & Mobile
-    { icon: SiPython, label: "Python", color: "#3776AB" },
-    { icon: SiDart, label: "Dart", color: "#0175C2" },
-    { icon: SiFlutter, label: "Flutter", color: "#02569B" },
-    // AI & APIs
-    { icon: SiPytorch, label: "PyTorch", color: "#EE4C2C" },
-    { icon: SiTensorflow, label: "TensorFlow Lite", color: "#FF6F00" },
-    { icon: TbBrain, label: "LLM", color: "#7C3AED" },
-    { icon: SiAnthropic, label: "Anthropic API", color: "#191919" },
-    { icon: SiGoogle, label: "Google API", color: "#4285F4" },
-  ];
-
   return (
-    <section id="skills" className="w-full bg-gradient-to-br from-slate-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="w-full py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
-            Skills
+        <div className="text-center mb-10 sm:mb-14">
+          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase mb-2">
+            capabilities
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary">
+            skills & tools
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-            I have experience with these technologies and tools, building modern web applications,
-            mobile apps, and AI-powered solutions.
+          <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto mt-3 sm:mt-4">
+            technologies i use to build modern web applications, mobile apps, and ai-powered solutions.
           </p>
         </div>
 
-        {/* Skills Grid - Responsive columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-          {skills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} />
+        {/* bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {skillCategories.map((cat) => (
+            <div
+              key={cat.name}
+              className={`rounded-xl sm:rounded-2xl border ${cat.borderClass} bg-gradient-to-br ${cat.bgClass} p-4 sm:p-5 lg:p-6 transition-all hover:shadow-lg hover:shadow-${cat.color}/5`}
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: cat.color }} />
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest" style={{ color: cat.color }}>
+                  {cat.name}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, i) => (
+                  <SkillIcon key={i} skill={skill} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

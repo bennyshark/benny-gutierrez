@@ -225,7 +225,7 @@ export default function ProjectShowcase({
           {/* layout: desktop 2-col, mobile stacked */}
           <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
             {/* media */}
-            <div className={`${isMobile ? "lg:w-2/5 flex justify-center" : "lg:w-3/5"}`}>
+            <div className={`${isMobile ? "lg:w-[30%] flex justify-start" : "lg:w-3/5"}`}>
               <MediaCarousel mediaItems={mediaItems} isMobile={isMobile} />
             </div>
 

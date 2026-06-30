@@ -73,18 +73,18 @@ const skillCategories = [
 
 function SkillIcon({ skill }: { skill: SkillItem }) {
   return (
-    <div className="group relative flex items-center gap-2.5 px-3.5 py-2 rounded-lg bg-zinc-800/40 border border-zinc-700/30 hover:border-zinc-600/50 transition-all hover:bg-zinc-800/60">
+    <div className="group relative flex items-center gap-2 px-2.5 py-1.5 sm:gap-2.5 sm:px-3.5 sm:py-2 rounded-lg bg-zinc-800/40 border border-zinc-700/30 active:border-zinc-500/60 active:bg-zinc-800/80 hover:border-zinc-600/50 hover:bg-zinc-800/60 transition-all">
       <div
-        className="p-1.5 rounded-md transition-transform group-hover:scale-110"
+        className="p-1 rounded-md sm:p-1.5 active:scale-110 transition-transform"
         style={{ backgroundColor: `${skill.color}15` }}
       >
         {skill.type === "image" ? (
-          <Image src={skill.imageSrc!} alt={skill.label} width={16} height={16} className="size-4 object-contain" />
+          <Image src={skill.imageSrc!} alt={skill.label} width={16} height={16} className="size-3.5 sm:size-4 object-contain" />
         ) : (
-          <skill.icon className="size-4" style={{ color: skill.color }} />
+          <skill.icon className="size-3.5 sm:size-4" style={{ color: skill.color }} />
         )}
       </div>
-      <span className="text-xs sm:text-sm text-text-secondary group-hover:text-text-primary transition-colors font-medium">
+      <span className="text-[11px] sm:text-sm text-text-secondary active:text-text-primary group-hover:text-text-primary transition-colors font-medium leading-tight sm:leading-normal">
         {skill.label}
       </span>
     </div>
@@ -120,7 +120,7 @@ export default function SkillsSection() {
                   {cat.name}
                 </span>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
                 {cat.skills.map((skill, i) => (
                   <SkillIcon key={i} skill={skill} />
                 ))}

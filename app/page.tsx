@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectShowcase from "@/components/sections/ProjectShowcase";
 import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
+import WebDesignShowcase from "@/components/sections/WebDesignShowcase";
 import SectionNavigator from "@/components/common/SectionNavigator";
 import ChatBot from "@/components/Chatbot";
 
@@ -172,6 +173,42 @@ export default function Home() {
     },
   ];
 
+  // web design showcase data
+  const webDesignProjects = [
+    {
+      id: 'synergreens',
+      title: 'Synergreens',
+      description: 'Direct sales platform with product catalog and order workflow',
+      images: synergreensMedia.map(m => m.src),
+      siteUrl: 'https://synergreens.ckdigitals.com',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'sandy-cafe-pos',
+      title: 'Sandy Cafe POS',
+      description: 'Point-of-sale and inventory system for cafe businesses',
+      images: sandyCafeMedia.map(m => m.src),
+      siteUrl: 'https://sandy-cafe-pos.vercel.app',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'sandy-automotive',
+      title: 'Sandy Automotive',
+      description: 'Inventory management system for automotive parts',
+      images: sandyAutomotiveMedia.map(m => m.src),
+      siteUrl: 'https://sandy-inventory.vercel.app',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'braveboard',
+      title: 'BraveBoard',
+      description: 'School-exclusive social media platform',
+      images: braveboardMedia.map(m => m.src),
+      siteUrl: 'https://braveboard.vercel.app',
+      accent: 'amber' as const,
+    },
+  ];
+
   // section navigation
   const sectionNavigation = [
     {
@@ -212,7 +249,12 @@ export default function Home() {
       {/* hero */}
       <HeroSection onScrollToSkills={scrollToSkills} />
 
-      {/* skills */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+
+      <WebDesignShowcase items={webDesignProjects} />
+
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+
       <div id="projects-start" />
       <SkillsSection />
 

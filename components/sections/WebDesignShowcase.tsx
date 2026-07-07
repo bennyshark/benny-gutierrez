@@ -86,7 +86,8 @@ function MarqueeRow({
 
 export default function WebDesignShowcase({
   items,
-}: WebDesignShowcaseProps) {
+  id,
+}: WebDesignShowcaseProps & { id?: string }) {
   const allCards: ImageCard[] = items.flatMap((project) =>
     project.images.map((src) => ({ src, project }))
   );
@@ -99,19 +100,19 @@ export default function WebDesignShowcase({
   const optimizedRows = rows.map((r) => r.slice(0, 8));
 
   return (
-    <section className="relative w-full py-20 sm:py-24">
+    <section id={id} className="relative w-full py-20 sm:py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-bg-base via-zinc-900/20 to-bg-base pointer-events-none" />
 
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
           <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase text-center">
-            web design
+            featured work
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center mt-2">
-            live projects
+            live sites
           </h2>
           <p className="text-text-muted text-sm sm:text-base text-center mt-3 max-w-xl mx-auto">
-            Websites designed and deployed for real clients and businesses
+            Live websites designed and deployed with modern tools
           </p>
         </div>
 

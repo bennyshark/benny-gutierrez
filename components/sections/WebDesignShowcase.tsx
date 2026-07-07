@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 export interface WebDesignItem {
@@ -23,37 +21,32 @@ interface ImageCard {
 }
 
 function ImageCard({ card }: { card: ImageCard }) {
-  const accentBorders: Record<string, string> = {
-    indigo: "border-primary/20 hover:border-primary/40",
-    amber: "border-secondary/20 hover:border-secondary/40",
-    rose: "border-accent/20 hover:border-accent/40",
-  };
-
+  const imgSrc = card.src.replace('f_auto,q_auto', 'w_600,f_auto,q_auto');
   return (
     <a
       href={card.project.siteUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group/card relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-44 sm:h-52 lg:h-60 rounded-xl overflow-hidden border ${accentBorders[card.project.accent]} transition-all duration-500 hover:scale-[1.08] hover:shadow-2xl hover:z-10`}
+      className="group/card relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-44 sm:h-52 lg:h-60"
     >
-      <Image
-        src={card.src}
-        alt={`${card.project.title} screenshot`}
-        fill
-        sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
-        className="object-cover transition-all duration-700 group-hover/card:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-all duration-400">
-        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-          <p className="text-white font-display font-semibold text-sm sm:text-base leading-tight">
-            {card.project.title}
-          </p>
-          <p className="text-zinc-400 text-xs sm:text-sm mt-1 line-clamp-1">
-            {card.project.description}
-          </p>
-          <span className="inline-flex items-center gap-1 text-xs mt-2 text-primary opacity-0 -translate-x-3 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-300 delay-75">
-            visit site <ExternalLink className="size-3" />
-          </span>
+      <div className="relative w-full h-full rounded-xl overflow-hidden border border-zinc-700/30 hover:border-zinc-500/60 transition-transform duration-500 hover:scale-[1.06] hover:z-10">
+        <img
+          src={imgSrc}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+            <p className="text-white font-display font-semibold text-sm sm:text-base leading-tight">
+              {card.project.title}
+            </p>
+            <span className="inline-flex items-center gap-1 text-xs mt-2 text-primary opacity-0 -translate-x-3 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-300 delay-75">
+              visit site <ExternalLink className="size-3" />
+            </span>
+          </div>
         </div>
       </div>
     </a>
@@ -69,25 +62,12 @@ function MarqueeRow({
   duration: number;
   cards: ImageCard[];
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      className="relative overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        maskImage:
-          "linear-gradient(90deg,transparent 0%,#000 5%,#000 95%,transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(90deg,transparent 0%,#000 5%,#000 95%,transparent 100%)",
-      }}
-    >
+    <div className="group/row relative overflow-hidden">
       <div
-        className="flex gap-4 sm:gap-6 w-max py-2"
+        className="flex gap-4 sm:gap-6 w-max py-2 will-change-transform"
         style={{
           animation: `marquee-${direction} ${duration}s linear infinite`,
-          animationPlayState: isHovered ? "paused" : "running",
         }}
       >
         {cards.map((card, i) => (
@@ -97,6 +77,9 @@ function MarqueeRow({
           <ImageCard key={`b-${i}`} card={card} />
         ))}
       </div>
+      <div className="absolute inset-y-0 left-0 w-20 sm:w-28 bg-gradient-to-r from-bg-base to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 right-0 w-20 sm:w-28 bg-gradient-to-l from-bg-base to-transparent pointer-events-none z-10" />
+      <style>{`.group\\/row:hover>div:first-child{animation-play-state:paused!important}`}</style>
     </div>
   );
 }
@@ -113,8 +96,10 @@ export default function WebDesignShowcase({
     rows[i % 3].push(card);
   });
 
+  const optimizedRows = rows.map((r) => r.slice(0, 8));
+
   return (
-    <section className="relative w-full py-20 sm:py-24 overflow-hidden">
+    <section className="relative w-full py-20 sm:py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-bg-base via-zinc-900/20 to-bg-base pointer-events-none" />
 
       <div className="relative z-10">
@@ -131,11 +116,11 @@ export default function WebDesignShowcase({
         </div>
 
         <div className="space-y-4 sm:space-y-6">
-          {rows.map((rowCards, i) => (
+          {optimizedRows.map((rowCards, i) => (
             <MarqueeRow
               key={i}
               direction={i % 2 === 0 ? "left" : "right"}
-              duration={36 + i * 4}
+              duration={28 + i * 3}
               cards={rowCards}
             />
           ))}

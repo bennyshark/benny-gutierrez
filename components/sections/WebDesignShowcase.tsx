@@ -34,13 +34,13 @@ function ImageCard({ card }: { card: ImageCard }) {
       href={card.project.siteUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group/card relative flex-shrink-0 w-56 sm:w-64 lg:w-72 h-36 sm:h-40 lg:h-48 rounded-xl overflow-hidden border ${accentBorders[card.project.accent]} transition-all duration-500 hover:scale-[1.08] hover:shadow-2xl hover:z-10`}
+      className={`group/card relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-44 sm:h-52 lg:h-60 rounded-xl overflow-hidden border ${accentBorders[card.project.accent]} transition-all duration-500 hover:scale-[1.08] hover:shadow-2xl hover:z-10`}
     >
       <Image
         src={card.src}
         alt={`${card.project.title} screenshot`}
         fill
-        sizes="(max-width: 640px) 224px, (max-width: 1024px) 256px, 288px"
+        sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
         className="object-cover transition-all duration-700 group-hover/card:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-all duration-400">
@@ -84,7 +84,7 @@ function MarqueeRow({
       }}
     >
       <div
-        className="flex gap-3 sm:gap-4 w-max py-1"
+        className="flex gap-4 sm:gap-6 w-max py-2"
         style={{
           animation: `marquee-${direction} ${duration}s linear infinite`,
           animationPlayState: isHovered ? "paused" : "running",
@@ -130,7 +130,7 @@ export default function WebDesignShowcase({
           </p>
         </div>
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4 sm:space-y-6">
           {rows.map((rowCards, i) => (
             <MarqueeRow
               key={i}

@@ -16,8 +16,8 @@ const CLD_VID = "https://res.cloudinary.com/dhsgwmuax/video/upload";
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const scrollToSkills = () => {
-    const element = document.getElementById("skills");
+  const scrollToFeatured = () => {
+    const element = document.getElementById("web-design");
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -247,11 +247,11 @@ export default function Home() {
   return (
     <>
       {/* hero */}
-      <HeroSection onScrollToSkills={scrollToSkills} />
+      <HeroSection onScrollToFeatured={scrollToFeatured} />
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
-      <WebDesignShowcase items={webDesignProjects} />
+      <WebDesignShowcase id="web-design" items={webDesignProjects} />
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 

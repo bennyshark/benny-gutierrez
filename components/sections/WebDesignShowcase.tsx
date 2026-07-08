@@ -29,7 +29,7 @@ function ImageCard({ card }: { card: ImageCard }) {
       href={card.project.siteUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/card relative flex-shrink-0 w-[320px] sm:w-[400px] lg:w-[500px] h-[200px] sm:h-[250px] lg:h-[312px]"
+      className="group/card relative flex-shrink-0 w-[260px] sm:w-[320px] lg:w-[400px] h-[160px] sm:h-[200px] lg:h-[250px]"
     >
       <div className="relative w-full h-full rounded-xl overflow-hidden border border-zinc-700/30 hover:border-zinc-500/60 transition-transform duration-500 hover:scale-[1.06] hover:z-10">
         <img
@@ -130,7 +130,7 @@ export default function WebDesignShowcase({
             <MarqueeRow
               key={i}
               direction={i % 2 === 0 ? "left" : "right"}
-              duration={28 + i * 3}
+              duration={50 + i * 5}
               cards={rowCards}
             />
           ))}

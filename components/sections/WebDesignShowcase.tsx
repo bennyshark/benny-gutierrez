@@ -104,7 +104,9 @@ export default function WebDesignShowcase({
     });
   });
 
-  const optimizedRows = rows.map((r) => r.slice(0, 8));
+  const optimizedRows = rows.map((r, i) =>
+    i === 1 ? [...r].reverse() : r
+  );
 
   return (
     <section id={id} className="relative w-full py-20 sm:py-24">

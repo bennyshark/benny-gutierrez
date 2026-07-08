@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 export interface WebDesignItem {
@@ -21,13 +22,14 @@ interface ImageCard {
 }
 
 function ImageCard({ card }: { card: ImageCard }) {
+  const [isPortrait, setIsPortrait] = useState(false);
   const imgSrc = card.src.replace('f_auto,q_auto', 'w_600,f_auto,q_auto');
   return (
     <a
       href={card.project.siteUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/card relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-44 sm:h-52 lg:h-60"
+      className="group/card relative flex-shrink-0 w-[320px] sm:w-[400px] lg:w-[500px] h-[200px] sm:h-[250px] lg:h-[312px]"
     >
       <div className="relative w-full h-full rounded-xl overflow-hidden border border-zinc-700/30 hover:border-zinc-500/60 transition-transform duration-500 hover:scale-[1.06] hover:z-10">
         <img
@@ -36,7 +38,13 @@ function ImageCard({ card }: { card: ImageCard }) {
           loading="lazy"
           decoding="async"
           fetchPriority="low"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+          onLoad={(e) => {
+            const img = e.currentTarget;
+            setIsPortrait(img.naturalHeight > img.naturalWidth);
+          }}
+          className={`w-full h-full transition-transform duration-700 group-hover/card:scale-110 ${
+            isPortrait ? "object-contain" : "object-cover"
+          }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
@@ -88,13 +96,12 @@ export default function WebDesignShowcase({
   items,
   id,
 }: WebDesignShowcaseProps & { id?: string }) {
-  const allCards: ImageCard[] = items.flatMap((project) =>
-    project.images.map((src) => ({ src, project }))
-  );
-
   const rows: ImageCard[][] = [[], [], []];
-  allCards.forEach((card, i) => {
-    rows[i % 3].push(card);
+  items.forEach((project, i) => {
+    const rowIndex = i % 3;
+    project.images.forEach((src) => {
+      rows[rowIndex].push({ src, project });
+    });
   });
 
   const optimizedRows = rows.map((r) => r.slice(0, 8));

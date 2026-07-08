@@ -293,7 +293,6 @@ export default function Home() {
       images: [
         '/images/live-projects/jek-regnskap-as/image18.png',
         '/images/live-projects/jek-regnskap-as/image16.png',
-        '/images/live-projects/jek-regnskap-as/image20.png',
       ],
       siteUrl: 'https://jek-regnskap-as.demo-previews.com/',
       accent: 'amber' as const,
@@ -305,7 +304,6 @@ export default function Home() {
       images: [
         '/images/live-projects/priarbo-as/image53.png',
         '/images/live-projects/priarbo-as/image23.png',
-        '/images/live-projects/priarbo-as/image44.png',
       ],
       siteUrl: 'https://priarbo-as.demo-previews.com/',
       accent: 'rose' as const,
@@ -328,7 +326,6 @@ export default function Home() {
       description: '',
       images: [
         '/images/live-projects/nues/image21.png',
-        '/images/live-projects/nues/image17.png',
         '/images/live-projects/nues/image36.png',
       ],
       siteUrl: 'https://norsk-utvalg-for-eierstyring-og-selskapsledelse.demo-previews.com/',
@@ -363,7 +360,6 @@ export default function Home() {
       images: [
         '/images/live-projects/william-a-morin/image14.png',
         '/images/live-projects/william-a-morin/image26.png',
-        '/images/live-projects/william-a-morin/image52.png',
       ],
       siteUrl: 'https://william-a-morin.demo-previews.com/',
       accent: 'amber' as const,
@@ -409,7 +405,6 @@ export default function Home() {
       images: [
         '/images/live-projects/log-cabin-sagada/image41.png',
         '/images/live-projects/log-cabin-sagada/image51.png',
-        '/images/live-projects/log-cabin-sagada/image46.png',
       ],
       siteUrl: 'https://log-cabin-sagada.demo-previews.com/',
       accent: 'rose' as const,

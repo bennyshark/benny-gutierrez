@@ -42,9 +42,20 @@ function ImageCard({ card }: { card: ImageCard }) {
             const img = e.currentTarget;
             setIsPortrait(img.naturalHeight > img.naturalWidth);
           }}
-          className={`w-full h-full transition-transform duration-700 group-hover/card:scale-110 ${
+          className={`w-full h-full transition-all duration-500 group-hover/card:scale-110 group-hover/card:grayscale-0 group-hover/card:brightness-100 ${
             isPortrait ? "object-contain" : "object-cover"
-          }`}
+          } grayscale-[0.55] brightness-[0.85]`}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none opacity-80 group-hover/card:opacity-0 transition-opacity duration-500"
+          style={{
+            background: `
+              radial-gradient(ellipse 80% 50% at 100% 0%, rgba(129,140,248,0.35), transparent 70%),
+              radial-gradient(ellipse 60% 40% at 0% 50%, rgba(251,191,36,0.2), transparent 60%),
+              radial-gradient(ellipse 50% 40% at 50% 100%, rgba(251,113,133,0.15), transparent 50%)
+            `,
+            mixBlendMode: "soft-light",
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">

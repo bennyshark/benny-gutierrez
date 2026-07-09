@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/common/Navbar";
 import BgOrbs from "../components/common/BgOrbs";
 import NoiseOverlay from "../components/common/NoiseOverlay";
+import { LightboxProvider } from "../components/common/LightboxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +36,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary`}
       >
-        <NoiseOverlay />
-        <BgOrbs />
-        <Navbar />
-        <main className="relative z-10">
-          {children}
-        </main>
+        <LightboxProvider>
+          <NoiseOverlay />
+          <BgOrbs />
+          <Navbar />
+          <main className="relative z-10">
+            {children}
+          </main>
+        </LightboxProvider>
       </body>
     </html>
   );

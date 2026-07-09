@@ -220,6 +220,16 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
+      id: 'domedi-painting',
+      title: 'Domedi Painting LLC',
+      description: '',
+      images: [
+        '/images/live-projects/domedi-painting/image.png',
+      ],
+      siteUrl: 'https://domedi-painting-llc.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
       id: 'breathe-cafe',
       title: 'Breathe Cafe',
       description: '',

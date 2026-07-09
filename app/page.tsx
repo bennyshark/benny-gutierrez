@@ -529,15 +529,9 @@ export default function Home() {
     },
     {
       id: "braveboard",
-      nextProjectId: "experience-0",
+      nextProjectId: "experience",
       nextProjectTitle: "Check My Experience",
     },
-    {
-      id: "experience-0",
-      nextProjectId: "experience-1",
-      nextProjectTitle: "FAITH",
-    },
-    { id: "experience-1" },
   ];
 
   return (

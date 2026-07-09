@@ -188,6 +188,16 @@ export default function Home() {
       accent: 'indigo' as const,
     },
     {
+      id: 'masterbuilder',
+      title: 'Masterbuilder',
+      description: '',
+      images: [
+        '/images/live-projects/masterbuilder/image11.png',
+      ],
+      siteUrl: 'https://masterbuilder.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
       id: 'byggmester-osland',
       title: 'Byggmester Osland',
       description: '',
@@ -231,15 +241,14 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'fagmenn-as',
-      title: 'Fagmenn AS',
+      id: 'jon-otterbeck-as',
+      title: 'Jon otterbeck as',
       description: '',
       images: [
-        '/images/live-projects/fagmenn-as/image19.png',
-        '/images/live-projects/fagmenn-as/image30.png',
+        '/images/live-projects/jon-otterbeck-as/image7.png',
       ],
-      siteUrl: 'https://fagmenn-as.demo-previews.com/',
-      accent: 'rose' as const,
+      siteUrl: 'https://jon-otterbeck-as.demo-previews.com/',
+      accent: 'indigo' as const,
     },
     {
       id: 'ogr-as',
@@ -253,6 +262,16 @@ export default function Home() {
       accent: 'indigo' as const,
     },
     {
+      id: 'fagmenn-as',
+      title: 'Fagmenn AS',
+      description: '',
+      images: [
+        '/images/live-projects/fagmenn-as/image30.png',
+      ],
+      siteUrl: 'https://fagmenn-as.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
       id: 'opien-stall-og-smbruk',
       title: 'Opien Stall og Smbruk',
       description: '',
@@ -262,17 +281,6 @@ export default function Home() {
       ],
       siteUrl: 'https://opien-stall-og-smbruk-as.demo-previews.com/',
       accent: 'amber' as const,
-    },
-    {
-      id: 'pay-eiendom',
-      title: 'Pay Eiendom',
-      description: '',
-      images: [
-        '/images/live-projects/pay-eiendom/image3.png',
-        '/images/live-projects/pay-eiendom/image50.png',
-      ],
-      siteUrl: 'https://pay-eiendom.demo-previews.com/',
-      accent: 'rose' as const,
     },
     {
       id: 'boxen',
@@ -287,6 +295,18 @@ export default function Home() {
       accent: 'indigo' as const,
     },
     {
+      id: 'napoli-barbershop-butani',
+      title: 'Napoli barbershop butani',
+      description: '',
+      images: [
+        '/images/live-projects/napoli-barbershop-butani/image4.png',
+        '/images/live-projects/napoli-barbershop-butani/image5.png',
+        '/images/live-projects/napoli-barbershop-butani/image10.png',
+      ],
+      siteUrl: 'https://napoli-barbershop-butani.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
       id: 'jek-regnskap-as',
       title: 'JEK Regnskap AS',
       description: '',
@@ -296,6 +316,28 @@ export default function Home() {
       ],
       siteUrl: 'https://jek-regnskap-as.demo-previews.com/',
       accent: 'amber' as const,
+    },
+    {
+      id: 'kg-fabulous-cleaning-service',
+      title: 'Kg fabulous cleaning service',
+      description: '',
+      images: [
+        '/images/live-projects/kg-fabulous-cleaning-service/image8.png',
+      ],
+      siteUrl: 'https://kg-fabulous-cleaning-service.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'ms-cars-as',
+      title: 'Ms cars as',
+      description: '',
+      images: [
+        '/images/live-projects/ms-cars-as/image9.png',
+        '/images/live-projects/ms-cars-as/image3.png',
+        '/images/live-projects/ms-cars-as/image6.png',
+      ],
+      siteUrl: 'https://ms-cars-as.demo-previews.com/',
+      accent: 'indigo' as const,
     },
     {
       id: 'priarbo-as',
@@ -340,6 +382,16 @@ export default function Home() {
       ],
       siteUrl: 'https://east-bay-tax-group.demo-previews.com/',
       accent: 'rose' as const,
+    },
+    {
+      id: 'risr-tur-taxi-as',
+      title: 'Risr tur taxi as',
+      description: '',
+      images: [
+        '/images/live-projects/risr-tur-taxi-as/image1.png',
+      ],
+      siteUrl: 'https://risr-tur-taxi-as.demo-previews.com/',
+      accent: 'amber' as const,
     },
     {
       id: 'atlas-malerservice',
@@ -440,6 +492,16 @@ export default function Home() {
       ],
       siteUrl: 'https://spirit-plants-nursery-llc.demo-previews.com/',
       accent: 'rose' as const,
+    },
+    {
+      id: 'fairfax-perfect-maids',
+      title: 'Fairfax perfect maids',
+      description: '',
+      images: [
+        '/images/live-projects/fairfax-perfect-maids/image2.png',
+      ],
+      siteUrl: 'https://fairfax-perfect-maids.demo-previews.com/',
+      accent: 'amber' as const,
     },
   ];
 

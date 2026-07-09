@@ -36,6 +36,7 @@ yarn-error.log*
 # large binaries
 live-projects.docx
 live-projects.pdf
+extra-data.docx
 
 # vercel
 .vercel

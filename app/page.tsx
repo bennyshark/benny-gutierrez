@@ -350,17 +350,6 @@ export default function Home() {
       accent: 'indigo' as const,
     },
     {
-      id: 'priarbo-as',
-      title: 'Priarbo As',
-      description: '',
-      images: [
-        '/images/live-projects/priarbo-as/image53.png',
-        '/images/live-projects/priarbo-as/image23.png',
-      ],
-      siteUrl: 'https://priarbo-as.demo-previews.com/',
-      accent: 'rose' as const,
-    },
-    {
       id: 'pro-studio-by-elsa',
       title: 'Pro Studio by Elsa',
       description: '',
@@ -512,6 +501,17 @@ export default function Home() {
       ],
       siteUrl: 'https://fairfax-perfect-maids.demo-previews.com/',
       accent: 'amber' as const,
+    },
+    {
+      id: 'woodlyn-tree-services',
+      title: 'Woodlyn Tree Services',
+      description: '',
+      images: [
+        '/images/live-projects/woodlyn-tree-services/image.png',
+        '/images/live-projects/woodlyn-tree-services/image2.png',
+      ],
+      siteUrl: 'https://woodlyn-tree-services.demo-previews.com/',
+      accent: 'indigo' as const,
     },
   ];
 

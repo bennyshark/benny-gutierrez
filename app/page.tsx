@@ -216,7 +216,7 @@ export default function Home() {
         '/images/live-projects/likana-travel-tours/image48.png',
         '/images/live-projects/likana-travel-tours/image9.png',
       ],
-      siteUrl: 'https://likana-travel-tours-puerto-galera.demo-previews.com/the',
+      siteUrl: 'https://likana-travel-tours-puerto-galera.demo-previews.com/',
       accent: 'rose' as const,
     },
     {

@@ -169,30 +169,64 @@ export const portfolioData = {
       ]
     },
     {
-      name: "BraveBoard",
+      name: "Pad Thai Express",
       type: "Web Application",
       label: "project",
-      url: "https://braveboard.vercel.app",
-      description: "BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space. More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events, helping preserve moments that matter across campus life. It also serves as an open, community-driven discussion space where students can freely express ideas, ask questions, seek help, and engage in conversations on forums.",
+      url: "https://pad-thai-express.vercel.app",
+      description: "Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages.",
       technologies: [
-        "React",
-        "Next.js",
-        "Supabase",
-        "PostgreSQL",
-        "TypeScript",
-        "Tailwind CSS",
-        "Vercel"
+        "React", "TanStack Start", "TypeScript", "Tailwind CSS",
+        "Supabase", "PostgreSQL", "PayMongo", "Lalamove API",
+        "Telegram Bot API", "Framer Motion", "shadcn/ui", "Vercel",
       ],
       highlights: [
-        "Event-centric social media platform",
-        "Community forums for open discussions",
-        "Photo and story sharing for school events",
-        "Exclusive to FirstAsia community",
-        "Built with Next.js and Supabase for real-time features",
-        "User authentication and authorization"
+        "Online ordering with pickup and Lalamove delivery",
+        "Real-time order management dashboard",
+        "Live customer chat with Telegram notifications",
+        "Event reservations and order tracking",
+        "Staff account management and sales reports",
       ],
-      note: "Only FirstAsia accounts can sign in"
-    }
+      builtUnderRegen: true,
+    },
+    {
+      name: "Chamber of Mines of the Philippines — Official Exhibitor Portal",
+      type: "Web Application",
+      label: "project",
+      url: "https://chamber-of-mines-of-the-philippines.vercel.app/about",
+      description: "A full-stack exhibitor booth reservation and event ticketing system built for the Chamber of Mines of the Philippines (COMP). It replaces their third-party platform (Glue Up) for the annual Mining Philippines conference. Features include a live interactive floor map with zoom/pan for booth selection, ticket/package cart with multi-item checkout, QR Ph (GCash/Maya) and bank transfer payment flows, an admin dashboard with revenue tracking and CSV exports, a visual drag-and-drop floor plan editor for designing booth layouts, and Supabase real-time broadcasting for live map updates.",
+      technologies: [
+        "React", "Next.js", "TypeScript", "Tailwind CSS",
+        "Supabase", "PostgreSQL", "PayMongo QR Ph", "Vercel",
+      ],
+      highlights: [
+        "Live interactive floor map with zoom/pan for booth selection",
+        "Ticket/package cart with multi-item checkout",
+        "QR Ph (GCash/Maya) and bank transfer payment flows",
+        "Admin dashboard with revenue tracking and CSV exports",
+        "Visual drag-and-drop floor plan editor",
+        "Supabase real-time broadcasting for live map updates",
+      ],
+      builtUnderRegen: true,
+    },
+    {
+      name: "Breathe Cafe — QR Dine-In Ordering System",
+      type: "Web Application",
+      label: "project",
+      url: "https://breathe-cafe-malaybalay-bukidnon-or.vercel.app",
+      description: "A scan-to-order web application for Breathe Cafe in Malaybalay, Bukidnon, Philippines. Dine-in guests scan a QR code at their table to browse the full menu, customize their drinks and food with options (size, sugar level, add-ons), pay via GCash/QR Ph or cash, and watch their order progress live as it moves through the kitchen — all without downloading an app or creating an account. The system features a three-lane Kanban kitchen board with per-item prep checklists and urgency timers, a limited cashier station for front-counter settlement, and an admin dashboard with real-time revenue analytics, menu management, and QR code generation for each table. Server-side price validation prevents client-side tampering, and the architecture uses Sanity's real-time listener as a pub/sub mechanism so updates propagate instantly across all connected interfaces.",
+      technologies: [
+        "React", "Next.js", "TypeScript", "Tailwind CSS",
+        "Framer Motion", "Sanity", "PayMongo API", "Zustand", "Vercel",
+      ],
+      highlights: [
+        "QR code scan-to-order without app download",
+        "Real-time Kanban kitchen board with per-item prep checklists",
+        "GCash/QR Ph and cash payment integration",
+        "Admin dashboard with revenue analytics and menu management",
+        "Sanity real-time listener as pub/sub for instant updates",
+      ],
+      builtUnderRegen: true,
+    },
   ],
 
   experience: [
@@ -203,9 +237,9 @@ export const portfolioData = {
       location: "Norway",
       duration: "March 2026 - Present",
       workSetup: "Remote",
-      description: "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 100 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
+      description: "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development under Regen Digital Solutions. Successfully developed and delivered around 100 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
       achievements: [
-        "Rapidly developed and deployed approximately 100 websites across various industries and business models",
+        "Rapidly developed and deployed approximately 100 websites under Regen Digital Solutions across various industries and business models",
         "Built diverse web applications including e-commerce platforms, booking systems, and marketing websites",
         "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles"
       ],
@@ -282,8 +316,8 @@ export const portfolioData = {
   },
 
   favoriteProject: {
-    name: "BraveBoard",
-    reason: "It's a complete social media platform that is dedicated to serve the FirstAsia community. I'm proud of building an event-centric platform that brings students, professors, and organizations together. The technical challenges of building real-time features with Supabase and creating a scalable architecture were incredibly rewarding. It combines my passion for web development with creating something that to have real impact on the community."
+    name: "Snapfolia Go",
+    reason: "It combines machine learning with mobile development to create a real-time leaf classifier that has practical applications for agriculture and education. The technical challenge of deploying YOLOv8 on-device with TensorFlow Lite through Flutter was incredibly rewarding, and seeing it work in real-time is always exciting."
   },
 
   careerGoals: [

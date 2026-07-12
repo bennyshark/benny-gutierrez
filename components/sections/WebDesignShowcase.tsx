@@ -131,9 +131,15 @@ export default function WebDesignShowcase({
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center mt-2">
             live sites
           </h2>
-          <p className="text-text-muted text-sm sm:text-base text-center mt-3 max-w-xl mx-auto">
-            Live websites designed and deployed with modern tools
-          </p>
+
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <span className="text-[10px] sm:text-xs font-mono tracking-widest text-zinc-500 uppercase">
+              built under
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              Regen Digital Solutions
+            </span>
+          </div>
         </div>
 
         <div className="space-y-4 sm:space-y-6">

@@ -25,6 +25,7 @@ interface ProjectShowcaseProps {
   id: string;
   accent?: "indigo" | "amber" | "rose";
   isMobile?: boolean;
+  regenBuilt?: boolean;
 }
 
 function ProjectLabel({ label }: { label: "product" | "prototype" }) {
@@ -153,7 +154,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
 
 export default function ProjectShowcase({
   title, description, techStack, mediaItems, siteUrl,
-  accessNote, label, id, accent = "indigo", isMobile,
+  accessNote, label, id, accent = "indigo", isMobile, regenBuilt,
 }: ProjectShowcaseProps) {
   const accentBorders = {
     indigo: "border-primary/10 hover:border-primary/20",
@@ -171,6 +172,11 @@ export default function ProjectShowcase({
               {title}
             </h3>
             {label && <ProjectLabel label={label} />}
+            {regenBuilt && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-auto sm:ml-0">
+                Under Regen Digital
+              </span>
+            )}
           </div>
 
           {/* site url */}

@@ -156,9 +156,9 @@ export default function Home() {
       duration: "Mar 2026 - Present",
       workSetup: "remote" as const,
       description:
-        "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 150 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
+        "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 100 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
       achievements: [
-        "Rapidly developed and deployed approximately 150 websites across various industries and business models.",
+        "Rapidly developed and deployed approximately 100 websites across various industries and business models.",
         "Built diverse web applications including e-commerce platforms, booking systems, and marketing websites.",
         "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles.",
       ],
@@ -635,8 +635,8 @@ export default function Home() {
           techStack={padThaiTechStack}
           mediaItems={padThaiMedia}
           siteUrl="https://pad-thai-express.vercel.app"
-          label="product"
           accent="indigo"
+          regenBuilt
         />
 
         <ProjectShowcase
@@ -646,8 +646,8 @@ export default function Home() {
           techStack={chamberOfMinesTechStack}
           mediaItems={chamberOfMinesMedia}
           siteUrl="https://chamber-of-mines-of-the-philippines.vercel.app/about"
-          label="product"
           accent="amber"
+          regenBuilt
         />
 
         <ProjectShowcase
@@ -657,8 +657,8 @@ export default function Home() {
           techStack={breatheCafeTechStack}
           mediaItems={breatheCafeMedia}
           siteUrl="https://breathe-cafe-malaybalay-bukidnon-or.vercel.app"
-          label="product"
           accent="rose"
+          regenBuilt
         />
 
         <ProjectShowcase

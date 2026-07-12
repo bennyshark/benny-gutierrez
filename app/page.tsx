@@ -90,25 +90,61 @@ export default function Home() {
     "Neon", "PostgreSQL", "Drizzle ORM", "Vercel",
   ];
 
-  const braveboardMedia = [
-    { type: "image" as const, src: `${CLD_IMG}/brave.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave1.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave2.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave3.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave4.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave5.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave6.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave7.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave8.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave9.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave10.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave11.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave12.png` },
+  // breathe cafe media
+  const breatheCafeMedia = [
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image3.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image18.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image26.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image17.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image24.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image27.png" },
   ];
 
-  const braveboardTechStack = [
-    "React", "Next.js", "Supabase", "PostgreSQL",
-    "TypeScript", "Tailwind CSS", "Vercel",
+  const breatheCafeTechStack = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Framer Motion", "Sanity", "PayMongo API", "Zustand", "Vercel",
+  ];
+
+  // pad thai express media
+  const padThaiMedia = [
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image2.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image21.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image19.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image1.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image12.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image4.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image20.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image15.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image25.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image14.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image5.png" },
+  ];
+
+  const padThaiTechStack = [
+    "React", "TanStack Start", "TypeScript", "Tailwind CSS",
+    "Supabase", "PostgreSQL", "PayMongo", "Lalamove API",
+    "Telegram Bot API", "Framer Motion", "shadcn/ui", "Vercel",
+  ];
+
+  // chamber of mines media
+  const chamberOfMinesMedia = [
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image23.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image11.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image16.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image7.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image13.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image27.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image10.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image22.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image9.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image6.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image5.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image8.png" },
+  ];
+
+  const chamberOfMinesTechStack = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Supabase", "PostgreSQL", "PayMongo QR Ph", "Vercel",
   ];
 
   // experience data
@@ -519,26 +555,36 @@ export default function Home() {
   const sectionNavigation = [
     {
       id: "snapfolia-go",
+      nextProjectId: "pad-thai-express",
+      nextProjectTitle: "Pad Thai Express",
+    },
+    {
+      id: "pad-thai-express",
+      nextProjectId: "chamber-of-mines",
+      nextProjectTitle: "Chamber of Mines",
+    },
+    {
+      id: "chamber-of-mines",
+      nextProjectId: "breathe-cafe",
+      nextProjectTitle: "Breathe Cafe",
+    },
+    {
+      id: "breathe-cafe",
       nextProjectId: "synergreens",
       nextProjectTitle: "Synergreens",
     },
     {
       id: "synergreens",
-      nextProjectId: "sandy-cafe-pos",
-      nextProjectTitle: "Sandy Cafe POS",
-    },
-    {
-      id: "sandy-cafe-pos",
       nextProjectId: "sandy-automotive",
       nextProjectTitle: "Sandy Automotive",
     },
     {
       id: "sandy-automotive",
-      nextProjectId: "braveboard",
-      nextProjectTitle: "BraveBoard",
+      nextProjectId: "sandy-cafe-pos",
+      nextProjectTitle: "Sandy Cafe POS",
     },
     {
-      id: "braveboard",
+      id: "sandy-cafe-pos",
       nextProjectId: "experience",
       nextProjectTitle: "Check My Experience",
     },
@@ -583,6 +629,39 @@ export default function Home() {
         />
 
         <ProjectShowcase
+          id="pad-thai-express"
+          title="Pad Thai Express"
+          description="Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages."
+          techStack={padThaiTechStack}
+          mediaItems={padThaiMedia}
+          siteUrl="https://pad-thai-express.vercel.app"
+          label="product"
+          accent="indigo"
+        />
+
+        <ProjectShowcase
+          id="chamber-of-mines"
+          title="Chamber of Mines of the Philippines — Official Exhibitor Portal"
+          description="A full-stack exhibitor booth reservation and event ticketing system built for the Chamber of Mines of the Philippines (COMP). It replaces their third-party platform (Glue Up) for the annual Mining Philippines conference. Features include a live interactive floor map with zoom/pan for booth selection, ticket/package cart with multi-item checkout, QR Ph (GCash/Maya) and bank transfer payment flows, an admin dashboard with revenue tracking and CSV exports, a visual drag-and-drop floor plan editor for designing booth layouts, and Supabase real-time broadcasting for live map updates."
+          techStack={chamberOfMinesTechStack}
+          mediaItems={chamberOfMinesMedia}
+          siteUrl="https://chamber-of-mines-of-the-philippines.vercel.app/about"
+          label="product"
+          accent="amber"
+        />
+
+        <ProjectShowcase
+          id="breathe-cafe"
+          title="Breathe Cafe — QR Dine-In Ordering System"
+          description="A scan-to-order web application for Breathe Cafe in Malaybalay, Bukidnon, Philippines. Dine-in guests scan a QR code at their table to browse the full menu, customize their drinks and food with options (size, sugar level, add-ons), pay via GCash/QR Ph or cash, and watch their order progress live as it moves through the kitchen — all without downloading an app or creating an account. The system features a three-lane Kanban kitchen board with per-item prep checklists and urgency timers, a limited cashier station for front-counter settlement, and an admin dashboard with real-time revenue analytics, menu management, and QR code generation for each table. Server-side price validation prevents client-side tampering, and the architecture uses Sanity's real-time listener as a pub/sub mechanism so updates propagate instantly across all connected interfaces."
+          techStack={breatheCafeTechStack}
+          mediaItems={breatheCafeMedia}
+          siteUrl="https://breathe-cafe-malaybalay-bukidnon-or.vercel.app"
+          label="product"
+          accent="rose"
+        />
+
+        <ProjectShowcase
           id="synergreens"
           title="Synergreens by Deo Abutal"
           description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration, and responsive layouts."
@@ -590,17 +669,6 @@ export default function Home() {
           mediaItems={synergreensMedia}
           siteUrl="https://synergreens.ckdigitals.com"
           accent="amber"
-        />
-
-        <ProjectShowcase
-          id="sandy-cafe-pos"
-          title="Sandy Cafe POS"
-          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
-          techStack={sandyCafeTechStack}
-          mediaItems={sandyCafeMedia}
-          siteUrl="https://sandy-cafe-pos.vercel.app"
-          label="prototype"
-          accent="rose"
         />
 
         <ProjectShowcase
@@ -615,14 +683,14 @@ export default function Home() {
         />
 
         <ProjectShowcase
-          id="braveboard"
-          title="BraveBoard"
-          description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space. More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events."
-          techStack={braveboardTechStack}
-          mediaItems={braveboardMedia}
-          siteUrl="https://braveboard.vercel.app"
-          accessNote="Only FirstAsia accounts will be able to sign in."
-          accent="amber"
+          id="sandy-cafe-pos"
+          title="Sandy Cafe POS"
+          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
+          techStack={sandyCafeTechStack}
+          mediaItems={sandyCafeMedia}
+          siteUrl="https://sandy-cafe-pos.vercel.app"
+          label="prototype"
+          accent="rose"
         />
       </section>
 

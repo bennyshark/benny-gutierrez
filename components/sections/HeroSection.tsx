@@ -6,10 +6,10 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 const CLD_IMG = "https://res.cloudinary.com/dhsgwmuax/image/upload/f_auto,q_auto";
 
 interface HeroSectionProps {
-  onScrollToSkills: () => void;
+  onScrollToFeatured: () => void;
 }
 
-export default function HeroSection({ onScrollToSkills }: HeroSectionProps) {
+export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-0 overflow-hidden">
       {/* decorative shapes */}
@@ -47,10 +47,10 @@ export default function HeroSection({ onScrollToSkills }: HeroSectionProps) {
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
             <button
-              onClick={onScrollToSkills}
+              onClick={onScrollToFeatured}
               className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-bg-base font-display font-semibold rounded-full transition-all hover:bg-primary/90 hover:scale-105 animate-glow-pulse w-full sm:w-auto justify-center"
             >
-              <span className="text-sm sm:text-base">check my skills</span>
+              <span className="text-sm sm:text-base">featured works</span>
               <ArrowDown className="size-4 sm:size-5 group-hover:translate-y-1 transition-transform" />
             </button>
 

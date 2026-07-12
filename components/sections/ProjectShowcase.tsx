@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useState } from "react";
 import {
-  ChevronLeft, ChevronRight, Play, X, ExternalLink, Info,
+  ChevronLeft, ChevronRight, Play, ExternalLink, Info,
   Globe, Package, FlaskConical,
 } from "lucide-react";
 import TechTile from "../common/TechTile";
+import { useLightbox } from "../common/LightboxProvider";
 
 type MediaItem = {
   type: "video" | "image";
@@ -24,6 +25,7 @@ interface ProjectShowcaseProps {
   id: string;
   accent?: "indigo" | "amber" | "rose";
   isMobile?: boolean;
+  regenBuilt?: boolean;
 }
 
 function ProjectLabel({ label }: { label: "product" | "prototype" }) {
@@ -45,12 +47,12 @@ function ProjectLabel({ label }: { label: "product" | "prototype" }) {
 
 function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMobile?: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { open: openLightbox } = useLightbox();
+
+  const imageItems = mediaItems.filter((m) => m.type === "image");
 
   const goTo = (index: number) => {
     if (index === currentIndex) return;
-    setIsLoading(true);
     setCurrentIndex(index);
   };
 
@@ -58,6 +60,14 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
   const prevSlide = () => goTo((currentIndex - 1 + mediaItems.length) % mediaItems.length);
 
   const currentMedia = mediaItems[currentIndex];
+
+  const handleImageClick = () => {
+    const imageIndex = mediaItems.slice(0, currentIndex).filter((m) => m.type === "image").length;
+    openLightbox(
+      imageItems.map((m) => ({ src: m.src, alt: "Screenshot" })),
+      imageIndex,
+    );
+  };
 
   return (
     <>
@@ -69,7 +79,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
           }`}
         >
           {currentMedia.type === "video" ? (
-            <div onClick={() => setIsFullscreen(true)} className="relative w-full h-full cursor-pointer">
+            <div className="relative w-full h-full">
               <video
                 key={currentIndex}
                 src={currentMedia.src}
@@ -83,8 +93,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
               />
             </div>
           ) : (
-            <div onClick={() => setIsFullscreen(true)} className="relative w-full h-full cursor-pointer">
-              <div className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-150 ${isLoading ? "opacity-100" : "opacity-0"}`} />
+            <div onClick={handleImageClick} className="relative w-full h-full cursor-pointer">
               <Image
                 key={currentIndex}
                 src={currentMedia.src}
@@ -92,7 +101,6 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
                 fill
                 sizes="(max-width: 640px) 100vw, 800px"
                 className="object-contain"
-                onLoad={() => setIsLoading(false)}
                 priority={currentIndex === 0}
               />
             </div>
@@ -140,42 +148,13 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
           {currentIndex + 1} / {mediaItems.length}
         </p>
       </div>
-
-      {/* fullscreen */}
-      {isFullscreen && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setIsFullscreen(false)}>
-          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 active:bg-black/70 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
-            <X className="size-5 sm:size-6" />
-          </button>
-
-          {currentIndex > 0 && (
-            <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10">
-              <ChevronLeft className="size-6" />
-            </button>
-          )}
-          {currentIndex < mediaItems.length - 1 && (
-            <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10">
-              <ChevronRight className="size-6" />
-            </button>
-          )}
-
-          <div className="relative w-full h-full flex items-center justify-center">
-            {currentMedia.type === "video" ? (
-              <video key={currentIndex} src={currentMedia.src} controls autoPlay muted loop className="max-w-full max-h-full object-contain" playsInline preload="metadata" onClick={(e) => e.stopPropagation()} />
-            ) : (
-              <Image key={currentIndex} src={currentMedia.src} alt={`Fullscreen ${currentIndex}`} fill className="object-contain" onClick={(e) => e.stopPropagation()} />
-            )}
-          </div>
-          <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-sm sm:text-base bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">{currentIndex + 1} / {mediaItems.length}</p>
-        </div>
-      )}
     </>
   );
 }
 
 export default function ProjectShowcase({
   title, description, techStack, mediaItems, siteUrl,
-  accessNote, label, id, accent = "indigo", isMobile,
+  accessNote, label, id, accent = "indigo", isMobile, regenBuilt,
 }: ProjectShowcaseProps) {
   const accentBorders = {
     indigo: "border-primary/10 hover:border-primary/20",
@@ -193,6 +172,11 @@ export default function ProjectShowcase({
               {title}
             </h3>
             {label && <ProjectLabel label={label} />}
+            {regenBuilt && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-auto sm:ml-0">
+                Under Regen Digital
+              </span>
+            )}
           </div>
 
           {/* site url */}

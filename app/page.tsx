@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectShowcase from "@/components/sections/ProjectShowcase";
 import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
+import WebDesignShowcase from "@/components/sections/WebDesignShowcase";
 import SectionNavigator from "@/components/common/SectionNavigator";
 import ChatBot from "@/components/Chatbot";
 
@@ -15,8 +16,8 @@ const CLD_VID = "https://res.cloudinary.com/dhsgwmuax/video/upload";
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const scrollToSkills = () => {
-    const element = document.getElementById("skills");
+  const scrollToFeatured = () => {
+    const element = document.getElementById("web-design");
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -89,25 +90,61 @@ export default function Home() {
     "Neon", "PostgreSQL", "Drizzle ORM", "Vercel",
   ];
 
-  const braveboardMedia = [
-    { type: "image" as const, src: `${CLD_IMG}/brave.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave1.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave2.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave3.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave4.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave5.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave6.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave7.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave8.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave9.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave10.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave11.png` },
-    { type: "image" as const, src: `${CLD_IMG}/brave12.png` },
+  // breathe cafe media
+  const breatheCafeMedia = [
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image3.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image18.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image26.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image17.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image24.png" },
+    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image27.png" },
   ];
 
-  const braveboardTechStack = [
-    "React", "Next.js", "Supabase", "PostgreSQL",
-    "TypeScript", "Tailwind CSS", "Vercel",
+  const breatheCafeTechStack = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Framer Motion", "Sanity", "PayMongo API", "Zustand", "Vercel",
+  ];
+
+  // pad thai express media
+  const padThaiMedia = [
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image2.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image21.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image19.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image1.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image12.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image4.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image20.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image15.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image25.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image14.png" },
+    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image5.png" },
+  ];
+
+  const padThaiTechStack = [
+    "React", "TanStack Start", "TypeScript", "Tailwind CSS",
+    "Supabase", "PostgreSQL", "PayMongo", "Lalamove API",
+    "Telegram Bot API", "Framer Motion", "shadcn/ui", "Vercel",
+  ];
+
+  // chamber of mines media
+  const chamberOfMinesMedia = [
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image23.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image11.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image16.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image7.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image13.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image27.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image10.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image22.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image9.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image6.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image5.png" },
+    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image8.png" },
+  ];
+
+  const chamberOfMinesTechStack = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS",
+    "Supabase", "PostgreSQL", "PayMongo QR Ph", "Vercel",
   ];
 
   // experience data
@@ -119,9 +156,9 @@ export default function Home() {
       duration: "Mar 2026 - Present",
       workSetup: "remote" as const,
       description:
-        "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 150 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
+        "Leveraged AI-assisted tools such as Claude Code, Lovable, Opencode, and Gemini for rapid web development. Successfully developed and delivered around 100 websites catering to diverse business models, including marketing sites, e-commerce platforms, booking systems, and ordering systems.",
       achievements: [
-        "Rapidly developed and deployed approximately 150 websites across various industries and business models.",
+        "Rapidly developed and deployed approximately 100 websites across various industries and business models.",
         "Built diverse web applications including e-commerce platforms, booking systems, and marketing websites.",
         "Utilized AI coding assistants (Claude Code, Lovable, Opencode, Gemini) to significantly accelerate development cycles.",
       ],
@@ -172,47 +209,398 @@ export default function Home() {
     },
   ];
 
+  // web design showcase data
+  const webDesignProjects = [
+    {
+      id: 'bike-senter',
+      title: 'BIKE-SENTER',
+      description: '',
+      images: [
+        '/images/live-projects/bike-senter/image28.png',
+        '/images/live-projects/bike-senter/image33.png',
+        '/images/live-projects/bike-senter/image4.png',
+      ],
+      siteUrl: 'https://ivanov-bike-senter.vercel.app/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'masterbuilder',
+      title: 'Masterbuilder',
+      description: '',
+      images: [
+        '/images/live-projects/masterbuilder/image11.png',
+      ],
+      siteUrl: 'https://masterbuilder.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'byggmester-osland',
+      title: 'Byggmester Osland',
+      description: '',
+      images: [
+        '/images/live-projects/byggmester-osland/image42.png',
+      ],
+      siteUrl: 'https://www.byggmesterosland.no/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'likana-travel-tours',
+      title: 'Likana Travel Tours Puerto Galera',
+      description: '',
+      images: [
+        '/images/live-projects/likana-travel-tours/image25.png',
+        '/images/live-projects/likana-travel-tours/image48.png',
+        '/images/live-projects/likana-travel-tours/image9.png',
+      ],
+      siteUrl: 'https://likana-travel-tours-puerto-galera.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'domedi-painting',
+      title: 'Domedi Painting LLC',
+      description: '',
+      images: [
+        '/images/live-projects/domedi-painting/image.png',
+      ],
+      siteUrl: 'https://domedi-painting-llc.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'breathe-cafe',
+      title: 'Breathe Cafe',
+      description: '',
+      images: [
+        '/images/live-projects/breathe-cafe/image27.png',
+      ],
+      siteUrl: 'https://breathe-cafe-malaybalay-bukidnon-preview.vercel.app/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'pad-thai-express',
+      title: 'Pad Thai Express',
+      description: '',
+      images: [
+        '/images/live-projects/pad-thai-express/image2.png',
+        '/images/live-projects/pad-thai-express/image5.png',
+      ],
+      siteUrl: 'https://pad-thai-express.vercel.app/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'jon-otterbeck-as',
+      title: 'Jon otterbeck as',
+      description: '',
+      images: [
+        '/images/live-projects/jon-otterbeck-as/image7.png',
+      ],
+      siteUrl: 'https://jon-otterbeck-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'ogr-as',
+      title: 'Ogr AS',
+      description: '',
+      images: [
+        '/images/live-projects/ogr-as/image12.png',
+        '/images/live-projects/ogr-as/image40.png',
+      ],
+      siteUrl: 'https://ogr-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'fagmenn-as',
+      title: 'Fagmenn AS',
+      description: '',
+      images: [
+        '/images/live-projects/fagmenn-as/image30.png',
+      ],
+      siteUrl: 'https://fagmenn-as.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'opien-stall-og-smbruk',
+      title: 'Opien Stall og Smbruk',
+      description: '',
+      images: [
+        '/images/live-projects/opien-stall-og-smbruk/image39.png',
+        '/images/live-projects/opien-stall-og-smbruk/image37.png',
+      ],
+      siteUrl: 'https://opien-stall-og-smbruk-as.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'boxen',
+      title: 'BOXEN',
+      description: '',
+      images: [
+        '/images/live-projects/boxen/image47.png',
+        '/images/live-projects/boxen/image10.png',
+        '/images/live-projects/boxen/image15.png',
+      ],
+      siteUrl: 'https://molde-padel-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'napoli-barbershop-butani',
+      title: 'Napoli barbershop butani',
+      description: '',
+      images: [
+        '/images/live-projects/napoli-barbershop-butani/image4.png',
+        '/images/live-projects/napoli-barbershop-butani/image5.png',
+        '/images/live-projects/napoli-barbershop-butani/image10.png',
+      ],
+      siteUrl: 'https://napoli-barbershop-butani.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'jek-regnskap-as',
+      title: 'JEK Regnskap AS',
+      description: '',
+      images: [
+        '/images/live-projects/jek-regnskap-as/image18.png',
+        '/images/live-projects/jek-regnskap-as/image16.png',
+      ],
+      siteUrl: 'https://jek-regnskap-as.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'kg-fabulous-cleaning-service',
+      title: 'Kg fabulous cleaning service',
+      description: '',
+      images: [
+        '/images/live-projects/kg-fabulous-cleaning-service/image8.png',
+      ],
+      siteUrl: 'https://kg-fabulous-cleaning-service.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'ms-cars-as',
+      title: 'Ms cars as',
+      description: '',
+      images: [
+        '/images/live-projects/ms-cars-as/image9.png',
+        '/images/live-projects/ms-cars-as/image3.png',
+        '/images/live-projects/ms-cars-as/image6.png',
+      ],
+      siteUrl: 'https://ms-cars-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'pro-studio-by-elsa',
+      title: 'Pro Studio by Elsa',
+      description: '',
+      images: [
+        '/images/live-projects/pro-studio-by-elsa/image32.png',
+        '/images/live-projects/pro-studio-by-elsa/image34.png',
+        '/images/live-projects/pro-studio-by-elsa/image49.png',
+      ],
+      siteUrl: 'https://pro-studio-by-elsa.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'nues',
+      title: 'NUES',
+      description: '',
+      images: [
+        '/images/live-projects/nues/image21.png',
+        '/images/live-projects/nues/image36.png',
+      ],
+      siteUrl: 'https://norsk-utvalg-for-eierstyring-og-selskapsledelse.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'east-bay-tax-group',
+      title: 'East Bay Tax Group',
+      description: '',
+      images: [
+        '/images/live-projects/east-bay-tax-group/image35.png',
+      ],
+      siteUrl: 'https://east-bay-tax-group.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'risr-tur-taxi-as',
+      title: 'Risr tur taxi as',
+      description: '',
+      images: [
+        '/images/live-projects/risr-tur-taxi-as/image1.png',
+      ],
+      siteUrl: 'https://risr-tur-taxi-as.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'atlas-malerservice',
+      title: 'Atlas Malerservice',
+      description: '',
+      images: [
+        '/images/live-projects/atlas-malerservice/image8.png',
+        '/images/live-projects/atlas-malerservice/image1.png',
+        '/images/live-projects/atlas-malerservice/image43.png',
+      ],
+      siteUrl: 'https://atlas-malerservice-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'william-a-morin',
+      title: 'William A Morin',
+      description: '',
+      images: [
+        '/images/live-projects/william-a-morin/image14.png',
+        '/images/live-projects/william-a-morin/image26.png',
+      ],
+      siteUrl: 'https://william-a-morin.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'stordalen-fjellstove',
+      title: 'Stordalen Fjellstove',
+      description: '',
+      images: [
+        '/images/live-projects/stordalen-fjellstove/image24.png',
+        '/images/live-projects/stordalen-fjellstove/image38.png',
+        '/images/live-projects/stordalen-fjellstove/image6.png',
+      ],
+      siteUrl: 'https://stordalen-fjellstove-as.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'sandmoen-bed-breakfast',
+      title: 'Sandmoen Bed Breakfast',
+      description: '',
+      images: [
+        '/images/live-projects/sandmoen-bed-breakfast/image29.png',
+        '/images/live-projects/sandmoen-bed-breakfast/image54.png',
+      ],
+      siteUrl: 'https://sandmoen-bed-breakfast-as.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'whiskey-creek-plumbing',
+      title: 'Whiskey Creek Plumbing',
+      description: '',
+      images: [
+        '/images/live-projects/whiskey-creek-plumbing/image22.png',
+        '/images/live-projects/whiskey-creek-plumbing/image11.png',
+      ],
+      siteUrl: 'https://whiskey-creek-plumbing.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'log-cabin-sagada',
+      title: 'Log Cabin Sagada',
+      description: '',
+      images: [
+        '/images/live-projects/log-cabin-sagada/image41.png',
+        '/images/live-projects/log-cabin-sagada/image51.png',
+      ],
+      siteUrl: 'https://log-cabin-sagada.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'best-buddies-ph',
+      title: 'Best Buddies PH',
+      description: '',
+      images: [
+        '/images/live-projects/best-buddies-ph/image13.png',
+      ],
+      siteUrl: 'https://best-buddies-ph.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+    {
+      id: 'monssveen-maskin',
+      title: 'Monssveen Maskin',
+      description: '',
+      images: [
+        '/images/live-projects/monssveen-maskin/image7.png',
+        '/images/live-projects/monssveen-maskin/image55.png',
+      ],
+      siteUrl: 'https://monssveen-maskin.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'spirit-plants-nursery',
+      title: 'Spirit Plants Nursery',
+      description: '',
+      images: [
+        '/images/live-projects/spirit-plants-nursery/image45.png',
+        '/images/live-projects/spirit-plants-nursery/image31.png',
+      ],
+      siteUrl: 'https://spirit-plants-nursery-llc.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'fairfax-perfect-maids',
+      title: 'Fairfax perfect maids',
+      description: '',
+      images: [
+        '/images/live-projects/fairfax-perfect-maids/image2.png',
+      ],
+      siteUrl: 'https://fairfax-perfect-maids.demo-previews.com/',
+      accent: 'amber' as const,
+    },
+    {
+      id: 'woodlyn-tree-services',
+      title: 'Woodlyn Tree Services',
+      description: '',
+      images: [
+        '/images/live-projects/woodlyn-tree-services/image.png',
+        '/images/live-projects/woodlyn-tree-services/image2.png',
+      ],
+      siteUrl: 'https://woodlyn-tree-services.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
+  ];
+
   // section navigation
   const sectionNavigation = [
     {
       id: "snapfolia-go",
+      nextProjectId: "pad-thai-express",
+      nextProjectTitle: "Pad Thai Express",
+    },
+    {
+      id: "pad-thai-express",
+      nextProjectId: "chamber-of-mines",
+      nextProjectTitle: "Chamber of Mines",
+    },
+    {
+      id: "chamber-of-mines",
+      nextProjectId: "breathe-cafe",
+      nextProjectTitle: "Breathe Cafe",
+    },
+    {
+      id: "breathe-cafe",
       nextProjectId: "synergreens",
       nextProjectTitle: "Synergreens",
     },
     {
       id: "synergreens",
-      nextProjectId: "sandy-cafe-pos",
-      nextProjectTitle: "Sandy Cafe POS",
-    },
-    {
-      id: "sandy-cafe-pos",
       nextProjectId: "sandy-automotive",
       nextProjectTitle: "Sandy Automotive",
     },
     {
       id: "sandy-automotive",
-      nextProjectId: "braveboard",
-      nextProjectTitle: "BraveBoard",
+      nextProjectId: "sandy-cafe-pos",
+      nextProjectTitle: "Sandy Cafe POS",
     },
     {
-      id: "braveboard",
-      nextProjectId: "experience-0",
+      id: "sandy-cafe-pos",
+      nextProjectId: "experience",
       nextProjectTitle: "Check My Experience",
     },
-    {
-      id: "experience-0",
-      nextProjectId: "experience-1",
-      nextProjectTitle: "FAITH",
-    },
-    { id: "experience-1" },
   ];
 
   return (
     <>
       {/* hero */}
-      <HeroSection onScrollToSkills={scrollToSkills} />
+      <HeroSection onScrollToFeatured={scrollToFeatured} />
 
-      {/* skills */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+
+      <WebDesignShowcase id="web-design" items={webDesignProjects} />
+
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+
       <div id="projects-start" />
       <SkillsSection />
 
@@ -241,6 +629,39 @@ export default function Home() {
         />
 
         <ProjectShowcase
+          id="pad-thai-express"
+          title="Pad Thai Express"
+          description="Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages."
+          techStack={padThaiTechStack}
+          mediaItems={padThaiMedia}
+          siteUrl="https://pad-thai-express.vercel.app"
+          accent="indigo"
+          regenBuilt
+        />
+
+        <ProjectShowcase
+          id="chamber-of-mines"
+          title="Chamber of Mines of the Philippines — Official Exhibitor Portal"
+          description="A full-stack exhibitor booth reservation and event ticketing system built for the Chamber of Mines of the Philippines (COMP). It replaces their third-party platform (Glue Up) for the annual Mining Philippines conference. Features include a live interactive floor map with zoom/pan for booth selection, ticket/package cart with multi-item checkout, QR Ph (GCash/Maya) and bank transfer payment flows, an admin dashboard with revenue tracking and CSV exports, a visual drag-and-drop floor plan editor for designing booth layouts, and Supabase real-time broadcasting for live map updates."
+          techStack={chamberOfMinesTechStack}
+          mediaItems={chamberOfMinesMedia}
+          siteUrl="https://chamber-of-mines-of-the-philippines.vercel.app/about"
+          accent="amber"
+          regenBuilt
+        />
+
+        <ProjectShowcase
+          id="breathe-cafe"
+          title="Breathe Cafe — QR Dine-In Ordering System"
+          description="A scan-to-order web application for Breathe Cafe in Malaybalay, Bukidnon, Philippines. Dine-in guests scan a QR code at their table to browse the full menu, customize their drinks and food with options (size, sugar level, add-ons), pay via GCash/QR Ph or cash, and watch their order progress live as it moves through the kitchen — all without downloading an app or creating an account. The system features a three-lane Kanban kitchen board with per-item prep checklists and urgency timers, a limited cashier station for front-counter settlement, and an admin dashboard with real-time revenue analytics, menu management, and QR code generation for each table. Server-side price validation prevents client-side tampering, and the architecture uses Sanity's real-time listener as a pub/sub mechanism so updates propagate instantly across all connected interfaces."
+          techStack={breatheCafeTechStack}
+          mediaItems={breatheCafeMedia}
+          siteUrl="https://breathe-cafe-malaybalay-bukidnon-or.vercel.app"
+          accent="rose"
+          regenBuilt
+        />
+
+        <ProjectShowcase
           id="synergreens"
           title="Synergreens by Deo Abutal"
           description="Synergreens by Deo Abutal is a Direct Sales Website built to support a distributor-based sales model. It features product catalog, customer inquiry handling, and an order workflow. The platform includes structured company and distributor profiles, FDA registration information, an ordering system with automated email notifications, Google Maps integration, and responsive layouts."
@@ -248,17 +669,6 @@ export default function Home() {
           mediaItems={synergreensMedia}
           siteUrl="https://synergreens.ckdigitals.com"
           accent="amber"
-        />
-
-        <ProjectShowcase
-          id="sandy-cafe-pos"
-          title="Sandy Cafe POS"
-          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
-          techStack={sandyCafeTechStack}
-          mediaItems={sandyCafeMedia}
-          siteUrl="https://sandy-cafe-pos.vercel.app"
-          label="prototype"
-          accent="rose"
         />
 
         <ProjectShowcase
@@ -273,14 +683,14 @@ export default function Home() {
         />
 
         <ProjectShowcase
-          id="braveboard"
-          title="BraveBoard"
-          description="BraveBoard is a school-exclusive social media platform designed for the FirstAsia community. It focuses on capturing and sharing memories through school events, bringing together students, professors, and organizations in one shared digital space. More than just a feed, BraveBoard is event-centric, allowing users to post photos, stories, and experiences tied to specific events."
-          techStack={braveboardTechStack}
-          mediaItems={braveboardMedia}
-          siteUrl="https://braveboard.vercel.app"
-          accessNote="Only FirstAsia accounts will be able to sign in."
-          accent="amber"
+          id="sandy-cafe-pos"
+          title="Sandy Cafe POS"
+          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
+          techStack={sandyCafeTechStack}
+          mediaItems={sandyCafeMedia}
+          siteUrl="https://sandy-cafe-pos.vercel.app"
+          label="prototype"
+          accent="rose"
         />
       </section>
 

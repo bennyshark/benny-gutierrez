@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { MapPin, Laptop, Building2, Shuffle, ChevronLeft, ChevronRight, X, Lock, Globe, ExternalLink } from "lucide-react";
+import { MapPin, Laptop, Building2, Shuffle, ChevronLeft, ChevronRight, Lock, Globe, ExternalLink } from "lucide-react";
 import TechTile from "../common/TechTile";
+import { useLightbox } from "../common/LightboxProvider";
 
 interface ExperienceItem {
   company: string;
@@ -43,20 +44,26 @@ function WorkSetupIcon({ setup }: { setup: "remote" | "onsite" | "hybrid" }) {
 
 function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; hasRestrictedContent?: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { open: openLightbox } = useLightbox();
 
   const totalSlides = hasRestrictedContent ? 2 : images.length;
   const isDisclosureSlide = hasRestrictedContent && currentIndex === 1;
 
   const goTo = (index: number) => {
     if (index === currentIndex) return;
-    setIsLoading(true);
     setCurrentIndex(index);
   };
 
   const nextSlide = () => goTo((currentIndex + 1) % totalSlides);
   const prevSlide = () => goTo((currentIndex - 1 + totalSlides) % totalSlides);
+
+  const handleImageClick = () => {
+    if (isDisclosureSlide) return;
+    openLightbox(
+      images.map((src) => ({ src, alt: "Image" })),
+      currentIndex,
+    );
+  };
 
   return (
     <>
@@ -72,8 +79,7 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
             </div>
           </div>
         ) : (
-          <div onClick={() => !isDisclosureSlide && setIsFullscreen(true)} className="relative w-full h-full cursor-pointer">
-            <div className={`absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-150 ${isLoading ? "opacity-100" : "opacity-0"}`} />
+          <div onClick={handleImageClick} className="relative w-full h-full cursor-pointer">
             <Image
               key={currentIndex}
               src={images[currentIndex]}
@@ -81,7 +87,6 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
               fill
               sizes="(max-width: 640px) 100vw, 700px"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
-              onLoad={() => setIsLoading(false)}
               priority={currentIndex === 0}
             />
           </div>
@@ -104,21 +109,6 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
           </div>
         )}
       </div>
-
-      {/* fullscreen */}
-      {isFullscreen && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={() => setIsFullscreen(false)}>
-          <button onClick={() => setIsFullscreen(false)} className="absolute top-2 right-2 sm:top-6 sm:right-6 p-2.5 bg-black/40 active:bg-black/70 hover:bg-black/60 text-white rounded-full transition-all z-10 backdrop-blur-sm">
-            <X className="size-5 sm:size-6" />
-          </button>
-          {currentIndex > 0 && <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10"><ChevronLeft className="size-6" /></button>}
-          {currentIndex < images.length - 1 && <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/10 active:bg-white/30 hover:bg-white/20 text-white rounded-full z-10"><ChevronRight className="size-6" /></button>}
-          <div className="relative w-full h-full flex items-center justify-center">
-            <Image key={currentIndex} src={images[currentIndex]} alt={`Fullscreen ${currentIndex}`} fill className="object-contain" onClick={(e) => e.stopPropagation()} />
-          </div>
-          <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-sm sm:text-base bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm">{currentIndex + 1} / {images.length}</p>
-        </div>
-      )}
     </>
   );
 }

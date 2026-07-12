@@ -20,8 +20,8 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
   useEffect(() => {
     const handleScroll = () => {
       const viewportHeight = window.innerHeight;
-      const appearThreshold = 0.6;
-      const disappearThreshold = 0.95;
+      const appearThreshold = 0.4;
+      const disappearThreshold = 0.9;
 
       const getSectionVisibility = (rect: DOMRect): number => {
         const sectionHeight = rect.height;
@@ -31,32 +31,25 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
         return visibleHeight / sectionHeight;
       };
 
-      const skillsSection = document.getElementById("skills");
-      if (skillsSection) {
-        const rect = skillsSection.getBoundingClientRect();
+      const checkSection = (id: string): boolean => {
+        const element = document.getElementById(id);
+        if (!element) return false;
+        const rect = element.getBoundingClientRect();
         const visibility = getSectionVisibility(rect);
         if (visibility >= appearThreshold) {
-          setCurrentSection("skills");
-          return;
+          setCurrentSection(id);
+          return true;
         }
-        if (currentSection === "skills" && visibility >= disappearThreshold) {
-          return;
+        if (currentSection === id && visibility >= disappearThreshold) {
+          return true;
         }
-      }
+        return false;
+      };
 
-      for (const project of projects) {
-        const element = document.getElementById(project.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const visibility = getSectionVisibility(rect);
-          if (visibility >= appearThreshold) {
-            setCurrentSection(project.id);
-            return;
-          }
-          if (currentSection === project.id && visibility >= disappearThreshold) {
-            return;
-          }
-        }
+      const sectionOrder = ["web-design", "skills", ...projects.map(p => p.id)];
+
+      for (const id of sectionOrder) {
+        if (checkSection(id)) return;
       }
 
       setCurrentSection(null);
@@ -78,7 +71,11 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
   let targetId = "";
   let isVisible = false;
 
-  if (currentSection === "skills") {
+  if (currentSection === "web-design") {
+    buttonText = "skills & tools";
+    targetId = "skills";
+    isVisible = true;
+  } else if (currentSection === "skills") {
     buttonText = "explore my work";
     targetId = "projects";
     isVisible = true;

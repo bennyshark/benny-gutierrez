@@ -92,12 +92,11 @@ export default function Home() {
 
   // breathe cafe media
   const breatheCafeMedia = [
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image3.png" },
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image18.png" },
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image26.png" },
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image17.png" },
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image24.png" },
-    { type: "image" as const, src: "/images/live-projects/breathe-cafe/image27.png" },
+    { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image3.png` },
+    { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image18.png` },
+    { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image26.png` },
+    { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image17.png` },
+    { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image24.png` },
   ];
 
   const breatheCafeTechStack = [
@@ -107,17 +106,16 @@ export default function Home() {
 
   // pad thai express media
   const padThaiMedia = [
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image2.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image21.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image19.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image1.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image12.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image4.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image20.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image15.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image25.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image14.png" },
-    { type: "image" as const, src: "/images/live-projects/pad-thai-express/image5.png" },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image2.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image21.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image19.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image1.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image12.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image4.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image20.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image15.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image25.png` },
+    { type: "image" as const, src: `${CLD_IMG}/pad-thai-express-image14.png` },
   ];
 
   const padThaiTechStack = [
@@ -128,18 +126,18 @@ export default function Home() {
 
   // chamber of mines media
   const chamberOfMinesMedia = [
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image23.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image11.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image16.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image7.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image13.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image27.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image10.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image22.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image9.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image6.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image5.png" },
-    { type: "image" as const, src: "/images/live-projects/chamber-of-mines/image8.png" },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image23.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image11.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image16.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image7.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image13.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image27.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image10.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image22.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image9.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image6.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image5.png` },
+    { type: "image" as const, src: `${CLD_IMG}/chamber-of-mines-image8.png` },
   ];
 
   const chamberOfMinesTechStack = [
@@ -216,9 +214,9 @@ export default function Home() {
       title: 'BIKE-SENTER',
       description: '',
       images: [
-        '/images/live-projects/bike-senter/image28.png',
-        '/images/live-projects/bike-senter/image33.png',
-        '/images/live-projects/bike-senter/image4.png',
+        `${CLD_IMG}/bike-senter-image28.png`,
+        `${CLD_IMG}/bike-senter-image33.png`,
+        `${CLD_IMG}/bike-senter-image4.png`,
       ],
       siteUrl: 'https://ivanov-bike-senter.vercel.app/',
       accent: 'indigo' as const,
@@ -228,7 +226,7 @@ export default function Home() {
       title: 'Masterbuilder',
       description: '',
       images: [
-        '/images/live-projects/masterbuilder/image11.png',
+        `${CLD_IMG}/masterbuilder-image11.png`,
       ],
       siteUrl: 'https://masterbuilder.demo-previews.com/',
       accent: 'rose' as const,
@@ -238,7 +236,7 @@ export default function Home() {
       title: 'Byggmester Osland',
       description: '',
       images: [
-        '/images/live-projects/byggmester-osland/image42.png',
+        `${CLD_IMG}/byggmester-osland-image42.png`,
       ],
       siteUrl: 'https://www.byggmesterosland.no/',
       accent: 'amber' as const,
@@ -248,9 +246,9 @@ export default function Home() {
       title: 'Likana Travel Tours Puerto Galera',
       description: '',
       images: [
-        '/images/live-projects/likana-travel-tours/image25.png',
-        '/images/live-projects/likana-travel-tours/image48.png',
-        '/images/live-projects/likana-travel-tours/image9.png',
+        `${CLD_IMG}/likana-travel-tours-image25.png`,
+        `${CLD_IMG}/likana-travel-tours-image48.png`,
+        `${CLD_IMG}/likana-travel-tours-image9.png`,
       ],
       siteUrl: 'https://likana-travel-tours-puerto-galera.demo-previews.com/',
       accent: 'rose' as const,
@@ -260,7 +258,7 @@ export default function Home() {
       title: 'Domedi Painting LLC',
       description: '',
       images: [
-        '/images/live-projects/domedi-painting/image.png',
+        `${CLD_IMG}/domedi-painting-image.png`,
       ],
       siteUrl: 'https://domedi-painting-llc.demo-previews.com/',
       accent: 'indigo' as const,
@@ -270,7 +268,7 @@ export default function Home() {
       title: 'Breathe Cafe',
       description: '',
       images: [
-        '/images/live-projects/breathe-cafe/image27.png',
+        `${CLD_IMG}/breathe-cafe-image27.png`,
       ],
       siteUrl: 'https://breathe-cafe-malaybalay-bukidnon-preview.vercel.app/',
       accent: 'indigo' as const,
@@ -280,8 +278,8 @@ export default function Home() {
       title: 'Pad Thai Express',
       description: '',
       images: [
-        '/images/live-projects/pad-thai-express/image2.png',
-        '/images/live-projects/pad-thai-express/image5.png',
+        `${CLD_IMG}/pad-thai-express-image2.png`,
+        `${CLD_IMG}/pad-thai-express-image5.png`,
       ],
       siteUrl: 'https://pad-thai-express.vercel.app/',
       accent: 'amber' as const,
@@ -291,7 +289,7 @@ export default function Home() {
       title: 'Jon otterbeck as',
       description: '',
       images: [
-        '/images/live-projects/jon-otterbeck-as/image7.png',
+        `${CLD_IMG}/jon-otterbeck-as-image7.png`,
       ],
       siteUrl: 'https://jon-otterbeck-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -301,8 +299,8 @@ export default function Home() {
       title: 'Ogr AS',
       description: '',
       images: [
-        '/images/live-projects/ogr-as/image12.png',
-        '/images/live-projects/ogr-as/image40.png',
+        `${CLD_IMG}/ogr-as-image12.png`,
+        `${CLD_IMG}/ogr-as-image40.png`,
       ],
       siteUrl: 'https://ogr-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -312,7 +310,7 @@ export default function Home() {
       title: 'Fagmenn AS',
       description: '',
       images: [
-        '/images/live-projects/fagmenn-as/image30.png',
+        `${CLD_IMG}/fagmenn-as-image30.png`,
       ],
       siteUrl: 'https://fagmenn-as.demo-previews.com/',
       accent: 'rose' as const,
@@ -322,8 +320,8 @@ export default function Home() {
       title: 'Opien Stall og Smbruk',
       description: '',
       images: [
-        '/images/live-projects/opien-stall-og-smbruk/image39.png',
-        '/images/live-projects/opien-stall-og-smbruk/image37.png',
+        `${CLD_IMG}/opien-stall-og-smbruk-image39.png`,
+        `${CLD_IMG}/opien-stall-og-smbruk-image37.png`,
       ],
       siteUrl: 'https://opien-stall-og-smbruk-as.demo-previews.com/',
       accent: 'amber' as const,
@@ -333,9 +331,9 @@ export default function Home() {
       title: 'BOXEN',
       description: '',
       images: [
-        '/images/live-projects/boxen/image47.png',
-        '/images/live-projects/boxen/image10.png',
-        '/images/live-projects/boxen/image15.png',
+        `${CLD_IMG}/boxen-image47.png`,
+        `${CLD_IMG}/boxen-image10.png`,
+        `${CLD_IMG}/boxen-image15.png`,
       ],
       siteUrl: 'https://molde-padel-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -345,9 +343,9 @@ export default function Home() {
       title: 'Napoli barbershop butani',
       description: '',
       images: [
-        '/images/live-projects/napoli-barbershop-butani/image4.png',
-        '/images/live-projects/napoli-barbershop-butani/image5.png',
-        '/images/live-projects/napoli-barbershop-butani/image10.png',
+        `${CLD_IMG}/napoli-barbershop-butani-image4.png`,
+        `${CLD_IMG}/napoli-barbershop-butani-image5.png`,
+        `${CLD_IMG}/napoli-barbershop-butani-image10.png`,
       ],
       siteUrl: 'https://napoli-barbershop-butani.demo-previews.com/',
       accent: 'indigo' as const,
@@ -357,8 +355,8 @@ export default function Home() {
       title: 'JEK Regnskap AS',
       description: '',
       images: [
-        '/images/live-projects/jek-regnskap-as/image18.png',
-        '/images/live-projects/jek-regnskap-as/image16.png',
+        `${CLD_IMG}/jek-regnskap-as-image18.png`,
+        `${CLD_IMG}/jek-regnskap-as-image16.png`,
       ],
       siteUrl: 'https://jek-regnskap-as.demo-previews.com/',
       accent: 'amber' as const,
@@ -368,7 +366,7 @@ export default function Home() {
       title: 'Kg fabulous cleaning service',
       description: '',
       images: [
-        '/images/live-projects/kg-fabulous-cleaning-service/image8.png',
+        `${CLD_IMG}/kg-fabulous-cleaning-service-image8.png`,
       ],
       siteUrl: 'https://kg-fabulous-cleaning-service.demo-previews.com/',
       accent: 'rose' as const,
@@ -378,9 +376,9 @@ export default function Home() {
       title: 'Ms cars as',
       description: '',
       images: [
-        '/images/live-projects/ms-cars-as/image9.png',
-        '/images/live-projects/ms-cars-as/image3.png',
-        '/images/live-projects/ms-cars-as/image6.png',
+        `${CLD_IMG}/ms-cars-as-image9.png`,
+        `${CLD_IMG}/ms-cars-as-image3.png`,
+        `${CLD_IMG}/ms-cars-as-image6.png`,
       ],
       siteUrl: 'https://ms-cars-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -390,9 +388,9 @@ export default function Home() {
       title: 'Pro Studio by Elsa',
       description: '',
       images: [
-        '/images/live-projects/pro-studio-by-elsa/image32.png',
-        '/images/live-projects/pro-studio-by-elsa/image34.png',
-        '/images/live-projects/pro-studio-by-elsa/image49.png',
+        `${CLD_IMG}/pro-studio-by-elsa-image32.png`,
+        `${CLD_IMG}/pro-studio-by-elsa-image34.png`,
+        `${CLD_IMG}/pro-studio-by-elsa-image49.png`,
       ],
       siteUrl: 'https://pro-studio-by-elsa.demo-previews.com/',
       accent: 'indigo' as const,
@@ -402,8 +400,8 @@ export default function Home() {
       title: 'NUES',
       description: '',
       images: [
-        '/images/live-projects/nues/image21.png',
-        '/images/live-projects/nues/image36.png',
+        `${CLD_IMG}/nues-image21.png`,
+        `${CLD_IMG}/nues-image36.png`,
       ],
       siteUrl: 'https://norsk-utvalg-for-eierstyring-og-selskapsledelse.demo-previews.com/',
       accent: 'amber' as const,
@@ -413,7 +411,7 @@ export default function Home() {
       title: 'East Bay Tax Group',
       description: '',
       images: [
-        '/images/live-projects/east-bay-tax-group/image35.png',
+        `${CLD_IMG}/east-bay-tax-group-image35.png`,
       ],
       siteUrl: 'https://east-bay-tax-group.demo-previews.com/',
       accent: 'rose' as const,
@@ -423,7 +421,7 @@ export default function Home() {
       title: 'Risr tur taxi as',
       description: '',
       images: [
-        '/images/live-projects/risr-tur-taxi-as/image1.png',
+        `${CLD_IMG}/risr-tur-taxi-as-image1.png`,
       ],
       siteUrl: 'https://risr-tur-taxi-as.demo-previews.com/',
       accent: 'amber' as const,
@@ -433,9 +431,9 @@ export default function Home() {
       title: 'Atlas Malerservice',
       description: '',
       images: [
-        '/images/live-projects/atlas-malerservice/image8.png',
-        '/images/live-projects/atlas-malerservice/image1.png',
-        '/images/live-projects/atlas-malerservice/image43.png',
+        `${CLD_IMG}/atlas-malerservice-image8.png`,
+        `${CLD_IMG}/atlas-malerservice-image1.png`,
+        `${CLD_IMG}/atlas-malerservice-image43.png`,
       ],
       siteUrl: 'https://atlas-malerservice-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -445,8 +443,8 @@ export default function Home() {
       title: 'William A Morin',
       description: '',
       images: [
-        '/images/live-projects/william-a-morin/image14.png',
-        '/images/live-projects/william-a-morin/image26.png',
+        `${CLD_IMG}/william-a-morin-image14.png`,
+        `${CLD_IMG}/william-a-morin-image26.png`,
       ],
       siteUrl: 'https://william-a-morin.demo-previews.com/',
       accent: 'amber' as const,
@@ -456,9 +454,9 @@ export default function Home() {
       title: 'Stordalen Fjellstove',
       description: '',
       images: [
-        '/images/live-projects/stordalen-fjellstove/image24.png',
-        '/images/live-projects/stordalen-fjellstove/image38.png',
-        '/images/live-projects/stordalen-fjellstove/image6.png',
+        `${CLD_IMG}/stordalen-fjellstove-image24.png`,
+        `${CLD_IMG}/stordalen-fjellstove-image38.png`,
+        `${CLD_IMG}/stordalen-fjellstove-image6.png`,
       ],
       siteUrl: 'https://stordalen-fjellstove-as.demo-previews.com/',
       accent: 'rose' as const,
@@ -468,8 +466,8 @@ export default function Home() {
       title: 'Sandmoen Bed Breakfast',
       description: '',
       images: [
-        '/images/live-projects/sandmoen-bed-breakfast/image29.png',
-        '/images/live-projects/sandmoen-bed-breakfast/image54.png',
+        `${CLD_IMG}/sandmoen-bed-breakfast-image29.png`,
+        `${CLD_IMG}/sandmoen-bed-breakfast-image54.png`,
       ],
       siteUrl: 'https://sandmoen-bed-breakfast-as.demo-previews.com/',
       accent: 'indigo' as const,
@@ -479,8 +477,8 @@ export default function Home() {
       title: 'Whiskey Creek Plumbing',
       description: '',
       images: [
-        '/images/live-projects/whiskey-creek-plumbing/image22.png',
-        '/images/live-projects/whiskey-creek-plumbing/image11.png',
+        `${CLD_IMG}/whiskey-creek-plumbing-image22.png`,
+        `${CLD_IMG}/whiskey-creek-plumbing-image11.png`,
       ],
       siteUrl: 'https://whiskey-creek-plumbing.demo-previews.com/',
       accent: 'amber' as const,
@@ -490,8 +488,8 @@ export default function Home() {
       title: 'Log Cabin Sagada',
       description: '',
       images: [
-        '/images/live-projects/log-cabin-sagada/image41.png',
-        '/images/live-projects/log-cabin-sagada/image51.png',
+        `${CLD_IMG}/log-cabin-sagada-image41.png`,
+        `${CLD_IMG}/log-cabin-sagada-image51.png`,
       ],
       siteUrl: 'https://log-cabin-sagada.demo-previews.com/',
       accent: 'rose' as const,
@@ -501,7 +499,7 @@ export default function Home() {
       title: 'Best Buddies PH',
       description: '',
       images: [
-        '/images/live-projects/best-buddies-ph/image13.png',
+        `${CLD_IMG}/best-buddies-ph-image13.png`,
       ],
       siteUrl: 'https://best-buddies-ph.demo-previews.com/',
       accent: 'indigo' as const,
@@ -511,8 +509,8 @@ export default function Home() {
       title: 'Monssveen Maskin',
       description: '',
       images: [
-        '/images/live-projects/monssveen-maskin/image7.png',
-        '/images/live-projects/monssveen-maskin/image55.png',
+        `${CLD_IMG}/monssveen-maskin-image7.png`,
+        `${CLD_IMG}/monssveen-maskin-image55.png`,
       ],
       siteUrl: 'https://monssveen-maskin.demo-previews.com/',
       accent: 'amber' as const,
@@ -522,8 +520,8 @@ export default function Home() {
       title: 'Spirit Plants Nursery',
       description: '',
       images: [
-        '/images/live-projects/spirit-plants-nursery/image45.png',
-        '/images/live-projects/spirit-plants-nursery/image31.png',
+        `${CLD_IMG}/spirit-plants-nursery-image45.png`,
+        `${CLD_IMG}/spirit-plants-nursery-image31.png`,
       ],
       siteUrl: 'https://spirit-plants-nursery-llc.demo-previews.com/',
       accent: 'rose' as const,
@@ -533,7 +531,7 @@ export default function Home() {
       title: 'Fairfax perfect maids',
       description: '',
       images: [
-        '/images/live-projects/fairfax-perfect-maids/image2.png',
+        `${CLD_IMG}/fairfax-perfect-maids-image2.png`,
       ],
       siteUrl: 'https://fairfax-perfect-maids.demo-previews.com/',
       accent: 'amber' as const,
@@ -543,8 +541,8 @@ export default function Home() {
       title: 'Woodlyn Tree Services',
       description: '',
       images: [
-        '/images/live-projects/woodlyn-tree-services/image.png',
-        '/images/live-projects/woodlyn-tree-services/image2.png',
+        `${CLD_IMG}/woodlyn-tree-services-image.png`,
+        `${CLD_IMG}/woodlyn-tree-services-image2.png`,
       ],
       siteUrl: 'https://woodlyn-tree-services.demo-previews.com/',
       accent: 'indigo' as const,

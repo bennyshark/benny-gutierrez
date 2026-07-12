@@ -6,9 +6,12 @@ import {
   SiTypescript, SiNodedotjs, SiDrizzle, SiSupabase, SiMongodb,
   SiPostgresql, SiGraphql, SiPython, SiDart, SiFlutter,
   SiPytorch, SiTensorflow, SiAnthropic, SiGoogle,
+  SiFramer, SiSanity, SiReactquery, SiTelegram, SiShadcnui,
 } from "react-icons/si";
-import { BiData } from "react-icons/bi";
-import { TbBrain } from "react-icons/tb";
+import { BiData, BiBot, BiCar } from "react-icons/bi";
+import { TbBrain, TbBrandCashapp } from "react-icons/tb";
+import { LuBot } from "react-icons/lu";
+import { MdOutlineSmartToy } from "react-icons/md";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SkillItem = { icon?: any; label: string; color: string; imageSrc?: string; type?: string };
@@ -28,6 +31,9 @@ const skillCategories = [
       { icon: SiTailwindcss, label: "Tailwind CSS", color: "#06B6D4" },
       { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
       { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
+      { icon: SiFramer, label: "Framer Motion", color: "#0055FF" },
+      { icon: SiReactquery, label: "TanStack Start", color: "#FF4154" },
+      { icon: SiShadcnui, label: "shadcn/ui", color: "#ffffff" },
     ],
   },
   {
@@ -43,6 +49,7 @@ const skillCategories = [
       { icon: SiGraphql, label: "GraphQL", color: "#E10098" },
       { icon: BiData, label: "NoSQL", color: "#FF6C37" },
       { icon: SiDrizzle, label: "Drizzle", color: "#C5F74F" },
+      { icon: SiSanity, label: "Sanity", color: "#F97316" },
     ],
   },
   {
@@ -67,6 +74,12 @@ const skillCategories = [
       { icon: TbBrain, label: "LLM", color: "#7C3AED" },
       { icon: SiAnthropic, label: "Anthropic API", color: "#ffffff" },
       { icon: SiGoogle, label: "Google API", color: "#4285F4" },
+      { icon: SiTelegram, label: "Telegram Bot API", color: "#26A5E4" },
+      { icon: TbBrandCashapp, label: "PayMongo", color: "#FF6B35" },
+      { icon: BiCar, label: "Lalamove API", color: "#FFD700" },
+      { icon: LuBot, label: "Claude Code", color: "#D97706" },
+      { icon: MdOutlineSmartToy, label: "Lovable", color: "#7C3AED" },
+      { icon: BiBot, label: "Opencode", color: "#38BDF8" },
     ],
   },
 ];

@@ -18,6 +18,10 @@ export const portfolioData = {
       "Next.js",
       "Tailwind CSS",
       "HTML/CSS",
+      "Framer Motion",
+      "shadcn/ui",
+      "TanStack Start",
+      "Sanity",
       "Vercel deployment"
     ],
     machineLearning: [
@@ -52,9 +56,19 @@ export const portfolioData = {
       "Google Maps API",
       "Google Sheets API",
       "Resend API",
-      "Anthropic API"
+      "Anthropic API",
+      "PayMongo API",
+      "Lalamove API",
+      "Telegram Bot API",
     ],
-    other: ["Git", "GPU Acceleration"]
+    other: [
+      "Git",
+      "GPU Acceleration",
+      "Zustand",
+      "Claude Code",
+      "Lovable",
+      "Opencode",
+    ],
   },
 
   projects: [

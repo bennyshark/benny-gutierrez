@@ -362,14 +362,14 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'kg-fabulous-cleaning-service',
-      title: 'Kg fabulous cleaning service',
+      id: 'sanitizing-sparkle',
+      title: 'Sanitizing Sparkle',
       description: '',
       images: [
-        `${CLD_IMG}/kg-fabulous-cleaning-service-image8.png`,
+        `${CLD_IMG}/sanitizing-sparkle-1.png`,
       ],
-      siteUrl: 'https://kg-fabulous-cleaning-service.demo-previews.com/',
-      accent: 'rose' as const,
+      siteUrl: 'https://sanitizing-sparkle-by-savannah.demo-previews.com/',
+      accent: 'indigo' as const,
     },
     {
       id: 'ms-cars-as',
@@ -527,14 +527,14 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
-      id: 'fairfax-perfect-maids',
-      title: 'Fairfax perfect maids',
+      id: 'm-and-r-cleaning-franchise',
+      title: 'M&R Cleaning Franchise',
       description: '',
       images: [
-        `${CLD_IMG}/fairfax-perfect-maids-image2.png`,
+        `${CLD_IMG}/m-and-r-cleaning-franchise-1.png`,
       ],
-      siteUrl: 'https://fairfax-perfect-maids.demo-previews.com/',
-      accent: 'amber' as const,
+      siteUrl: 'https://mr-cleaning-franchise.demo-previews.com/',
+      accent: 'rose' as const,
     },
     {
       id: 'woodlyn-tree-services',

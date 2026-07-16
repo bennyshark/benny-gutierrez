@@ -362,16 +362,6 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'sanitizing-sparkle',
-      title: 'Sanitizing Sparkle',
-      description: '',
-      images: [
-        `${CLD_IMG}/sanitizing-sparkle-1.png`,
-      ],
-      siteUrl: 'https://sanitizing-sparkle-by-savannah.demo-previews.com/',
-      accent: 'indigo' as const,
-    },
-    {
       id: 'ms-cars-as',
       title: 'Ms cars as',
       description: '',
@@ -527,13 +517,14 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
-      id: 'm-and-r-cleaning-franchise',
-      title: 'M&R Cleaning Franchise',
+      id: 'ja-painting',
+      title: 'JA Painting',
       description: '',
       images: [
-        `${CLD_IMG}/m-and-r-cleaning-franchise-1.png`,
+        `${CLD_IMG}/ja-painting-1.png`,
+        `${CLD_IMG}/ja-painting-2.png`,
       ],
-      siteUrl: 'https://mr-cleaning-franchise.demo-previews.com/',
+      siteUrl: 'https://ja-painting.demo-previews.com/',
       accent: 'rose' as const,
     },
     {

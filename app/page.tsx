@@ -232,6 +232,17 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
+      id: 'mattrix-music',
+      title: 'Mattrix Music',
+      description: '',
+      images: [
+        `${CLD_IMG}/mattrix-music-1.png`,
+        `${CLD_IMG}/mattrix-music-2.png`,
+      ],
+      siteUrl: 'https://mattrix-music-entertainment.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
       id: 'byggmester-osland',
       title: 'Byggmester Osland',
       description: '',

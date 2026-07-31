@@ -17,7 +17,7 @@ export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   const scrollToFeatured = () => {
-    const element = document.getElementById("web-design");
+    const element = document.getElementById("skills");
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -597,7 +597,10 @@ export default function Home() {
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
-      <WebDesignShowcase id="web-design" items={webDesignProjects} />
+      {/* featured work section hidden for now — re-enable when ready */}
+      {false && (
+        <WebDesignShowcase id="web-design" items={webDesignProjects} />
+      )}
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 

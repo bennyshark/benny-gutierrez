@@ -50,7 +50,7 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
               onClick={onScrollToFeatured}
               className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-bg-base font-display font-semibold rounded-full transition-all hover:bg-primary/90 hover:scale-105 animate-glow-pulse w-full sm:w-auto justify-center"
             >
-              <span className="text-sm sm:text-base">featured works</span>
+              <span className="text-sm sm:text-base">check my skills</span>
               <ArrowDown className="size-4 sm:size-5 group-hover:translate-y-1 transition-transform" />
             </button>
 

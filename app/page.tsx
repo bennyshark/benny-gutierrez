@@ -286,16 +286,6 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'jon-otterbeck-as',
-      title: 'Jon otterbeck as',
-      description: '',
-      images: [
-        `${CLD_IMG}/jon-otterbeck-as-image7.png`,
-      ],
-      siteUrl: 'https://jon-otterbeck-as.demo-previews.com/',
-      accent: 'indigo' as const,
-    },
-    {
       id: 'ogr-as',
       title: 'Ogr AS',
       description: '',
@@ -398,16 +388,6 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'east-bay-tax-group',
-      title: 'East Bay Tax Group',
-      description: '',
-      images: [
-        `${CLD_IMG}/east-bay-tax-group-image35.png`,
-      ],
-      siteUrl: 'https://east-bay-tax-group.demo-previews.com/',
-      accent: 'rose' as const,
-    },
-    {
       id: 'risr-tur-taxi-as',
       title: 'Risr tur taxi as',
       description: '',
@@ -506,15 +486,26 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
-      id: 'woodlyn-tree-services',
-      title: 'Woodlyn Tree Services',
+      id: 'fast-cleaning',
+      title: 'Fast Cleaning',
       description: '',
       images: [
-        `${CLD_IMG}/woodlyn-tree-services-image.png`,
-        `${CLD_IMG}/woodlyn-tree-services-image2.png`,
+        `${CLD_IMG}/fast-cleaning1.png`,
+        `${CLD_IMG}/fast-cleaning2.png`,
       ],
-      siteUrl: 'https://woodlyn-tree-services.demo-previews.com/',
-      accent: 'indigo' as const,
+      siteUrl: 'https://fast-cleaning-services.demo-previews.com/',
+      accent: 'rose' as const,
+    },
+    {
+      id: 'the-roaming-wrench',
+      title: 'The Roaming Wrench',
+      description: '',
+      images: [
+        `${CLD_IMG}/the-roaming-wrench1.png`,
+        `${CLD_IMG}/the-roaming-wrench2.png`,
+      ],
+      siteUrl: 'https://the-roaming-wrench.demo-previews.com/',
+      accent: 'amber' as const,
     },
   ];
 

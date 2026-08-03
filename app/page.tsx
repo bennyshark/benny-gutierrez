@@ -72,24 +72,6 @@ export default function Home() {
     "Firebase", "NoSQL", "Vercel",
   ];
 
-  const sandyCafeMedia = [
-    { type: "image" as const, src: `${CLD_IMG}/cafe1.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe2.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe3.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe4.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe5.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe6.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe7.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe8.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe9.png` },
-    { type: "image" as const, src: `${CLD_IMG}/cafe10.png` },
-  ];
-
-  const sandyCafeTechStack = [
-    "React", "Next.js", "TypeScript", "Tailwind CSS",
-    "Neon", "PostgreSQL", "Drizzle ORM", "Vercel",
-  ];
-
   // breathe cafe media
   const breatheCafeMedia = [
     { type: "image" as const, src: `${CLD_IMG}/breathe-cafe-image3.png` },
@@ -538,11 +520,6 @@ export default function Home() {
     },
     {
       id: "sandy-automotive",
-      nextProjectId: "sandy-cafe-pos",
-      nextProjectTitle: "Sandy Cafe POS",
-    },
-    {
-      id: "sandy-cafe-pos",
       nextProjectId: "experience",
       nextProjectTitle: "Check My Experience",
     },
@@ -639,17 +616,6 @@ export default function Home() {
           siteUrl="https://sandy-inventory.vercel.app"
           label="prototype"
           accent="indigo"
-        />
-
-        <ProjectShowcase
-          id="sandy-cafe-pos"
-          title="Sandy Cafe POS"
-          description="Sandy Cafe POS is a point-of-sale and inventory system built for cafe and restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management, and sales tracking in one clean interface."
-          techStack={sandyCafeTechStack}
-          mediaItems={sandyCafeMedia}
-          siteUrl="https://sandy-cafe-pos.vercel.app"
-          label="prototype"
-          accent="rose"
         />
       </section>
 

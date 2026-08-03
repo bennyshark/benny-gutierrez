@@ -24,7 +24,6 @@ export const portfolioData = {
       "Firebase",
       "NoSQL",
       "PostgreSQL",
-      "Drizzle",
       "Python",
       "TensorFlow",
     ],
@@ -92,31 +91,6 @@ export const portfolioData = {
         "Responsive design for all devices",
         "FDA registration information display",
         "Form validation and error handling"
-      ]
-    },
-    {
-      name: "Sandy Cafe POS",
-      type: "Web Application",
-      label: "prototype",
-      url: "https://sandy-cafe-pos.vercel.app",
-      description: "Sandy Cafe POS is a point-of-sale/inventory system built for café/restaurant businesses. It streamlines order management, menu customization, kitchen view, inventory management and sales tracking in one clean interface. The system supports cashier workflows including order entry, payment processing, and receipt generation, while also providing an admin dashboard for monitoring daily sales, managing menu items, and viewing transaction history.",
-      technologies: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Neon",
-        "PostgreSQL",
-        "Drizzle ORM",
-        "Vercel"
-      ],
-      highlights: [
-        "Full cashier workflow with order entry and payment processing",
-        "Kitchen view for order management",
-        "Menu customization and inventory tracking",
-        "Admin dashboard for daily sales monitoring",
-        "Receipt generation",
-        "PostgreSQL with Drizzle ORM via Neon"
       ]
     },
     {

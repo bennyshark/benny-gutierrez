@@ -3,8 +3,8 @@
 import Image from "next/image";
 import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss,
-  SiTypescript, SiNodedotjs, SiDrizzle, SiSupabase, SiMongodb,
-  SiPostgresql, SiGraphql, SiPython, SiDart, SiFlutter,
+  SiTypescript, SiNodedotjs, SiSupabase, SiMongodb,
+  SiPostgresql, SiPython, SiDart, SiFlutter,
   SiPytorch, SiTensorflow, SiAnthropic, SiGoogle,
   SiFramer, SiSanity, SiReactquery, SiTelegram, SiShadcnui,
 } from "react-icons/si";
@@ -46,9 +46,7 @@ const skillCategories = [
       { type: "image" as const, imageSrc: "/firebase.png", label: "Firebase", color: "#FFCA28" },
       { icon: SiMongodb, label: "MongoDB", color: "#47A248" },
       { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
-      { icon: SiGraphql, label: "GraphQL", color: "#E10098" },
       { icon: BiData, label: "NoSQL", color: "#FF6C37" },
-      { icon: SiDrizzle, label: "Drizzle", color: "#C5F74F" },
       { icon: SiSanity, label: "Sanity", color: "#F97316" },
     ],
   },

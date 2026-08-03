@@ -17,7 +17,7 @@ export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   const scrollToFeatured = () => {
-    const element = document.getElementById("skills");
+    const element = document.getElementById("web-design");
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -265,16 +265,6 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
-      id: 'domedi-painting',
-      title: 'Domedi Painting LLC',
-      description: '',
-      images: [
-        `${CLD_IMG}/domedi-painting-image.png`,
-      ],
-      siteUrl: 'https://domedi-painting-llc.demo-previews.com/',
-      accent: 'indigo' as const,
-    },
-    {
       id: 'breathe-cafe',
       title: 'Breathe Cafe',
       description: '',
@@ -428,18 +418,6 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'atlas-malerservice',
-      title: 'Atlas Malerservice',
-      description: '',
-      images: [
-        `${CLD_IMG}/atlas-malerservice-image8.png`,
-        `${CLD_IMG}/atlas-malerservice-image1.png`,
-        `${CLD_IMG}/atlas-malerservice-image43.png`,
-      ],
-      siteUrl: 'https://atlas-malerservice-as.demo-previews.com/',
-      accent: 'indigo' as const,
-    },
-    {
       id: 'william-a-morin',
       title: 'William A Morin',
       description: '',
@@ -528,17 +506,6 @@ export default function Home() {
       accent: 'rose' as const,
     },
     {
-      id: 'ja-painting',
-      title: 'JA Painting',
-      description: '',
-      images: [
-        `${CLD_IMG}/ja-painting-1.png`,
-        `${CLD_IMG}/ja-painting-2.png`,
-      ],
-      siteUrl: 'https://ja-painting.demo-previews.com/',
-      accent: 'rose' as const,
-    },
-    {
       id: 'woodlyn-tree-services',
       title: 'Woodlyn Tree Services',
       description: '',
@@ -597,10 +564,8 @@ export default function Home() {
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
-      {/* featured work section hidden for now — re-enable when ready */}
-      {false && (
-        <WebDesignShowcase id="web-design" items={webDesignProjects} />
-      )}
+      {/* featured work section */}
+      <WebDesignShowcase id="web-design" items={webDesignProjects} />
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 

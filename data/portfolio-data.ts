@@ -148,11 +148,11 @@ export const portfolioData = {
       type: "Web Application",
       label: "project",
       url: "https://pad-thai-express.vercel.app",
-      description: "Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages.",
+      description: "Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages, plus transactional email confirmations via Resend for reservations.",
       technologies: [
         "React", "TanStack Start", "TypeScript", "Tailwind CSS",
         "Supabase", "PostgreSQL", "PayMongo", "Lalamove API",
-        "Telegram Bot API", "Framer Motion", "shadcn/ui", "Vercel",
+        "Telegram Bot API", "Resend", "Framer Motion", "shadcn/ui", "Vercel",
       ],
       highlights: [
         "Online ordering with pickup and Lalamove delivery",
@@ -167,7 +167,7 @@ export const portfolioData = {
       name: "Chamber of Mines of the Philippines — Official Exhibitor Portal",
       type: "Web Application",
       label: "project",
-      url: "https://chamber-of-mines-of-the-philippines.vercel.app/about",
+      url: "https://chamber-of-mines-of-the-philippines.vercel.app/",
       description: "A full-stack exhibitor booth reservation and event ticketing system built for the Chamber of Mines of the Philippines (COMP). It replaces their third-party platform (Glue Up) for the annual Mining Philippines conference. Features include a live interactive floor map with zoom/pan for booth selection, ticket/package cart with multi-item checkout, QR Ph (GCash/Maya) and bank transfer payment flows, an admin dashboard with revenue tracking and CSV exports, a visual drag-and-drop floor plan editor for designing booth layouts, and Supabase real-time broadcasting for live map updates.",
       technologies: [
         "React", "Next.js", "TypeScript", "Tailwind CSS",

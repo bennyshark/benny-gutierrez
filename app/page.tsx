@@ -489,6 +489,16 @@ export default function Home() {
       siteUrl: 'https://the-roaming-wrench.demo-previews.com/',
       accent: 'amber' as const,
     },
+    {
+      id: 'ero-pro',
+      title: 'ERO Pro',
+      description: '',
+      images: [
+        `${CLD_IMG}/ero-pro1.png`,
+      ],
+      siteUrl: 'https://ero-pro.demo-previews.com/',
+      accent: 'indigo' as const,
+    },
   ];
 
   // section navigation

@@ -268,17 +268,6 @@ export default function Home() {
       accent: 'amber' as const,
     },
     {
-      id: 'ogr-as',
-      title: 'Ogr AS',
-      description: '',
-      images: [
-        `${CLD_IMG}/ogr-as-image12.png`,
-        `${CLD_IMG}/ogr-as-image40.png`,
-      ],
-      siteUrl: 'https://ogr-as.demo-previews.com/',
-      accent: 'indigo' as const,
-    },
-    {
       id: 'fagmenn-as',
       title: 'Fagmenn AS',
       description: '',
@@ -359,17 +348,6 @@ export default function Home() {
       accent: 'indigo' as const,
     },
     {
-      id: 'nues',
-      title: 'NUES',
-      description: '',
-      images: [
-        `${CLD_IMG}/nues-image21.png`,
-        `${CLD_IMG}/nues-image36.png`,
-      ],
-      siteUrl: 'https://norsk-utvalg-for-eierstyring-og-selskapsledelse.demo-previews.com/',
-      accent: 'amber' as const,
-    },
-    {
       id: 'risr-tur-taxi-as',
       title: 'Risr tur taxi as',
       description: '',
@@ -377,17 +355,6 @@ export default function Home() {
         `${CLD_IMG}/risr-tur-taxi-as-image1.png`,
       ],
       siteUrl: 'https://risr-tur-taxi-as.demo-previews.com/',
-      accent: 'amber' as const,
-    },
-    {
-      id: 'william-a-morin',
-      title: 'William A Morin',
-      description: '',
-      images: [
-        `${CLD_IMG}/william-a-morin-image14.png`,
-        `${CLD_IMG}/william-a-morin-image26.png`,
-      ],
-      siteUrl: 'https://william-a-morin.demo-previews.com/',
       accent: 'amber' as const,
     },
     {
@@ -412,17 +379,6 @@ export default function Home() {
       ],
       siteUrl: 'https://sandmoen-bed-breakfast-as.demo-previews.com/',
       accent: 'indigo' as const,
-    },
-    {
-      id: 'whiskey-creek-plumbing',
-      title: 'Whiskey Creek Plumbing',
-      description: '',
-      images: [
-        `${CLD_IMG}/whiskey-creek-plumbing-image22.png`,
-        `${CLD_IMG}/whiskey-creek-plumbing-image11.png`,
-      ],
-      siteUrl: 'https://whiskey-creek-plumbing.demo-previews.com/',
-      accent: 'amber' as const,
     },
     {
       id: 'log-cabin-sagada',

@@ -49,6 +49,32 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
   const [currentIndex, setCurrentIndex] = useState(0);
   const { open: openLightbox } = useLightbox();
 
+  // Swipe handling
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEndHandler = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   const imageItems = mediaItems.filter((m) => m.type === "image");
 
   const goTo = (index: number) => {
@@ -71,12 +97,15 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
 
   return (
     <>
-      <div className={`relative ${isMobile ? "max-w-[240px] sm:max-w-[280px] mx-auto" : "w-full"}`}>
+      <div className={`relative ${isMobile ? "max-w-[240px] sm:max-w-[280px] mx-auto" : "w-[calc(100%+2rem)] -mx-4 sm:w-full sm:mx-0"}`}>
         {/* main display */}
         <div
-          className={`relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-black group ${
-            isMobile ? "aspect-[9/16]" : "aspect-video"
+          className={`relative overflow-hidden border-y sm:border border-white/10 bg-black group ${
+            isMobile ? "aspect-[9/16] rounded-xl border" : "aspect-[4/3] sm:aspect-video rounded-none sm:rounded-2xl"
           }`}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEndHandler}
         >
           {/* Terminal header */}
           <div className="absolute top-0 left-0 w-full h-8 bg-surface border-b border-white/10 flex items-center px-4 z-40">
@@ -134,7 +163,7 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
         </div>
 
         {/* thumbnails */}
-        <div className="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className={`flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide ${isMobile ? "" : "px-4 sm:px-0"}`}>
           {mediaItems.map((item, index) => (
             <button
               key={index}

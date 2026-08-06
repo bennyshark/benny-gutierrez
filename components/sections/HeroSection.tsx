@@ -79,22 +79,22 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
         <div className="relative flex-shrink-0 flex items-center justify-center w-full lg:w-1/2 min-h-[400px] lg:min-h-[600px]">
           
           {/* Orbital Rings */}
-          <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] rounded-full border-t border-r border-primary/20 animate-spin-slow" />
-          <div className="absolute w-[260px] h-[260px] sm:w-[380px] sm:h-[380px] rounded-full border-b border-l border-secondary/30 animate-spin-slow-reverse" />
-          <div className="absolute w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] rounded-full border border-white/5 border-dashed animate-spin-slow" style={{ animationDuration: '25s' }} />
+          <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[560px] lg:h-[560px] rounded-full border-t border-r border-primary/20 animate-spin-slow" />
+          <div className="absolute w-[260px] h-[260px] sm:w-[380px] sm:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full border-b border-l border-secondary/30 animate-spin-slow-reverse" />
+          <div className="absolute w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] lg:w-[660px] lg:h-[660px] rounded-full border border-white/5 border-dashed animate-spin-slow" style={{ animationDuration: '25s' }} />
           
           {/* Central Glowing Core */}
-          <div className="absolute inset-0 m-auto w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-primary/20 blur-3xl animate-glow-pulse" />
+          <div className="absolute inset-0 m-auto w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-primary/20 blur-3xl animate-glow-pulse" />
           
           {/* Core Image Container */}
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full border border-primary/40 glass-panel p-2 animate-float-slow z-10">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border border-primary/40 glass-panel p-2 animate-float-slow z-10">
             <div className="w-full h-full rounded-full overflow-hidden bg-surface relative">
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10" />
               <Image
                 src={`${CLD_IMG}/ben4.png`}
                 alt="Benedict Gutierrez"
                 fill
-                sizes="(max-width: 640px) 192px, 256px"
+                sizes="(max-width: 640px) 192px, (max-width: 1024px) 256px, 320px"
                 className="object-cover contrast-125 saturate-50"
                 priority
               />
@@ -102,10 +102,10 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
           </div>
 
           {/* Floating Data Nodes */}
-          <div className="absolute top-1/4 right-[10%] sm:right-[15%] glass-panel border border-white/10 px-4 py-2 rounded-lg animate-bounce" style={{ animationDuration: '3s' }}>
+          <div className="absolute top-1/4 right-[10%] sm:right-[15%] z-30 glass-panel border border-white/10 px-4 py-2 rounded-lg animate-bounce" style={{ animationDuration: '3s' }}>
             <span className="font-mono text-xs text-primary">100+ Sites Deployed</span>
           </div>
-          <div className="absolute bottom-1/3 left-[5%] sm:left-[10%] glass-panel border border-white/10 px-4 py-2 rounded-lg animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+          <div className="absolute bottom-1/3 left-[5%] sm:left-[10%] z-30 glass-panel border border-white/10 px-4 py-2 rounded-lg animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
             <span className="font-mono text-xs text-secondary">Available for Work</span>
           </div>
 

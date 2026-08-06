@@ -91,7 +91,7 @@ export default function SectionNavigator({ projects, chatOpen = false }: Section
   if (!isVisible) return null;
 
   const bottomClasses = chatOpen
-    ? "bottom-[516px] sm:bottom-[616px]"
+    ? "bottom-[540px] sm:bottom-[650px]"
     : "bottom-[86px]";
 
   return (

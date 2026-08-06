@@ -174,7 +174,7 @@ export default function ProjectShowcase({
   return (
     <section id={id} className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <div className="rounded-2xl sm:rounded-3xl border border-white/10 glass-panel p-6 sm:p-8 lg:p-12 transition-all card-glow-hover relative overflow-hidden group">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 glass-panel p-4 sm:p-8 lg:p-12 transition-all card-glow-hover relative overflow-hidden group">
           
           {/* decorative corner accents */}
           <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -187,7 +187,7 @@ export default function ProjectShowcase({
             </h3>
             {label && <ProjectLabel label={label} />}
             {regenBuilt && (
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-white/20 bg-white/5 text-text-primary text-[10px] font-mono lowercase tracking-widest ml-auto sm:ml-0">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-white/20 bg-white/5 text-text-primary text-[10px] font-mono lowercase tracking-widest">
                 <Globe className="size-3" />
                 Regen Digital
               </span>
@@ -203,13 +203,13 @@ export default function ProjectShowcase({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-text-secondary active:text-primary hover:text-primary transition-colors group/link"
               >
-                <div className="p-2 rounded bg-white/5 border border-white/10 group-hover/link:border-primary/50 transition-colors">
+                <div className="p-2 rounded bg-white/5 border border-white/10 group-hover/link:border-primary/50 transition-colors shrink-0">
                   <Globe className="size-4" />
                 </div>
-                <span className="text-sm sm:text-base font-mono underline decoration-white/20 group-hover/link:decoration-primary/50 break-all transition-colors">
-                  {siteUrl}
+                <span className="text-sm sm:text-base font-mono underline decoration-white/20 group-hover/link:decoration-primary/50 truncate transition-colors">
+                  {siteUrl.replace(/^https?:\/\//, '')}
                 </span>
-                <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover/link:opacity-100 transition-all" />
+                <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover/link:opacity-100 transition-all shrink-0" />
               </a>
 
               {accessNote && (

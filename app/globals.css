@@ -7,11 +7,11 @@
   --color-surface-raised: #181A20;
   --color-border: #1E293B;
   --color-border-light: #334155;
-  --color-primary: #818CF8;
-  --color-primary-dark: #4F46E5;
-  --color-secondary: #C084FC;
-  --color-accent: #38BDF8;
-  --color-text-primary: #FFFFFF;
+  --color-primary: #818cf8;
+  --color-primary-dark: #6366f1;
+  --color-secondary: #fbbf24;
+  --color-accent: #fb7185;
+  --color-text-primary: #fafaf9;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
 
@@ -128,10 +128,10 @@ body {
 
 /* Primary Button Glow */
 .btn-glow {
-  box-shadow: 0 0 20px -5px rgba(129, 140, 248, 0.4);
+  box-shadow: 0 0 20px -5px rgba(251, 191, 36, 0.4);
 }
 .btn-glow:hover {
-  box-shadow: 0 0 30px -5px rgba(192, 132, 252, 0.6);
+  box-shadow: 0 0 30px -5px rgba(129, 140, 248, 0.6);
 }
 
 /* Card Hover Glow */

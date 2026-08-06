@@ -127,7 +127,7 @@ export default function WebDesignShowcase({
             <span className="w-4 h-[1px] bg-primary" />
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center mt-2 lowercase tracking-tight">
-            featured works <span className="text-gradient-gold">like this</span>
+            featured works like this
           </h2>
 
           <div className="flex flex-col items-center justify-center mt-6">

@@ -98,7 +98,7 @@ export default function SkillsSection() {
             <span className="w-4 h-[1px] bg-primary" />
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary lowercase tracking-tight">
-            tech <span className="text-gradient-gold">stack</span>
+            tech stack
           </h2>
           <p className="text-sm sm:text-base font-mono text-text-secondary max-w-2xl mx-auto mt-4 sm:mt-6 border border-white/10 glass-panel py-2 px-4 rounded-lg inline-block">
             <span className="text-primary mr-2">&gt;</span> technologies i use to build modern applications

@@ -200,7 +200,7 @@ function TimelineEntry({ experience, index }: { experience: ExperienceItem; inde
                 <span className="w-1.5 h-1.5 bg-secondary" />
                 infrastructure
               </p>
-              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-2.5">
                 {experience.technologies.map((tech, i) => (
                   <TechTile key={i} label={tech} />
                 ))}

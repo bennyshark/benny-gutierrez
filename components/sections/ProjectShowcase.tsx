@@ -269,7 +269,7 @@ export default function ProjectShowcase({
                     technical specs
                   </p>
                 </div>
-                <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
                   {techStack.map((tech, i) => (
                     <TechTile key={i} label={tech} />
                   ))}

@@ -21,12 +21,12 @@ export default function TechTile({ label, color }: { label: string; color?: stri
   const tileColor = color || colorMap[label.toLowerCase().replace(/\s+/g, "")] || colorMap.default;
 
   return (
-    <div className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised/50 border border-border/50 active:border-primary/50 active:bg-surface-raised hover:border-primary/30 hover:bg-surface-raised transition-all">
+    <div className="group relative flex items-center gap-2 px-2.5 py-1.5 rounded border border-white/5 bg-black/40 hover:border-primary/50 hover:bg-primary/10 transition-all card-glow-hover w-fit">
       <div
-        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-        style={{ backgroundColor: tileColor }}
+        className="w-1.5 h-1.5 rounded-full flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity group-hover:shadow-[0_0_8px_currentColor]"
+        style={{ backgroundColor: tileColor, color: tileColor }}
       />
-      <span className="text-xs sm:text-sm text-text-secondary active:text-text-primary group-hover:text-text-primary transition-colors font-medium">
+      <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-text-secondary group-hover:text-text-primary transition-colors leading-none">
         {label}
       </span>
     </div>

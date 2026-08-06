@@ -7,10 +7,10 @@
   --color-surface-raised: #181A20;
   --color-border: #1E293B;
   --color-border-light: #334155;
-  --color-primary: #FBBF24;
-  --color-primary-dark: #D97706;
-  --color-secondary: #B45309;
-  --color-accent: #F59E0B;
+  --color-primary: #818CF8;
+  --color-primary-dark: #4F46E5;
+  --color-secondary: #C084FC;
+  --color-accent: #38BDF8;
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
@@ -56,8 +56,8 @@
 }
 
 @keyframes glow-pulse {
-  0% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.15); }
-  100% { box-shadow: 0 0 40px rgba(217, 119, 6, 0.35); }
+  0% { box-shadow: 0 0 20px rgba(129, 140, 248, 0.15); }
+  100% { box-shadow: 0 0 40px rgba(192, 132, 252, 0.35); }
 }
 
 @keyframes dot-pulse {
@@ -95,7 +95,7 @@ body {
 }
 
 ::selection {
-  background: rgba(251, 191, 36, 0.3);
+  background: rgba(129, 140, 248, 0.3);
   color: #FFFFFF;
 }
 
@@ -128,16 +128,16 @@ body {
 
 /* Primary Button Glow */
 .btn-glow {
-  box-shadow: 0 0 20px -5px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 20px -5px rgba(129, 140, 248, 0.4);
 }
 .btn-glow:hover {
-  box-shadow: 0 0 30px -5px rgba(217, 119, 6, 0.6);
+  box-shadow: 0 0 30px -5px rgba(192, 132, 252, 0.6);
 }
 
 /* Card Hover Glow */
 .card-glow-hover:hover {
-  box-shadow: 0 0 30px -10px rgba(251, 191, 36, 0.15);
-  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 30px -10px rgba(129, 140, 248, 0.15);
+  border-color: rgba(129, 140, 248, 0.3);
 }
 
 /* Gradient Text */

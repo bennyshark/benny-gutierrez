@@ -37,7 +37,7 @@ function WorkSetupIcon({ setup }: { setup: "remote" | "onsite" | "hybrid" }) {
   return (
     <div className={`flex items-center gap-1.5 ${config.color}`}>
       <Icon className="size-3" />
-      <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest font-bold">{config.label}</span>
+      <span className="text-[10px] sm:text-xs font-mono lowercase tracking-widest font-bold">{config.label}</span>
     </div>
   );
 }
@@ -74,7 +74,7 @@ function ImageCarousel({ images, hasRestrictedContent }: { images: string[]; has
               <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto border border-secondary/30">
                 <Lock className="size-5 text-secondary" />
               </div>
-              <p className="text-white text-sm sm:text-base font-mono uppercase tracking-wide">CONFIDENTIAL_DATA</p>
+              <p className="text-white text-sm sm:text-base font-mono lowercase tracking-wide">CONFIDENTIAL_DATA</p>
               <p className="text-text-muted text-[10px] font-mono tracking-widest">ENCRYPTED PROJECT FILES</p>
             </div>
           </div>
@@ -140,14 +140,14 @@ function TimelineEntry({ experience, index }: { experience: ExperienceItem; inde
               <span className="w-1.5 h-1.5 bg-primary" />
               {experience.duration}
             </p>
-            <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary uppercase tracking-tight">
+            <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary lowercase tracking-tight">
               {experience.position}
             </h3>
-            <p className="text-sm sm:text-base font-mono text-secondary mt-1 tracking-wider uppercase">{experience.company}</p>
+            <p className="text-sm sm:text-base font-mono text-secondary mt-1 tracking-wider lowercase">{experience.company}</p>
             <div className="flex flex-wrap gap-4 sm:gap-6 text-text-muted mt-4">
               <div className="flex items-center gap-1.5">
                 <MapPin className="size-3.5" />
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest">{experience.location}</span>
+                <span className="text-[10px] sm:text-xs font-mono lowercase tracking-widest">{experience.location}</span>
               </div>
               <WorkSetupIcon setup={experience.workSetup} />
             </div>
@@ -178,7 +178,7 @@ function TimelineEntry({ experience, index }: { experience: ExperienceItem; inde
           {/* achievements */}
           {experience.achievements.length > 0 && (
             <div className="mb-6 sm:mb-8 relative z-10">
-              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-primary mb-3 sm:mb-4 uppercase flex items-center gap-2">
+              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-primary mb-3 sm:mb-4 lowercase flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                 key metrics & execution
               </p>
@@ -196,7 +196,7 @@ function TimelineEntry({ experience, index }: { experience: ExperienceItem; inde
           {/* tech */}
           {experience.technologies.length > 0 && (
             <div className="relative z-10">
-              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-secondary mb-3 sm:mb-4 uppercase flex items-center gap-2">
+              <p className="text-[10px] sm:text-xs font-mono tracking-widest text-secondary mb-3 sm:mb-4 lowercase flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-secondary" />
                 infrastructure
               </p>
@@ -218,12 +218,12 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
     <section id="experience" className="w-full py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 sm:mb-20">
-          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest lowercase mb-4 flex items-center justify-center gap-2">
             <span className="w-4 h-[1px] bg-primary" />
             career journey
             <span className="w-4 h-[1px] bg-primary" />
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary uppercase tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary lowercase tracking-tight">
             professional <span className="text-gradient-gold">experience</span>
           </h2>
           <p className="text-sm sm:text-base font-mono text-text-secondary max-w-2xl mx-auto mt-4 sm:mt-6 border border-white/10 glass-panel py-2 px-4 rounded-lg inline-block">

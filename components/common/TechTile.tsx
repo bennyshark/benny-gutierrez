@@ -26,7 +26,7 @@ export default function TechTile({ label, color }: { label: string; color?: stri
         className="w-1.5 h-1.5 rounded-full flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity group-hover:shadow-[0_0_8px_currentColor]"
         style={{ backgroundColor: tileColor, color: tileColor }}
       />
-      <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-text-secondary group-hover:text-text-primary transition-colors leading-none">
+      <span className="font-mono text-[10px] sm:text-xs lowercase tracking-widest text-text-secondary group-hover:text-text-primary transition-colors leading-none">
         {label}
       </span>
     </div>

@@ -18,7 +18,7 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
         {/* text side */}
         <div className="flex flex-col space-y-6 sm:space-y-8 flex-1 text-center lg:text-left z-20">
           <div>
-            <p className="text-sm sm:text-base text-primary font-mono mb-4 tracking-widest uppercase flex items-center justify-center lg:justify-start gap-2">
+            <p className="text-sm sm:text-base text-primary font-mono mb-4 tracking-widest lowercase flex items-center justify-center lg:justify-start gap-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
               designer & developer
             </p>
@@ -26,12 +26,12 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
               <span className="block text-[clamp(2rem,6vw,3.5rem)] text-text-secondary">
                 hi, i'm
               </span>
-              <span className="block text-[clamp(3rem,8vw,6.5rem)] text-gradient-gold pb-2">
+              <span className="block text-[clamp(3rem,8vw,6.5rem)] text-text-primary pb-2">
                 benedict
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-text-secondary font-mono font-light mt-4 sm:mt-6 border-l-2 border-primary/50 pl-4 max-w-md mx-auto lg:mx-0">
-              <span className="block font-bold text-primary mb-2 text-sm sm:text-base uppercase tracking-widest">web & machine learning developer</span>
+              <span className="block font-bold text-primary mb-2 text-sm sm:text-base lowercase tracking-widest">web & machine learning developer</span>
               I build scalable web applications, machine learning projects, and ai/api integrations.
             </p>
           </div>
@@ -41,7 +41,7 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
               onClick={onScrollToFeatured}
               className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 w-full sm:w-auto justify-center bg-gradient-to-r from-secondary to-primary btn-glow"
             >
-              <span className="text-sm sm:text-base font-bold font-mono tracking-wider uppercase text-bg-base">view projects</span>
+              <span className="text-sm sm:text-base font-bold font-mono tracking-wider lowercase text-bg-base">view projects</span>
               <ArrowDown className="size-4 group-hover:translate-y-1 transition-transform text-bg-base" />
             </button>
 

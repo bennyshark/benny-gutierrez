@@ -56,10 +56,10 @@ function ImageCard({ card }: { card: ImageCard }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <p className="text-white font-mono uppercase tracking-widest text-xs sm:text-sm font-bold leading-tight mb-1 truncate">
+            <p className="text-white font-mono lowercase tracking-widest text-xs sm:text-sm font-bold leading-tight mb-1 truncate">
               {card.project.title}
             </p>
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-primary opacity-0 -translate-x-3 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-300 delay-75">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono lowercase tracking-widest text-primary opacity-0 -translate-x-3 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-300 delay-75">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               launch protocol <ExternalLink className="size-3 ml-1" />
             </span>
@@ -121,21 +121,21 @@ export default function WebDesignShowcase({
     <section id={id} className="relative w-full py-20 sm:py-24 z-10">
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
-          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest lowercase mb-4 flex items-center justify-center gap-2">
             <span className="w-4 h-[1px] bg-primary" />
             featured work
             <span className="w-4 h-[1px] bg-primary" />
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center mt-2 uppercase tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary text-center mt-2 lowercase tracking-tight">
             featured works <span className="text-gradient-gold">like this</span>
           </h2>
 
           <div className="flex flex-col items-center justify-center mt-6">
             <div className="border border-white/10 glass-panel py-2 px-4 rounded-lg flex items-center gap-3">
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest text-text-secondary uppercase">
+              <span className="text-[10px] sm:text-xs font-mono tracking-widest text-text-secondary lowercase">
                 built under:
               </span>
-              <span className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold text-white uppercase tracking-widest">
+              <span className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-mono font-bold text-white lowercase tracking-widest">
                 <Globe className="size-3 text-primary" />
                 Regen Digital Solutions
               </span>

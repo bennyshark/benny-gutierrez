@@ -92,12 +92,12 @@ export default function SkillsSection() {
     <section id="skills" className="w-full py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
-          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+          <p className="text-xs sm:text-sm text-primary font-mono tracking-widest lowercase mb-4 flex items-center justify-center gap-2">
             <span className="w-4 h-[1px] bg-primary" />
             skills & capabilities
             <span className="w-4 h-[1px] bg-primary" />
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary uppercase tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary lowercase tracking-tight">
             tech <span className="text-gradient-gold">stack</span>
           </h2>
           <p className="text-sm sm:text-base font-mono text-text-secondary max-w-2xl mx-auto mt-4 sm:mt-6 border border-white/10 glass-panel py-2 px-4 rounded-lg inline-block">
@@ -120,7 +120,7 @@ export default function SkillsSection() {
               </div>
 
               <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4 relative z-10">
-                <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-primary flex items-center gap-2">
+                <span className="text-xs sm:text-sm font-mono lowercase tracking-widest text-primary flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-primary animate-pulse" />
                   {cat.name}
                 </span>

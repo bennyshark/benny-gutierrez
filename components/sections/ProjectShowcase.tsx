@@ -31,14 +31,14 @@ interface ProjectShowcaseProps {
 function ProjectLabel({ label }: { label: "product" | "prototype" }) {
   if (label === "product") {
     return (
-      <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-secondary/20 bg-secondary/10 text-secondary text-[10px] font-mono uppercase tracking-widest shadow-[0_0_10px_rgba(180,83,9,0.2)]">
+      <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-secondary/20 bg-secondary/10 text-secondary text-[10px] font-mono lowercase tracking-widest shadow-[0_0_10px_rgba(180,83,9,0.2)]">
         <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
         product
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-primary/20 bg-primary/10 text-primary text-[10px] font-mono uppercase tracking-widest shadow-[0_0_10px_rgba(251,191,36,0.2)]">
+    <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-primary/20 bg-primary/10 text-primary text-[10px] font-mono lowercase tracking-widest shadow-[0_0_10px_rgba(251,191,36,0.2)]">
       <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
       prototype
     </span>
@@ -182,12 +182,12 @@ export default function ProjectShowcase({
 
           {/* header row */}
           <div className={`flex flex-wrap items-center gap-4 mb-6 sm:mb-8 ${isMobile ? "justify-center text-center" : ""}`}>
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary uppercase tracking-tight">
+            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary lowercase tracking-tight">
               {title}
             </h3>
             {label && <ProjectLabel label={label} />}
             {regenBuilt && (
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-white/20 bg-white/5 text-text-primary text-[10px] font-mono uppercase tracking-widest ml-auto sm:ml-0">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-white/20 bg-white/5 text-text-primary text-[10px] font-mono lowercase tracking-widest ml-auto sm:ml-0">
                 <Globe className="size-3" />
                 Regen Digital
               </span>
@@ -216,7 +216,7 @@ export default function ProjectShowcase({
                 <div className="flex items-start gap-3 mt-4 text-sm text-text-secondary bg-black/40 border border-white/10 rounded-lg p-4 font-mono">
                   <Info className="size-4 flex-shrink-0 text-primary mt-0.5" />
                   <span>
-                    <span className="text-primary font-bold uppercase tracking-wider mr-2">note:</span>
+                    <span className="text-primary font-bold lowercase tracking-wider mr-2">note:</span>
                     {accessNote}
                   </span>
                 </div>
@@ -237,7 +237,7 @@ export default function ProjectShowcase({
               <div>
                 <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
                   <span className="w-1.5 h-1.5 bg-primary" />
-                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary">
+                  <p className="text-[10px] sm:text-xs font-mono lowercase tracking-widest text-primary">
                     system overview
                   </p>
                 </div>
@@ -254,7 +254,7 @@ export default function ProjectShowcase({
                 {isLongText && (
                   <button 
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-4 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
+                    className="mt-4 text-[10px] sm:text-xs font-mono lowercase tracking-widest text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
                   >
                     <span className="text-secondary">{isExpanded ? "[-]" : "[+]"}</span> {isExpanded ? "COLLAPSE LOG" : "EXPAND LOG"}
                   </button>
@@ -265,7 +265,7 @@ export default function ProjectShowcase({
               <div>
                 <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
                   <span className="w-1.5 h-1.5 bg-secondary" />
-                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-secondary">
+                  <p className="text-[10px] sm:text-xs font-mono lowercase tracking-widest text-secondary">
                     technical specs
                   </p>
                 </div>

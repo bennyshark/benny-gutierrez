@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/common/Navbar";
 import BgOrbs from "../components/common/BgOrbs";
-import NoiseOverlay from "../components/common/NoiseOverlay";
+import GridBackground from "../components/common/GridBackground";
 import { LightboxProvider } from "../components/common/LightboxProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -34,10 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary font-body`}
       >
         <LightboxProvider>
-          <NoiseOverlay />
+          <GridBackground />
           <BgOrbs />
           <Navbar />
           <main className="relative z-10">

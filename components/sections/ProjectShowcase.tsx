@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import {
   ChevronLeft, ChevronRight, Play, ExternalLink, Info,
-  Globe, Package, FlaskConical,
+  Globe,
 } from "lucide-react";
 import TechTile from "../common/TechTile";
 import { useLightbox } from "../common/LightboxProvider";
@@ -31,15 +31,15 @@ interface ProjectShowcaseProps {
 function ProjectLabel({ label }: { label: "product" | "prototype" }) {
   if (label === "product") {
     return (
-      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-        <Package className="size-3" />
+      <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-secondary/20 bg-secondary/10 text-secondary text-[10px] font-mono uppercase tracking-widest shadow-[0_0_10px_rgba(180,83,9,0.2)]">
+        <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
         product
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20">
-      <FlaskConical className="size-3" />
+    <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-primary/20 bg-primary/10 text-primary text-[10px] font-mono uppercase tracking-widest shadow-[0_0_10px_rgba(251,191,36,0.2)]">
+      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
       prototype
     </span>
   );
@@ -74,77 +74,89 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
       <div className={`relative ${isMobile ? "max-w-[240px] sm:max-w-[280px] mx-auto" : "w-full"}`}>
         {/* main display */}
         <div
-          className={`relative rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-700/50 bg-zinc-900 group ${
+          className={`relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-black group ${
             isMobile ? "aspect-[9/16]" : "aspect-video"
           }`}
         >
-          {currentMedia.type === "video" ? (
-            <div className="relative w-full h-full">
-              <video
-                key={currentIndex}
-                src={currentMedia.src}
-                controls
-                autoPlay
-                muted
-                loop
-                className="w-full h-full object-contain bg-black"
-                playsInline
-                preload="metadata"
-              />
+          {/* Terminal header */}
+          <div className="absolute top-0 left-0 w-full h-8 bg-surface border-b border-white/10 flex items-center px-4 z-40">
+            <div className="flex gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+              <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
             </div>
-          ) : (
-            <div onClick={handleImageClick} className="relative w-full h-full cursor-pointer">
-              <Image
-                key={currentIndex}
-                src={currentMedia.src}
-                alt={`Screenshot ${currentIndex}`}
-                fill
-                sizes="(max-width: 640px) 100vw, 800px"
-                className="object-contain"
-                priority={currentIndex === 0}
-              />
-            </div>
-          )}
+            <span className="ml-4 font-mono text-[10px] text-text-muted">media_viewer.exe</span>
+          </div>
 
-          <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Previous">
+          <div className="pt-8 w-full h-full">
+            {currentMedia.type === "video" ? (
+              <div className="relative w-full h-full">
+                <video
+                  key={currentIndex}
+                  src={currentMedia.src}
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-contain bg-black"
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+            ) : (
+              <div onClick={handleImageClick} className="relative w-full h-full cursor-pointer">
+                <Image
+                  key={currentIndex}
+                  src={currentMedia.src}
+                  alt={`Screenshot ${currentIndex}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 800px"
+                  className="object-contain"
+                  priority={currentIndex === 0}
+                />
+              </div>
+            )}
+          </div>
+
+          <button onClick={prevSlide} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 hover:bg-primary text-white hover:text-black rounded transition-all backdrop-blur-sm z-30 border border-white/10" aria-label="Previous">
             <ChevronLeft className="size-4" />
           </button>
-          <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 active:bg-black/80 hover:bg-black/70 text-white rounded-lg transition-all backdrop-blur-sm z-30" aria-label="Next">
+          <button onClick={nextSlide} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-2 bg-black/60 hover:bg-primary text-white hover:text-black rounded transition-all backdrop-blur-sm z-30 border border-white/10" aria-label="Next">
             <ChevronRight className="size-4" />
           </button>
 
           {currentMedia.type === "video" && (
-            <div className="absolute top-3 left-3 px-2 py-1 bg-primary/80 text-bg-base text-[10px] font-bold rounded-md flex items-center gap-1 z-30">
-              <Play className="size-2.5" />
-              video
+            <div className="absolute top-11 right-3 px-2 py-1 bg-primary/20 text-primary border border-primary/50 text-[10px] font-mono rounded flex items-center gap-1 z-30">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
+              LIVE
             </div>
           )}
         </div>
 
         {/* thumbnails */}
-        <div className="flex gap-1.5 sm:gap-2 mt-2.5 sm:mt-3 overflow-x-auto pb-1 scrollbar-hide">
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-2 scrollbar-hide">
           {mediaItems.map((item, index) => (
             <button
               key={index}
               onClick={() => goTo(index)}
-              className={`flex-shrink-0 relative rounded-md sm:rounded-lg overflow-hidden border-2 transition-all bg-zinc-900 ${
-                isMobile ? "w-10 h-14 sm:w-12 sm:h-16" : "w-14 h-10 sm:w-20 sm:h-12"
+              className={`flex-shrink-0 relative rounded-md overflow-hidden border transition-all bg-black ${
+                isMobile ? "w-10 h-14 sm:w-12 sm:h-16" : "w-16 h-12 sm:w-24 sm:h-16"
               } ${
-                currentIndex === index ? "border-primary ring-1 ring-primary/30 scale-105" : "border-zinc-700/50 opacity-60 active:opacity-100 hover:opacity-100"
+                currentIndex === index ? "border-primary opacity-100" : "border-white/10 opacity-40 hover:opacity-100"
               }`}
             >
               {item.type === "video" ? (
-                <div className="w-full h-full flex items-center justify-center bg-zinc-800">
+                <div className="w-full h-full flex items-center justify-center bg-zinc-900">
                   <Play className="size-3 sm:size-4 text-text-muted" />
                 </div>
               ) : (
-                <Image src={item.src} alt={`Thumb ${index}`} fill sizes="80px" className="object-cover" />
+                <Image src={item.src} alt={`Thumb ${index}`} fill sizes="96px" className="object-cover" />
               )}
             </button>
           ))}
         </div>
 
-        <p className="text-center text-xs text-text-muted mt-2">
+        <p className="text-center font-mono text-[10px] text-text-muted mt-2 tracking-widest">
           {currentIndex + 1} / {mediaItems.length}
         </p>
       </div>
@@ -154,27 +166,27 @@ function MediaCarousel({ mediaItems, isMobile }: { mediaItems: MediaItem[]; isMo
 
 export default function ProjectShowcase({
   title, description, techStack, mediaItems, siteUrl,
-  accessNote, label, id, accent = "indigo", isMobile, regenBuilt,
+  accessNote, label, id, isMobile, regenBuilt,
 }: ProjectShowcaseProps) {
-  const accentBorders = {
-    indigo: "border-primary/10 hover:border-primary/20",
-    amber: "border-secondary/10 hover:border-secondary/20",
-    rose: "border-accent/10 hover:border-accent/20",
-  };
-
   return (
-    <section id={id} className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section id={id} className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <div className={`rounded-2xl sm:rounded-3xl border ${accentBorders[accent]} bg-surface/30 backdrop-blur-sm p-5 sm:p-8 lg:p-12 transition-all hover:shadow-lg hover:shadow-primary/5`}>
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 glass-panel p-6 sm:p-8 lg:p-12 transition-all card-glow-hover relative overflow-hidden group">
+          
+          {/* decorative corner accents */}
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
           {/* header row */}
-          <div className={`flex flex-wrap items-center gap-3 mb-6 sm:mb-8 ${isMobile ? "justify-center text-center" : ""}`}>
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary">
+          <div className={`flex flex-wrap items-center gap-4 mb-6 sm:mb-8 ${isMobile ? "justify-center text-center" : ""}`}>
+            <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary uppercase tracking-tight">
               {title}
             </h3>
             {label && <ProjectLabel label={label} />}
             {regenBuilt && (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 ml-auto sm:ml-0">
-                Under Regen Digital
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded border border-white/20 bg-white/5 text-text-primary text-[10px] font-mono uppercase tracking-widest ml-auto sm:ml-0">
+                <Globe className="size-3" />
+                Regen Digital
               </span>
             )}
           </div>
@@ -186,20 +198,23 @@ export default function ProjectShowcase({
                 href={siteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-text-secondary active:text-primary hover:text-primary transition-colors group"
+                className="inline-flex items-center gap-3 text-text-secondary active:text-primary hover:text-primary transition-colors group/link"
               >
-                <Globe className="size-4 active:rotate-12 group-hover:rotate-12 transition-transform" />
-                <span className="text-sm sm:text-base underline decoration-zinc-600 group-hover:decoration-primary/50 break-all">
+                <div className="p-2 rounded bg-white/5 border border-white/10 group-hover/link:border-primary/50 transition-colors">
+                  <Globe className="size-4" />
+                </div>
+                <span className="text-sm sm:text-base font-mono underline decoration-white/20 group-hover/link:decoration-primary/50 break-all transition-colors">
                   {siteUrl}
                 </span>
-                <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover:opacity-100 transition-all" />
+                <ExternalLink className="size-3 opacity-60 active:opacity-100 group-hover/link:opacity-100 transition-all" />
               </a>
 
               {accessNote && (
-                <div className="flex items-start gap-2.5 mt-3 text-sm text-zinc-400 bg-zinc-800/50 border border-zinc-700/50 rounded-lg p-3">
+                <div className="flex items-start gap-3 mt-4 text-sm text-text-secondary bg-black/40 border border-white/10 rounded-lg p-4 font-mono">
                   <Info className="size-4 flex-shrink-0 text-primary mt-0.5" />
-                  <span className="text-zinc-300">
-                    <span className="font-semibold">note:</span> {accessNote}
+                  <span>
+                    <span className="text-primary font-bold uppercase tracking-wider mr-2">note:</span>
+                    {accessNote}
                   </span>
                 </div>
               )}
@@ -207,19 +222,22 @@ export default function ProjectShowcase({
           )}
 
           {/* layout: desktop 2-col, mobile stacked */}
-          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-16 mt-8">
             {/* media */}
-            <div className={`${isMobile ? "lg:w-[30%] flex justify-start" : "lg:w-3/5"}`}>
+            <div className={`${isMobile ? "lg:w-[30%] flex justify-start" : "lg:w-[55%]"}`}>
               <MediaCarousel mediaItems={mediaItems} isMobile={isMobile} />
             </div>
 
             {/* content */}
-            <div className="flex-1 space-y-6 sm:space-y-8">
+            <div className="flex-1 space-y-8 lg:space-y-12">
               {/* about */}
               <div>
-                <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary mb-2 sm:mb-3">
-                  about
-                </p>
+                <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
+                  <span className="w-1.5 h-1.5 bg-primary" />
+                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary">
+                    system overview
+                  </p>
+                </div>
                 <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                   {description}
                 </p>
@@ -227,10 +245,13 @@ export default function ProjectShowcase({
 
               {/* tech stack */}
               <div>
-                <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary mb-2 sm:mb-3">
-                  technologies
-                </p>
-                <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
+                <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
+                  <span className="w-1.5 h-1.5 bg-secondary" />
+                  <p className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-secondary">
+                    technical specs
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
                   {techStack.map((tech, i) => (
                     <TechTile key={i} label={tech} />
                   ))}

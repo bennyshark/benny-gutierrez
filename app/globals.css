@@ -2,18 +2,18 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-bg-base: #030304;
-  --color-surface: #0F1115;
-  --color-surface-raised: #181A20;
-  --color-border: #1E293B;
-  --color-border-light: #334155;
+  --color-bg-base: #09090b;
+  --color-surface: #18181b;
+  --color-surface-raised: #27272a;
+  --color-border: #3f3f46;
+  --color-border-light: #52525b;
   --color-primary: #818cf8;
   --color-primary-dark: #6366f1;
   --color-secondary: #fbbf24;
   --color-accent: #fb7185;
   --color-text-primary: #fafaf9;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #64748B;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
 
   --font-display: var(--font-display), sans-serif;
   --font-body: var(--font-body), sans-serif;

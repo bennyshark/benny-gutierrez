@@ -168,6 +168,9 @@ export default function ProjectShowcase({
   title, description, techStack, mediaItems, siteUrl,
   accessNote, label, id, isMobile, regenBuilt,
 }: ProjectShowcaseProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLongText = description.length > 300;
+
   return (
     <section id={id} className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-6xl mx-auto">
@@ -238,9 +241,24 @@ export default function ProjectShowcase({
                     system overview
                   </p>
                 </div>
-                <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
-                  {description}
-                </p>
+                <div className="relative">
+                  <div className={`text-sm sm:text-base text-text-secondary leading-relaxed space-y-4 ${!isExpanded && isLongText ? 'line-clamp-6' : ''}`}>
+                    {description.split('\n').map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+                  {!isExpanded && isLongText && (
+                    <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
+                  )}
+                </div>
+                {isLongText && (
+                  <button 
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="mt-4 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
+                  >
+                    <span className="text-secondary">{isExpanded ? "[-]" : "[+]"}</span> {isExpanded ? "COLLAPSE LOG" : "EXPAND LOG"}
+                  </button>
+                )}
               </div>
 
               {/* tech stack */}

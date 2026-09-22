@@ -41,7 +41,7 @@ export default function HeroSection({ onScrollToFeatured }: HeroSectionProps) {
               onClick={onScrollToFeatured}
               className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 w-full sm:w-auto justify-center bg-gradient-to-r from-secondary to-primary btn-glow"
             >
-              <span className="text-sm sm:text-base font-bold font-mono tracking-wider lowercase text-bg-base">view projects</span>
+              <span className="text-sm sm:text-base font-bold font-mono tracking-wider lowercase text-bg-base">check my skills</span>
               <ArrowDown className="size-4 group-hover:translate-y-1 transition-transform text-bg-base" />
             </button>
 

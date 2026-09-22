@@ -17,7 +17,7 @@ export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   const scrollToFeatured = () => {
-    const element = document.getElementById("web-design");
+    const element = document.getElementById("skills");
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -498,10 +498,13 @@ export default function Home() {
 
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
-      {/* featured work section */}
-      <WebDesignShowcase id="web-design" items={webDesignProjects} />
-
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      {/* featured work section - hidden for now */}
+      {false && (
+        <>
+          <WebDesignShowcase id="web-design" items={webDesignProjects} />
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        </>
+      )}
 
       <div id="projects-start" />
       <SkillsSection />
@@ -533,7 +536,7 @@ export default function Home() {
         <ProjectShowcase
           id="pad-thai-express"
           title="Pad Thai Express"
-          description="Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking — plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages, plus transactional email confirmations via Resend for reservations."
+          description="Pad Thai Express is a full-stack web application for a Thai restaurant chain in Metro Manila. It features a public-facing website with menu browsing, online ordering with pickup and Lalamove delivery, event reservations, order tracking, plus a complete staff operations portal with a real-time order management dashboard, live customer chat, sales reports with charts, staff account management, and configurable store settings. Integrated with automated Telegram notifications for new orders, payments, and chat messages, plus transactional email confirmations via Resend for reservations."
           techStack={padThaiTechStack}
           mediaItems={padThaiMedia}
           siteUrl="https://pad-thai-express.vercel.app"
@@ -543,7 +546,7 @@ export default function Home() {
 
         <ProjectShowcase
           id="chamber-of-mines"
-          title="Chamber of Mines of the Philippines — Official Exhibitor Portal"
+          title="Chamber of Mines of the Philippines: Official Exhibitor Portal"
           description="A full-stack exhibitor booth reservation and event ticketing system built for the Chamber of Mines of the Philippines (COMP). It replaces their third-party platform (Glue Up) for the annual Mining Philippines conference. Features include a live interactive floor map with zoom/pan for booth selection, ticket/package cart with multi-item checkout, QR Ph (GCash/Maya) and bank transfer payment flows, an admin dashboard with revenue tracking and CSV exports, a visual drag-and-drop floor plan editor for designing booth layouts, and Supabase real-time broadcasting for live map updates."
           techStack={chamberOfMinesTechStack}
           mediaItems={chamberOfMinesMedia}
@@ -554,8 +557,8 @@ export default function Home() {
 
         <ProjectShowcase
           id="breathe-cafe"
-          title="Breathe Cafe — QR Dine-In Ordering System"
-          description="A scan-to-order web application for Breathe Cafe in Malaybalay, Bukidnon, Philippines. Dine-in guests scan a QR code at their table to browse the full menu, customize their drinks and food with options (size, sugar level, add-ons), pay via GCash/QR Ph or cash, and watch their order progress live as it moves through the kitchen — all without downloading an app or creating an account. The system features a three-lane Kanban kitchen board with per-item prep checklists and urgency timers, a limited cashier station for front-counter settlement, and an admin dashboard with real-time revenue analytics, menu management, and QR code generation for each table. Server-side price validation prevents client-side tampering, and the architecture uses Sanity's real-time listener as a pub/sub mechanism so updates propagate instantly across all connected interfaces."
+          title="Breathe Cafe: QR Dine-In Ordering System"
+          description="A scan-to-order web application for Breathe Cafe in Malaybalay, Bukidnon, Philippines. Dine-in guests scan a QR code at their table to browse the full menu, customize their drinks and food with options (size, sugar level, add-ons), pay via GCash/QR Ph or cash, and watch their order progress live as it moves through the kitchen, all without downloading an app or creating an account. The system features a three-lane Kanban kitchen board with per-item prep checklists and urgency timers, a limited cashier station for front-counter settlement, and an admin dashboard with real-time revenue analytics, menu management, and QR code generation for each table. Server-side price validation prevents client-side tampering, and the architecture uses Sanity's real-time listener as a pub/sub mechanism so updates propagate instantly across all connected interfaces."
           techStack={breatheCafeTechStack}
           mediaItems={breatheCafeMedia}
           siteUrl="https://breathe-cafe-malaybalay-bukidnon-or.vercel.app"
